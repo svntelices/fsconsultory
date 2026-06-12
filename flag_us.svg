@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="20" height="15">
+<rect width="640" height="480" fill="#bd3d44"/>
+<path stroke="#fff" stroke-width="37" d="M0 55.3h640M0 129h640M0 202.8h640M0 276.5h640M0 350.3h640M0 424h640"/>
+<rect width="364.8" height="258.5" fill="#192f5d"/>
+<g fill="#fff">
+<circle cx="30" cy="20" r="6"/><circle cx="90" cy="20" r="6"/><circle cx="150" cy="20" r="6"/><circle cx="210" cy="20" r="6"/><circle cx="270" cy="20" r="6"/><circle cx="330" cy="20" r="6"/>
+<circle cx="60" cy="45" r="6"/><circle cx="120" cy="45" r="6"/><circle cx="180" cy="45" r="6"/><circle cx="240" cy="45" r="6"/><circle cx="300" cy="45" r="6"/>
+<circle cx="30" cy="70" r="6"/><circle cx="90" cy="70" r="6"/><circle cx="150" cy="70" r="6"/><circle cx="210" cy="70" r="6"/><circle cx="270" cy="70" r="6"/><circle cx="330" cy="70" r="6"/>
+<circle cx="60" cy="95" r="6"/><circle cx="120" cy="95" r="6"/><circle cx="180" cy="95" r="6"/><circle cx="240" cy="95" r="6"/><circle cx="300" cy="95" r="6"/>
+<circle cx="30" cy="120" r="6"/><circle cx="90" cy="120" r="6"/><circle cx="150" cy="120" r="6"/><circle cx="210" cy="120" r="6"/><circle cx="270" cy="120" r="6"/><circle cx="330" cy="120" r="6"/>
+<circle cx="60" cy="145" r="6"/><circle cx="120" cy="145" r="6"/><circle cx="180" cy="145" r="6"/><circle cx="240" cy="145" r="6"/><circle cx="300" cy="145" r="6"/>
+<circle cx="30" cy="170" r="6"/><circle cx="90" cy="170" r="6"/><circle cx="150" cy="170" r="6"/><circle cx="210" cy="170" r="6"/><circle cx="270" cy="170" r="6"/><circle cx="330" cy="170" r="6"/>
+<circle cx="60" cy="195" r="6"/><circle cx="120" cy="195" r="6"/><circle cx="180" cy="195" r="6"/><circle cx="240" cy="195" r="6"/><circle cx="300" cy="195" r="6"/>
+<circle cx="30" cy="220" r="6"/><circle cx="90" cy="220" r="6"/><circle cx="150" cy="220" r="6"/><circle cx="210" cy="220" r="6"/><circle cx="270" cy="220" r="6"/><circle cx="330" cy="220" r="6"/>
+<circle cx="60" cy="240" r="6"/><circle cx="120" cy="240" r="6"/><circle cx="180" cy="240" r="6"/><circle cx="240" cy="240" r="6"/><circle cx="300" cy="240" r="6"/>
+</g>
+</svg>

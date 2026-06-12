@@ -43,7 +43,7 @@
     .theme-btn,.lang-btn{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;transition:all .25s;display:flex;align-items:center;justify-content:center;padding:0}
     .theme-btn:hover{border-color:var(--gold);color:var(--gold)}
     .lang-btn:hover{border-color:var(--gold)}
-    .lang-btn span{font-size:16px;line-height:1}
+    .lang-btn img{width:18px;height:13px;border-radius:2px;display:block}
 
     .wrap{max-width:1140px;margin:0 auto;padding:100px 48px}
     .lbl{font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
@@ -204,7 +204,7 @@
     <li><a href="#portafolio" data-i18n="nav.portafolio">Portafolio</a></li>
     <li><a href="#formulario" data-i18n="nav.form">Escríbeme</a></li>
     <li><a href="#contacto" class="nav-cta" data-i18n="nav.contacto">Contacto</a></li>
-    <li><button class="lang-btn" onclick="toggleLang()" id="langBtn" title="Change language"><span id="langFlag">🇺🇸</span></button></li>
+    <li><button class="lang-btn" onclick="toggleLang()" id="langBtn" title="Change language"><img id="langFlag" src="flag_us.svg" alt="lang"></button></li>
     <li><button class="theme-btn" onclick="toggleTheme()" id="tbtn">☀️</button></li>
   </ul>
 </nav>

@@ -243,7 +243,7 @@ function applyTranslations(lang) {
 function toggleLang() {
   currentLang = currentLang === "es" ? "en" : "es";
   applyTranslations(currentLang);
-  document.getElementById("langFlag").textContent = currentLang === "es" ? "🇺🇸" : "🇨🇱";
+  document.getElementById("langFlag").src = currentLang === "es" ? "flag_us.svg" : "flag_cl.svg";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
