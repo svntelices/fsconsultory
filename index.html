@@ -35,13 +35,15 @@
     .nav-logo img{height:38px;width:auto}
     .nav-div{width:1px;height:30px;background:rgba(255,255,255,0.15)}
     .nav-logo span{font-family:"Playfair Display",serif;font-size:16px;font-weight:600;color:#fff}
-    nav ul{list-style:none;display:flex;gap:22px;align-items:center}
+    nav ul{list-style:none;display:flex;gap:20px;align-items:center}
     nav a{font-size:12px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s}
     nav a:hover,nav a.active{color:#fff}
     nav a.active{color:var(--gold);font-weight:500}
     .nav-cta{background:var(--gold)!important;color:#08112A!important;padding:7px 18px;border-radius:3px;font-weight:600!important}
-    .theme-btn{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;transition:all .25s}
+    .theme-btn,.lang-btn{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;transition:all .25s;display:flex;align-items:center;justify-content:center;padding:0}
     .theme-btn:hover{border-color:var(--gold);color:var(--gold)}
+    .lang-btn:hover{border-color:var(--gold)}
+    .lang-btn span{font-size:16px;line-height:1}
 
     .wrap{max-width:1140px;margin:0 auto;padding:100px 48px}
     .lbl{font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
@@ -195,29 +197,30 @@
     <span>FSConsultory</span>
   </div>
   <ul>
-    <li><a href="#sobre">Sobre mí</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#stack">Stack</a></li>
-    <li><a href="#portafolio">Portafolio</a></li>
-    <li><a href="#formulario">Escríbeme</a></li>
-    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+    <li><a href="#sobre" data-i18n="nav.sobre">Sobre mí</a></li>
+    <li><a href="#servicios" data-i18n="nav.servicios">Servicios</a></li>
+    <li><a href="#proceso" data-i18n="nav.proceso">Proceso</a></li>
+    <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
+    <li><a href="#portafolio" data-i18n="nav.portafolio">Portafolio</a></li>
+    <li><a href="#formulario" data-i18n="nav.form">Escríbeme</a></li>
+    <li><a href="#contacto" class="nav-cta" data-i18n="nav.contacto">Contacto</a></li>
+    <li><button class="lang-btn" onclick="toggleLang()" id="langBtn" title="Change language"><span id="langFlag">🇺🇸</span></button></li>
     <li><button class="theme-btn" onclick="toggleTheme()" id="tbtn">☀️</button></li>
   </ul>
 </nav>
 
 <section id="hero">
   <img class="hero-bg" src="logo_bg.png" alt="">
-  <p class="hero-lbl">Inteligencia de Negocios · Analítica Avanzada · Agentes IA</p>
-  <h1 class="hero-h1">¿Tu empresa tiene datos<br>pero no <span class="hl">claridad?</span><br>Yo te ayudo a cambiar eso.</h1>
-  <p class="hero-p">Ingeniero Civil Industrial con +7 años transformando datos en control operacional, detección de pérdidas y decisiones ejecutivas.</p>
-  <a href="#formulario" class="hero-btn">Conversemos →</a>
+  <p class="hero-lbl" data-i18n="hero.label">Inteligencia de Negocios · Analítica Avanzada · Agentes IA</p>
+  <h1 class="hero-h1" data-i18n="hero.title">¿Tu empresa tiene datos<br>pero no <span class="hl">claridad?</span><br>Yo te ayudo a cambiar eso.</h1>
+  <p class="hero-p" data-i18n="hero.sub">Ingeniero Civil Industrial con +7 años transformando datos en control operacional, detección de pérdidas y decisiones ejecutivas.</p>
+  <a href="#formulario" class="hero-btn" data-i18n="hero.cta">Conversemos →</a>
   <div class="hero-tags">
     <span class="hero-tag">Power BI Expert</span><span class="dot">·</span>
     <span class="hero-tag">SQL Expert</span><span class="dot">·</span>
-    <span class="hero-tag">Python Avanzado</span><span class="dot">·</span>
-    <span class="hero-tag">+600 locales</span><span class="dot">·</span>
-    <span class="hero-tag">Agentes IA</span>
+    <span class="hero-tag" data-i18n="hero.tag3">Python Avanzado</span><span class="dot">·</span>
+    <span class="hero-tag" data-i18n="hero.tag4">+600 locales</span><span class="dot">·</span>
+    <span class="hero-tag" data-i18n="hero.tag5">Agentes IA</span>
   </div>
 </section>
 
@@ -225,19 +228,19 @@
   <div class="wrap">
     <div class="sobre-grid">
       <div class="rl">
-        <span class="lbl">Sobre mí</span>
-        <h2 class="ttl">Analista que habla<br>el idioma del negocio</h2>
-        <p>Soy Francisco Santelices, Ingeniero Civil Industrial egresado de la Universidad Diego Portales. Durante +7 años he trabajado en entornos de alta complejidad, gestionando analítica para más de 600 puntos operacionales a nivel nacional.</p>
-        <p>Me especializo en convertir datos dispersos en modelos claros que permiten a las jefaturas tomar decisiones con evidencia: control de inventarios, detección de fraude, dashboards ejecutivos y modelos de incentivos comerciales.</p>
-        <p>Integro Inteligencia Artificial en cada etapa del proceso analítico, potenciando la velocidad, precisión y accesibilidad de los insights entregados a equipos técnicos y no técnicos.</p>
-        <p>Hoy ofrezco esa misma capacidad como servicio independiente para empresas que quieren resultados reales, no solo reportes.</p>
+        <span class="lbl" data-i18n="sobre.lbl">Sobre mí</span>
+        <h2 class="ttl" data-i18n="sobre.ttl">Analista que habla<br>el idioma del negocio</h2>
+        <p data-i18n="sobre.p1">Soy Francisco Santelices, Ingeniero Civil Industrial egresado de la Universidad Diego Portales. Durante +7 años he trabajado en entornos de alta complejidad, gestionando analítica para más de 600 puntos operacionales a nivel nacional.</p>
+        <p data-i18n="sobre.p2">Me especializo en convertir datos dispersos en modelos claros que permiten a las jefaturas tomar decisiones con evidencia: control de inventarios, detección de fraude, dashboards ejecutivos y modelos de incentivos comerciales.</p>
+        <p data-i18n="sobre.p3">Integro Inteligencia Artificial en cada etapa del proceso analítico, potenciando la velocidad, precisión y accesibilidad de los insights entregados a equipos técnicos y no técnicos.</p>
+        <p data-i18n="sobre.p4">Hoy ofrezco esa misma capacidad como servicio independiente para empresas que quieren resultados reales, no solo reportes.</p>
       </div>
       <div class="rr">
-        <div class="stat-row"><div class="stat-num" data-target="7" data-pre="+">+7</div><div class="stat-desc">Años de experiencia</div></div>
-        <div class="stat-row"><div class="stat-num" data-target="600" data-pre="+">+600</div><div class="stat-desc">Locales operacionales gestionados</div></div>
-        <div class="stat-row"><div class="stat-num" data-target="50" data-suf="%">50%</div><div class="stat-desc">Reducción en tiempos de análisis</div></div>
-        <div class="stat-row"><div class="stat-num" data-target="6">6</div><div class="stat-desc">Herramientas nivel avanzado o experto</div></div>
-        <div class="stat-row"><div class="stat-num">IA</div><div class="stat-desc">Integrada en cada proceso</div></div>
+        <div class="stat-row"><div class="stat-num" data-target="7" data-pre="+">+7</div><div class="stat-desc" data-i18n="sobre.stat1">Años de experiencia</div></div>
+        <div class="stat-row"><div class="stat-num" data-target="600" data-pre="+">+600</div><div class="stat-desc" data-i18n="sobre.stat2">Locales operacionales gestionados</div></div>
+        <div class="stat-row"><div class="stat-num" data-target="50" data-suf="%">50%</div><div class="stat-desc" data-i18n="sobre.stat3">Reducción en tiempos de análisis</div></div>
+        <div class="stat-row"><div class="stat-num" data-target="6">6</div><div class="stat-desc" data-i18n="sobre.stat4">Herramientas nivel avanzado o experto</div></div>
+        <div class="stat-row"><div class="stat-num">IA</div><div class="stat-desc" data-i18n="sobre.stat5">Integrada en cada proceso</div></div>
       </div>
     </div>
   </div>
@@ -245,48 +248,48 @@
 
 <section id="servicios">
   <div class="wrap">
-    <span class="lbl rv">Servicios</span>
-    <h2 class="ttl rv">¿En qué puedo ayudarte?</h2>
+    <span class="lbl rv" data-i18n="servicios.lbl">Servicios</span>
+    <h2 class="ttl rv" data-i18n="servicios.ttl">¿En qué puedo ayudarte?</h2>
     <div class="srv-grid">
-      <div class="srv-card rs d1"><span class="srv-icon">📊</span><h3 class="srv-title">Dashboards Ejecutivos</h3><p class="srv-desc">Diseño e implemento reportes en Power BI conectados a tus datos reales. Tus jefaturas verán el negocio en tiempo real, sin depender de planillas.</p></div>
-      <div class="srv-card rs d2"><span class="srv-icon">🔍</span><h3 class="srv-title">Control Operacional y Pérdidas</h3><p class="srv-desc">Identifico patrones de desvío, fraude e ineficiencia en tus operaciones. Metodología probada en entornos de +600 puntos operacionales.</p></div>
-      <div class="srv-card rs d3"><span class="srv-icon">⚙️</span><h3 class="srv-title">Modelos de Datos a Medida</h3><p class="srv-desc">Construyo modelos en SQL, Python y Excel que automatizan análisis repetitivos y generan indicadores accionables para tu equipo.</p></div>
-      <div class="srv-card rs d1"><span class="srv-icon">🤖</span><h3 class="srv-title">Agentes de Inteligencia Artificial</h3><p class="srv-desc">Desarrollo e integro agentes de IA en tus procesos analíticos y operacionales, potenciando velocidad y calidad de decisiones.</p></div>
-      <div class="srv-card rs d2"><span class="srv-icon">💬</span><h3 class="srv-title">Comunicación de Datos</h3><p class="srv-desc">Traduzco análisis complejos a un lenguaje claro y amigable para equipos directivos, comerciales y operacionales.</p></div>
-      <div class="srv-card rs d3"><span class="srv-icon">🎯</span><h3 class="srv-title">Optimización Comercial</h3><p class="srv-desc">Diseño modelos de incentivos y KPIs alineados con resultados reales, aumentando efectividad de equipos mediante datos e IA.</p></div>
+      <div class="srv-card rs d1"><span class="srv-icon">📊</span><h3 class="srv-title" data-i18n="servicios.s1t">Dashboards Ejecutivos</h3><p class="srv-desc" data-i18n="servicios.s1d">Diseño e implemento reportes en Power BI conectados a tus datos reales. Tus jefaturas verán el negocio en tiempo real, sin depender de planillas.</p></div>
+      <div class="srv-card rs d2"><span class="srv-icon">🔍</span><h3 class="srv-title" data-i18n="servicios.s2t">Control Operacional y Pérdidas</h3><p class="srv-desc" data-i18n="servicios.s2d">Identifico patrones de desvío, fraude e ineficiencia en tus operaciones. Metodología probada en entornos de +600 puntos operacionales.</p></div>
+      <div class="srv-card rs d3"><span class="srv-icon">⚙️</span><h3 class="srv-title" data-i18n="servicios.s3t">Modelos de Datos a Medida</h3><p class="srv-desc" data-i18n="servicios.s3d">Construyo modelos en SQL, Python y Excel que automatizan análisis repetitivos y generan indicadores accionables para tu equipo.</p></div>
+      <div class="srv-card rs d1"><span class="srv-icon">🤖</span><h3 class="srv-title" data-i18n="servicios.s4t">Agentes de Inteligencia Artificial</h3><p class="srv-desc" data-i18n="servicios.s4d">Desarrollo e integro agentes de IA en tus procesos analíticos y operacionales, potenciando velocidad y calidad de decisiones.</p></div>
+      <div class="srv-card rs d2"><span class="srv-icon">💬</span><h3 class="srv-title" data-i18n="servicios.s5t">Comunicación de Datos</h3><p class="srv-desc" data-i18n="servicios.s5d">Traduzco análisis complejos a un lenguaje claro y amigable para equipos directivos, comerciales y operacionales.</p></div>
+      <div class="srv-card rs d3"><span class="srv-icon">🎯</span><h3 class="srv-title" data-i18n="servicios.s6t">Optimización Comercial</h3><p class="srv-desc" data-i18n="servicios.s6d">Diseño modelos de incentivos y KPIs alineados con resultados reales, aumentando efectividad de equipos mediante datos e IA.</p></div>
     </div>
   </div>
 </section>
 
 <section id="proceso">
   <div class="wrap">
-    <span class="lbl rv" style="display:block;text-align:center">Cómo trabajo</span>
-    <h2 class="ttl rv" style="text-align:center;color:#fff">Del dato al resultado,<br><em style="font-weight:400;color:var(--gold)">paso a paso.</em></h2>
+    <span class="lbl rv" style="display:block;text-align:center" data-i18n="proceso.lbl">Cómo trabajo</span>
+    <h2 class="ttl rv" style="text-align:center;color:#fff" data-i18n="proceso.full">Del dato al resultado,<br><em style="font-weight:400;color:var(--gold)">paso a paso.</em></h2>
     <div class="proc-line rv">
       <div class="proc-step">
         <div class="proc-icon">🔎<span class="proc-n">1</span></div>
-        <div class="proc-title">Diagnóstico</div>
-        <div class="proc-desc">Entiendo tu negocio, tus datos disponibles y el problema real a resolver.</div>
+        <div class="proc-title" data-i18n="proceso.p1t">Diagnóstico</div>
+        <div class="proc-desc" data-i18n="proceso.p1d">Entiendo tu negocio, tus datos disponibles y el problema real a resolver.</div>
       </div>
       <div class="proc-step">
         <div class="proc-icon">✏️<span class="proc-n">2</span></div>
-        <div class="proc-title">Diseño</div>
-        <div class="proc-desc">Defino la arquitectura de datos, métricas clave y entregables esperados.</div>
+        <div class="proc-title" data-i18n="proceso.p2t">Diseño</div>
+        <div class="proc-desc" data-i18n="proceso.p2d">Defino la arquitectura de datos, métricas clave y entregables esperados.</div>
       </div>
       <div class="proc-step">
         <div class="proc-icon">⚙️<span class="proc-n">3</span></div>
-        <div class="proc-title">Desarrollo</div>
-        <div class="proc-desc">Construyo modelos, dashboards o agentes con las herramientas adecuadas.</div>
+        <div class="proc-title" data-i18n="proceso.p3t">Desarrollo</div>
+        <div class="proc-desc" data-i18n="proceso.p3d">Construyo modelos, dashboards o agentes con las herramientas adecuadas.</div>
       </div>
       <div class="proc-step">
         <div class="proc-icon">🚀<span class="proc-n">4</span></div>
-        <div class="proc-title">Implementación</div>
-        <div class="proc-desc">Despliego la solución en tu entorno real, asegurando funcionalidad completa.</div>
+        <div class="proc-title" data-i18n="proceso.p4t">Implementación</div>
+        <div class="proc-desc" data-i18n="proceso.p4d">Despliego la solución en tu entorno real, asegurando funcionalidad completa.</div>
       </div>
       <div class="proc-step">
         <div class="proc-icon">🎓<span class="proc-n">5</span></div>
-        <div class="proc-title">Capacitación</div>
-        <div class="proc-desc">Transfiero el conocimiento para que tu equipo opere con autonomía.</div>
+        <div class="proc-title" data-i18n="proceso.p5t">Capacitación</div>
+        <div class="proc-desc" data-i18n="proceso.p5d">Transfiero el conocimiento para que tu equipo opere con autonomía.</div>
       </div>
     </div>
   </div>
@@ -294,41 +297,41 @@
 
 <section id="stack">
   <div class="wrap">
-    <span class="lbl rv">Herramientas</span>
-    <h2 class="ttl rv">Trabajo con las herramientas<br>que el negocio exige.</h2>
+    <span class="lbl rv" data-i18n="stack.lbl">Herramientas</span>
+    <h2 class="ttl rv" data-i18n="stack.ttl">Trabajo con las herramientas<br>que el negocio exige.</h2>
     <div class="stk-grid">
-      <div class="stk-card rv d1"><div class="stk-name">Power BI</div><span class="stk-lvl">Experto</span><p class="stk-note">Certificado UTN Curitiba, Brasil. Dashboards con DAX avanzado, modelos estrella y publicación en Power BI Service.</p></div>
-      <div class="stk-card rv d2"><div class="stk-name">SQL</div><span class="stk-lvl">Experto</span><p class="stk-note">Consultas complejas, joins, CTEs y modelamiento relacional para grandes volúmenes de datos operacionales.</p></div>
-      <div class="stk-card rv d3"><div class="stk-name">Excel</div><span class="stk-lvl">Experto</span><p class="stk-note">Tablas dinámicas, Power Query, macros VBA y modelos financieros. Herramienta central para reportería.</p></div>
-      <div class="stk-card rv d1"><div class="stk-name">Python</div><span class="stk-lvl">Avanzado</span><p class="stk-note">Certificado UTN Curitiba, Brasil. Análisis con pandas, visualización con matplotlib y automatización.</p></div>
-      <div class="stk-card rv d2"><div class="stk-name">STATA</div><span class="stk-lvl">Avanzado</span><p class="stk-note">Modelos econométricos, regresiones y análisis estadístico inferencial aplicado a datos de negocio.</p></div>
-      <div class="stk-card rv d3"><div class="stk-name">SPSS</div><span class="stk-lvl">Avanzado</span><p class="stk-note">Análisis multivariante, clustering y segmentación para identificar patrones en operaciones distribuidas.</p></div>
-      <div class="stk-card rv d1"><div class="stk-name">ChatGPT</div><span class="stk-lvl">Avanzado</span><p class="stk-note">Generación de código analítico, automatización de reportes narrativos y exploración de datos no estructurados.</p></div>
-      <div class="stk-card rv d2"><div class="stk-name">Claude</div><span class="stk-lvl">Avanzado</span><p class="stk-note">Análisis de documentos extensos, síntesis de información compleja y razonamiento para decisiones críticas.</p></div>
-      <div class="stk-card rv d3"><div class="stk-name">Agentes IA</div><span class="stk-lvl">Avanzado</span><p class="stk-note">Flujos autónomos con LLMs para automatizar tareas analíticas e integrar fuentes de datos con alertas inteligentes.</p></div>
+      <div class="stk-card rv d1"><div class="stk-name">Power BI</div><span class="stk-lvl" data-i18n="stack.exp">Experto</span><p class="stk-note" data-i18n="stack.n1">Certificado UTN Curitiba, Brasil. Dashboards con DAX avanzado, modelos estrella y publicación en Power BI Service.</p></div>
+      <div class="stk-card rv d2"><div class="stk-name">SQL</div><span class="stk-lvl" data-i18n="stack.exp">Experto</span><p class="stk-note" data-i18n="stack.n2">Consultas complejas, joins, CTEs y modelamiento relacional para grandes volúmenes de datos operacionales.</p></div>
+      <div class="stk-card rv d3"><div class="stk-name">Excel</div><span class="stk-lvl" data-i18n="stack.exp">Experto</span><p class="stk-note" data-i18n="stack.n3">Tablas dinámicas, Power Query, macros VBA y modelos financieros. Herramienta central para reportería.</p></div>
+      <div class="stk-card rv d1"><div class="stk-name">Python</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n4">Certificado UTN Curitiba, Brasil. Análisis con pandas, visualización con matplotlib y automatización.</p></div>
+      <div class="stk-card rv d2"><div class="stk-name">STATA</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n5">Modelos econométricos, regresiones y análisis estadístico inferencial aplicado a datos de negocio.</p></div>
+      <div class="stk-card rv d3"><div class="stk-name">SPSS</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n6">Análisis multivariante, clustering y segmentación para identificar patrones en operaciones distribuidas.</p></div>
+      <div class="stk-card rv d1"><div class="stk-name">ChatGPT</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n7">Generación de código analítico, automatización de reportes narrativos y exploración de datos no estructurados.</p></div>
+      <div class="stk-card rv d2"><div class="stk-name">Claude</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n8">Análisis de documentos extensos, síntesis de información compleja y razonamiento para decisiones críticas.</p></div>
+      <div class="stk-card rv d3"><div class="stk-name" data-i18n="stack.agents">Agentes IA</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n9">Flujos autónomos con LLMs para automatizar tareas analíticas e integrar fuentes de datos con alertas inteligentes.</p></div>
     </div>
   </div>
 </section>
 
 <section id="testimonios">
   <div class="wrap">
-    <span class="lbl rv">Resultados</span>
-    <h2 class="ttl rv">Impacto medible en operaciones reales</h2>
+    <span class="lbl rv" data-i18n="test.lbl">Resultados</span>
+    <h2 class="ttl rv" data-i18n="test.ttl">Impacto medible en operaciones reales</h2>
     <div class="test-grid">
       <div class="test-card rv d1">
         <div class="test-q">"</div>
-        <p class="test-txt">Implementé modelos de análisis que detectaron patrones de pérdida y fraude a nivel nacional, reduciendo desviaciones operacionales y fortaleciendo el control interno en más de 600 puntos.</p>
-        <div class="test-res">↓ Pérdidas operacionales · Control nacional</div>
+        <p class="test-txt" data-i18n="test.t1">Implementé modelos de análisis que detectaron patrones de pérdida y fraude a nivel nacional, reduciendo desviaciones operacionales y fortaleciendo el control interno en más de 600 puntos.</p>
+        <div class="test-res" data-i18n="test.r1">↓ Pérdidas operacionales · Control nacional</div>
       </div>
       <div class="test-card rv d2">
         <div class="test-q">"</div>
-        <p class="test-txt">Generé dashboards ejecutivos en Power BI utilizados por jefaturas y áreas estratégicas, reduciendo los tiempos de análisis en más de un 50% y acelerando la toma de decisiones.</p>
-        <div class="test-res">↓ 50% tiempo de análisis · Decisiones más rápidas</div>
+        <p class="test-txt" data-i18n="test.t2">Generé dashboards ejecutivos en Power BI utilizados por jefaturas y áreas estratégicas, reduciendo los tiempos de análisis en más de un 50% y acelerando la toma de decisiones.</p>
+        <div class="test-res" data-i18n="test.r2">↓ 50% tiempo de análisis · Decisiones más rápidas</div>
       </div>
       <div class="test-card rv d3">
         <div class="test-q">"</div>
-        <p class="test-txt">Desarrollé indicadores de desempeño comercial que alinearon incentivos con resultados reales de negocio, aumentando la efectividad del esquema de bonificaciones a nivel nacional.</p>
-        <div class="test-res">↑ Efectividad comercial · Incentivos alineados</div>
+        <p class="test-txt" data-i18n="test.t3">Desarrollé indicadores de desempeño comercial que alinearon incentivos con resultados reales de negocio, aumentando la efectividad del esquema de bonificaciones a nivel nacional.</p>
+        <div class="test-res" data-i18n="test.r3">↑ Efectividad comercial · Incentivos alineados</div>
       </div>
     </div>
   </div>
@@ -337,26 +340,26 @@
 <section id="portafolio">
   <img class="port-bg" src="logo_bg.png" alt="">
   <div class="wrap">
-    <span class="lbl rv">Portafolio</span>
-    <h2 class="ttl rv">Trabajos en Power BI</h2>
-    <p class="port-sub rv">Explora dashboards y modelos de datos reales desarrollados para operaciones de alta complejidad.</p>
-    <a href="https://bit.ly/fsconsultory" target="_blank" class="port-btn rv">Ver portafolio completo →</a>
+    <span class="lbl rv" data-i18n="port.lbl">Portafolio</span>
+    <h2 class="ttl rv" data-i18n="port.ttl">Trabajos en Power BI</h2>
+    <p class="port-sub rv" data-i18n="port.sub">Explora dashboards y modelos de datos reales desarrollados para operaciones de alta complejidad.</p>
+    <a href="https://bit.ly/fsconsultory" target="_blank" class="port-btn rv" data-i18n="port.btn">Ver portafolio completo →</a>
   </div>
 </section>
 
 <section id="formulario">
   <div class="wrap">
-    <span class="lbl rv">Escríbeme</span>
-    <h2 class="ttl rv">Cuéntame tu desafío</h2>
+    <span class="lbl rv" data-i18n="form.lbl">Escríbeme</span>
+    <h2 class="ttl rv" data-i18n="form.ttl">Cuéntame tu desafío</h2>
     <div class="form-box rs">
       <div class="form-row">
-        <div class="fgrp" id="gn"><label>Nombre</label><input type="text" id="fn" placeholder="Tu nombre completo"><span class="emsg">Ingresa tu nombre</span></div>
-        <div class="fgrp" id="gt"><label>Teléfono</label><input type="tel" id="ft" placeholder="+56 9 XXXX XXXX"><span class="emsg">Ingresa tu teléfono</span></div>
+        <div class="fgrp" id="gn"><label data-i18n="form.name">Nombre</label><input type="text" id="fn" data-i18n-ph="form.namePh" placeholder="Tu nombre completo"><span class="emsg" data-i18n="form.errName">Ingresa tu nombre</span></div>
+        <div class="fgrp" id="gt"><label data-i18n="form.phone">Teléfono</label><input type="tel" id="ft" placeholder="+56 9 XXXX XXXX"><span class="emsg" data-i18n="form.errPhone">Ingresa tu teléfono</span></div>
       </div>
-      <div class="fgrp" id="ge"><label>Email</label><input type="email" id="fe" placeholder="tu@empresa.com"><span class="emsg">Ingresa un email válido</span></div>
-      <div class="fgrp" id="gm"><label>Mensaje</label><textarea id="fm" placeholder="Cuéntame tu desafío o proyecto..."></textarea><span class="emsg">Escribe tu mensaje</span></div>
-      <button class="fsub" onclick="enviar()">Enviar mensaje →</button>
-      <div class="fok" id="fok">✅ ¡Mensaje enviado! Te responderé a la brevedad.</div>
+      <div class="fgrp" id="ge"><label data-i18n="form.email">Email</label><input type="email" id="fe" data-i18n-ph="form.emailPh" placeholder="tu@empresa.com"><span class="emsg" data-i18n="form.errEmail">Ingresa un email válido</span></div>
+      <div class="fgrp" id="gm"><label data-i18n="form.msg">Mensaje</label><textarea id="fm" data-i18n-ph="form.msgPh" placeholder="Cuéntame tu desafío o proyecto..."></textarea><span class="emsg" data-i18n="form.errMsg">Escribe tu mensaje</span></div>
+      <button class="fsub" onclick="enviar()" data-i18n="form.submit">Enviar mensaje →</button>
+      <div class="fok" id="fok" data-i18n="form.success">✅ ¡Mensaje enviado! Te responderé a la brevedad.</div>
     </div>
   </div>
 </section>
@@ -364,9 +367,9 @@
 <section id="contacto">
   <img class="cta-bg" src="logo_bg.png" alt="">
   <div class="wrap">
-    <span class="lbl rv">Contacto</span>
-    <h2 class="ttl rv" style="color:#fff">Transformemos tus datos<br><em style="font-weight:400;color:var(--gold)">en resultados reales.</em></h2>
-    <p class="cta-sub rv">Selecciona cómo prefieres contactarme y conversamos sin compromiso.</p>
+    <span class="lbl rv" data-i18n="cta.lbl">Contacto</span>
+    <h2 class="ttl rv" style="color:#fff" data-i18n="cta.full">Transformemos tus datos<br><em style="font-weight:400;color:var(--gold)">en resultados reales.</em></h2>
+    <p class="cta-sub rv" data-i18n="cta.sub">Selecciona cómo prefieres contactarme y conversamos sin compromiso.</p>
     <div class="cta-cards rv">
       <a href="mailto:francisco@fsconsultory.com" class="cta-card">
         <span class="cta-icon">✉️</span>
@@ -383,6 +386,7 @@
   </div>
 </section>
 
+<script src="i18n.js"></script>
 <script>
 // REVEAL ON SCROLL
 const io = new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("on")})},{threshold:0.1});
