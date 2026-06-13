@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#070B14; --bg2:#0B1220; --bg3:#0F1A2E;
-  --card:#0E1726; --border:#1C2A40;
-  --text:#E6EDF7; --text2:#8B9CB5; --text3:#5C7090;
-  --accent:#2DD4BF; --accent2:#38BDF8; --accent-dim:rgba(45,212,191,0.12);
+  --bg:#050B17; --bg2:#0A1424; --bg3:#0E1B30;
+  --card:#0C1626; --border:#1B2B42;
+  --text:#F4F6F9; --text2:#A0AEC0; --text3:#5C7090;
+  --accent:#19D3D1; --accent2:#1CC88A; --accent-dim:rgba(25,211,209,0.12);
   --gold:#D4A843;
   --mono:'JetBrains Mono',monospace; --sans:'Space Grotesk',sans-serif;
 }
@@ -20,7 +20,7 @@
   --bg:#F4F7FB; --bg2:#FFFFFF; --bg3:#EAF0F7;
   --card:#FFFFFF; --border:#D7E1ED;
   --text:#0B1220; --text2:#4A5C75; --text3:#8B9CB5;
-  --accent:#0D9488; --accent2:#0284C7; --accent-dim:rgba(13,148,136,0.08);
+  --accent:#0D9488; --accent2:#1CC88A; --accent-dim:rgba(13,148,136,0.08);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -125,7 +125,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,11,20,0.85
 .proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
 .proc-grid::before{content:"";position:absolute;top:20px;left:5%;right:5%;height:1px;background:var(--border)}
 .proc-step{text-align:left;padding-right:20px}
-.proc-n{font-family:var(--mono);font-size:13px;color:var(--accent);background:var(--bg);display:inline-block;padding-right:12px;margin-bottom:24px;position:relative}
+.proc-n{font-size:28px;background:var(--bg);display:inline-block;padding-right:12px;margin-bottom:20px;position:relative;line-height:1}
 .proc-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px}
 .proc-desc{font-size:13px;color:var(--text2)}
 @media(max-width:900px){.proc-grid{grid-template-columns:1fr;gap:32px}.proc-grid::before{display:none}}
@@ -385,11 +385,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,11,20,0.85
     <div class="sec-num">// 04 <span data-i18n="proc.label">— Process</span></div>
     <h2 class="sec-title rv" data-i18n="proc.title">From data to <em>results.</em></h2>
     <div class="proc-grid">
-      <div class="proc-step rv d1"><div class="proc-n">01</div><div class="proc-title" data-i18n="proc.p1t">Diagnosis</div><div class="proc-desc" data-i18n="proc.p1d">Understand your business, available data and the real problem.</div></div>
-      <div class="proc-step rv d2"><div class="proc-n">02</div><div class="proc-title" data-i18n="proc.p2t">Design</div><div class="proc-desc" data-i18n="proc.p2d">Define data architecture, key metrics and deliverables.</div></div>
-      <div class="proc-step rv d3"><div class="proc-n">03</div><div class="proc-title" data-i18n="proc.p3t">Development</div><div class="proc-desc" data-i18n="proc.p3d">Build models, dashboards or agents with the right tools.</div></div>
-      <div class="proc-step rv d4"><div class="proc-n">04</div><div class="proc-title" data-i18n="proc.p4t">Implementation</div><div class="proc-desc" data-i18n="proc.p4d">Deploy the solution in your real environment.</div></div>
-      <div class="proc-step rv d5"><div class="proc-n">05</div><div class="proc-title" data-i18n="proc.p5t">Training</div><div class="proc-desc" data-i18n="proc.p5d">Transfer knowledge for your team to operate independently.</div></div>
+      <div class="proc-step rv d1"><div class="proc-n">🔎</div><div class="proc-title" data-i18n="proc.p1t">Diagnosis</div><div class="proc-desc" data-i18n="proc.p1d">Understand your business, available data and the real problem.</div></div>
+      <div class="proc-step rv d2"><div class="proc-n">✏️</div><div class="proc-title" data-i18n="proc.p2t">Design</div><div class="proc-desc" data-i18n="proc.p2d">Define data architecture, key metrics and deliverables.</div></div>
+      <div class="proc-step rv d3"><div class="proc-n">⚙️</div><div class="proc-title" data-i18n="proc.p3t">Development</div><div class="proc-desc" data-i18n="proc.p3d">Build models, dashboards or agents with the right tools.</div></div>
+      <div class="proc-step rv d4"><div class="proc-n">🚀</div><div class="proc-title" data-i18n="proc.p4t">Implementation</div><div class="proc-desc" data-i18n="proc.p4d">Deploy the solution in your real environment.</div></div>
+      <div class="proc-step rv d5"><div class="proc-n">🎓</div><div class="proc-title" data-i18n="proc.p5t">Training</div><div class="proc-desc" data-i18n="proc.p5d">Transfer knowledge for your team to operate independently.</div></div>
     </div>
   </div>
 </section>
@@ -406,8 +406,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,11,20,0.85
       <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name">Python</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n4">Certified, UTN Curitiba. Pandas, matplotlib, automation pipelines.</div></div>
       <div class="stk-card rv d2"><div class="stk-head"><span class="stk-name">STATA</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n5">Econometric models, regressions and inferential statistics.</div></div>
       <div class="stk-card rv d3"><div class="stk-head"><span class="stk-name">SPSS</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n6">Multivariate analysis, clustering and segmentation.</div></div>
-      <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name">ChatGPT</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n7">Analytical code generation, narrative report automation.</div></div>
-      <div class="stk-card rv d2"><div class="stk-head"><span class="stk-name">Claude</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n8">Document analysis, complex information synthesis, critical reasoning.</div></div>
+      <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name">Claude</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n8">Document analysis, complex information synthesis, critical reasoning.</div></div>
       <div class="stk-card rv d3"><div class="stk-head"><span class="stk-name" data-i18n="stk.ai">Inteligencia Artificial</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n10">Certified, UTN Curitiba. Applied AI for analytics, automation and decision support.</div></div>
       <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name" data-i18n="stk.agents">AI Agents</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n9">Autonomous LLM workflows for analytics and smart alerts.</div></div>
     </div>
@@ -490,7 +489,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,11,20,0.85
   </div>
 </section>
 
-<script src="i18n.js"></script>
+<script src="i18n.js?v=2"></script>
 <script>
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("on")})},{threshold:0.1});
 document.querySelectorAll(".rv").forEach(el=>io.observe(el));
