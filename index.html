@@ -1,398 +1,500 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Santelices · Consultor en Inteligencia de Negocios</title>
-  <meta name="description" content="Ingeniero Civil Industrial con +7 años transformando datos en decisiones críticas de negocio.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSConsultory — Francisco Santelices | Business Intelligence</title>
+<meta name="description" content="Ingeniero Civil Industrial especializado en Business Intelligence, analitica avanzada y agentes de IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070B14; --bg2:#0B1220; --bg3:#0F1A2E;
+  --card:#0E1726; --border:#1C2A40;
+  --text:#E6EDF7; --text2:#8B9CB5; --text3:#5C7090;
+  --accent:#2DD4BF; --accent2:#38BDF8; --accent-dim:rgba(45,212,191,0.12);
+  --gold:#D4A843;
+  --mono:'JetBrains Mono',monospace; --sans:'Space Grotesk',sans-serif;
+}
+[data-theme="light"]{
+  --bg:#F4F7FB; --bg2:#FFFFFF; --bg3:#EAF0F7;
+  --card:#FFFFFF; --border:#D7E1ED;
+  --text:#0B1220; --text2:#4A5C75; --text3:#8B9CB5;
+  --accent:#0D9488; --accent2:#0284C7; --accent-dim:rgba(13,148,136,0.08);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text2);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
 
-    [data-theme="dark"]{
-      --gold:#D4A843;--blue:#1A56FF;--navy:#08112A;
-      --bg:#060F24;--sec1:#0D1B3E;--sec2:#0A1530;
-      --title:#FFFFFF;--body:#94A3B8;
-      --card:#0F2050;--border:rgba(255,255,255,0.08);
-      --input:#0A1530;--input-bd:rgba(255,255,255,0.12);
-      --stat-bd:rgba(255,255,255,0.08);
-    }
-    [data-theme="light"]{
-      --gold:#D4A843;--blue:#1A56FF;--navy:#08112A;
-      --bg:#F0F2F7;--sec1:#FFFFFF;--sec2:#E8ECF4;
-      --title:#08112A;--body:#475569;
-      --card:#FFFFFF;--border:#D0D8E8;
-      --input:#F5F7FA;--input-bd:#D0D8E8;
-      --stat-bd:#E8ECF4;
-    }
+/* SECTION LABEL - numbered */
+.sec-num{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-num::before{content:"";flex-shrink:0;width:32px;height:1px;background:var(--accent)}
+.sec-title{font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:48px;letter-spacing:-0.5px}
+.sec-title em{font-style:normal;color:var(--accent)}
+section{padding:110px 0}
 
-    html{scroll-behavior:smooth}
-    body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--body);overflow-x:hidden;transition:background .4s,color .4s}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,11,20,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+[data-theme="light"] nav{background:rgba(244,247,251,0.85)}
+.navin{max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;color:var(--text);font-size:15px;letter-spacing:1px;text-decoration:none}
+.brand img{height:30px;width:auto}
+.brand .dim{color:var(--text3)}
+.navlinks{display:flex;align-items:center;gap:28px;list-style:none}
+.navlinks a{font-family:var(--mono);font-size:13px;color:var(--text2);text-decoration:none;transition:color .2s;letter-spacing:0.3px}
+.navlinks a:hover,.navlinks a.active{color:var(--accent)}
+.navlinks a.active{position:relative}
+.cv-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--bg);background:var(--accent);padding:8px 16px;border-radius:4px;text-decoration:none;transition:all .2s}
+.cv-btn:hover{background:var(--accent2);transform:translateY(-1px)}
+.icon-btn{background:none;border:1px solid var(--border);color:var(--text2);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;padding:0}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+.icon-btn img{width:18px;height:13px;border-radius:2px;display:block}
+@media(max-width:1000px){.navlinks{display:none}}
 
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:64px;display:flex;justify-content:space-between;align-items:center;background:#08112A;border-bottom:1px solid rgba(255,255,255,0.06)}
-    .nav-logo{display:flex;align-items:center;gap:12px}
-    .nav-logo img{height:38px;width:auto}
-    .nav-div{width:1px;height:30px;background:rgba(255,255,255,0.15)}
-    .nav-logo span{font-family:"Playfair Display",serif;font-size:16px;font-weight:600;color:#fff}
-    nav ul{list-style:none;display:flex;gap:20px;align-items:center}
-    nav a{font-size:12px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s}
-    nav a:hover,nav a.active{color:#fff}
-    nav a.active{color:var(--gold);font-weight:500}
-    .nav-cta{background:var(--gold)!important;color:#08112A!important;padding:7px 18px;border-radius:3px;font-weight:600!important}
-    .theme-btn,.lang-btn{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;transition:all .25s;display:flex;align-items:center;justify-content:center;padding:0}
-    .theme-btn:hover{border-color:var(--gold);color:var(--gold)}
-    .lang-btn:hover{border-color:var(--gold)}
-    .lang-btn img{width:18px;height:13px;border-radius:2px;display:block}
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;padding-top:80px;overflow:hidden}
+#hero::before{content:"";position:absolute;top:-300px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,var(--accent-dim) 0%,transparent 70%);pointer-events:none}
+.hero-bgmark{position:absolute;top:50%;right:5%;transform:translateY(-50%);width:38vw;max-width:480px;opacity:0.05;pointer-events:none}
+[data-theme="light"] .hero-bgmark{opacity:0.04}
+.hero-tag{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:3px;margin-bottom:24px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .7s ease .1s forwards}
+.hero-tag .blink{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.hero-h1{font-size:clamp(40px,6.5vw,84px);font-weight:700;color:var(--text);line-height:1.05;letter-spacing:-2px;margin-bottom:24px;opacity:0;animation:fadeUp .7s ease .25s forwards}
+.hero-h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:18px;color:var(--text2);max-width:580px;margin-bottom:40px;font-weight:400;opacity:0;animation:fadeUp .7s ease .4s forwards}
+.hero-sub b{color:var(--text);font-weight:600}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px;opacity:0;animation:fadeUp .7s ease .55s forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg);font-weight:600;font-size:15px;padding:15px 32px;border-radius:6px;text-decoration:none;transition:all .25s}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,212,191,0.25)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--border);color:var(--text);font-weight:500;font-size:15px;padding:15px 32px;border-radius:6px;text-decoration:none;transition:all .25s}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;opacity:0;animation:fadeUp .7s ease .7s forwards}
+.hm{background:var(--bg2);padding:24px 20px;text-align:left}
+.hm-num{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px}
+.hm-lbl{font-size:12px;color:var(--text3)}
+@media(max-width:700px){.hero-metrics{grid-template-columns:repeat(2,1fr)}}
 
-    .wrap{max-width:1140px;margin:0 auto;padding:100px 48px}
-    .lbl{font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
-    .ttl{font-family:"Playfair Display",serif;font-size:clamp(26px,3vw,38px);font-weight:600;color:var(--title);line-height:1.2;margin-bottom:44px}
+/* SOBRE */
+#sobre{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sobre-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:64px;align-items:start}
+.sobre-text p{font-size:16px;color:var(--text2);margin-bottom:18px;font-weight:400}
+.sobre-text strong{color:var(--text);font-weight:600}
+.sobre-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);color:var(--accent);font-family:var(--mono);font-size:12px;padding:6px 14px;border-radius:4px;margin-bottom:24px}
+.tags-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.tag-pill{font-family:var(--mono);font-size:12px;color:var(--text2);border:1px solid var(--border);padding:6px 12px;border-radius:4px}
+.side-stats{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.sstat{background:var(--card);padding:22px 24px;display:flex;justify-content:space-between;align-items:center}
+.sstat-num{font-family:var(--mono);font-size:30px;font-weight:700;color:var(--accent)}
+.sstat-lbl{font-size:12px;color:var(--text3);text-align:right;max-width:130px}
 
-    /* HERO */
-    #hero{min-height:100vh;background:#08112A;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 40px 80px;position:relative;overflow:hidden}
-    #hero::before{content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(26,86,255,.15) 0%,transparent 65%);pointer-events:none}
-    .hero-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:65%;max-width:660px;opacity:0.04;pointer-events:none}
-    .hero-lbl{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;opacity:0;animation:fadeUp .8s ease .2s forwards;position:relative}
-    .hero-h1{font-family:"Playfair Display",serif;font-size:clamp(34px,5vw,60px);font-weight:700;color:#fff;line-height:1.12;max-width:760px;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease .4s forwards;position:relative}
-    .hero-h1 .hl{color:var(--gold);font-style:italic;font-weight:400}
-    .hero-p{font-size:17px;font-weight:300;color:rgba(255,255,255,.55);max-width:560px;line-height:1.75;margin-bottom:48px;opacity:0;animation:fadeUp .8s ease .6s forwards;position:relative}
-    .hero-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#08112A;font-size:14px;font-weight:600;padding:15px 36px;border-radius:3px;text-decoration:none;transition:all .25s;opacity:0;animation:fadeUp .8s ease .8s forwards;position:relative}
-    .hero-btn:hover{background:#e6b84d;transform:translateY(-2px)}
-    .hero-tags{margin-top:60px;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s ease 1s forwards;position:relative}
-    .hero-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2)}
-    .dot{color:rgba(255,255,255,.1)}
+/* EXPERIENCE TIMELINE */
+#experiencia{background:var(--bg)}
+.tl{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--border);position:relative}
+.tl-item:last-child{border-bottom:none}
+.tl-date{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:4px}
+.tl-content{position:relative;padding-left:28px;border-left:2px solid var(--border)}
+.tl-item:first-child .tl-content{border-left:2px solid var(--accent)}
+.tl-dot{position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--border)}
+.tl-item:first-child .tl-dot{border-color:var(--accent);background:var(--accent)}
+.tl-role{font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px}
+.tl-company{font-family:var(--mono);font-size:13px;color:var(--text2);margin-bottom:14px}
+.tl-badge{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--gold);border:1px solid var(--gold);padding:2px 8px;border-radius:3px;margin-left:10px}
+.tl-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.tl-list li{font-size:14px;color:var(--text2);padding-left:18px;position:relative}
+.tl-list li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+.tl-list b{color:var(--text)}
+.tl-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tl-tag{font-family:var(--mono);font-size:11px;color:var(--accent2);background:rgba(56,189,248,0.08);padding:4px 10px;border-radius:4px}
+@media(max-width:760px){.tl-item{grid-template-columns:1fr;gap:8px}}
 
-    /* SOBRE */
-    #sobre{background:var(--sec1)}
-    .sobre-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:72px;align-items:start}
-    .sobre-text p{font-size:15px;font-weight:300;color:var(--body);line-height:1.85;margin-bottom:18px}
-    .stat-row{padding:22px 28px;border-bottom:1px solid var(--stat-bd);display:flex;justify-content:space-between;align-items:center}
-    .stat-row:first-child{border-top:1px solid var(--stat-bd)}
-    .stat-num{font-family:"Playfair Display",serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1}
-    .stat-desc{font-size:12px;color:#94A3B8;text-align:right;max-width:120px;line-height:1.4}
+/* SERVICIOS */
+#servicios{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.srv-card{background:var(--card);padding:36px 28px;transition:all .25s}
+.srv-card:hover{background:var(--bg3)}
+.srv-num{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:18px}
+.srv-title{font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px}
+.srv-desc{font-size:14px;color:var(--text2)}
+@media(max-width:900px){.srv-grid{grid-template-columns:1fr}}
 
-    /* SERVICIOS */
-    #servicios{background:var(--sec2)}
-    #servicios .wrap{text-align:center}
-    .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
-    .srv-card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden}
-    .srv-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .3s;transform-origin:left}
-    .srv-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.2)}
-    .srv-card:hover::before{transform:scaleX(1)}
-    .srv-icon{font-size:26px;margin-bottom:16px;display:block}
-    .srv-title{font-family:"Playfair Display",serif;font-size:17px;font-weight:600;color:var(--title);margin-bottom:12px;line-height:1.3}
-    .srv-desc{font-size:13px;font-weight:300;color:var(--body);line-height:1.75}
+/* PROCESO */
+#proceso{background:var(--bg)}
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.proc-grid::before{content:"";position:absolute;top:20px;left:5%;right:5%;height:1px;background:var(--border)}
+.proc-step{text-align:left;padding-right:20px}
+.proc-n{font-family:var(--mono);font-size:13px;color:var(--accent);background:var(--bg);display:inline-block;padding-right:12px;margin-bottom:24px;position:relative}
+.proc-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px}
+.proc-desc{font-size:13px;color:var(--text2)}
+@media(max-width:900px){.proc-grid{grid-template-columns:1fr;gap:32px}.proc-grid::before{display:none}}
 
-    /* PROCESO */
-    #proceso{background:#08112A}
-    #proceso .wrap{text-align:center}
-    #proceso .ttl{color:#fff;text-align:center}
-    .proc-line{display:flex;align-items:flex-start;justify-content:center;position:relative;margin-top:16px}
-    .proc-line::before{content:"";position:absolute;top:36px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,.3),transparent)}
-    .proc-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px}
-    .proc-icon{width:72px;height:72px;border-radius:50%;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.25);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px;position:relative;z-index:1;transition:all .3s}
-    .proc-step:hover .proc-icon{background:rgba(212,168,67,.18);border-color:var(--gold);transform:scale(1.08)}
-    .proc-n{position:absolute;top:-6px;right:-6px;width:20px;height:20px;background:var(--gold);color:#08112A;border-radius:50%;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center}
-    .proc-title{font-family:"Playfair Display",serif;font-size:15px;font-weight:600;color:#fff;margin-bottom:8px}
-    .proc-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.6;max-width:130px}
+/* STACK */
+#stack{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.stk-card{background:var(--card);padding:28px;transition:all .25s}
+.stk-card:hover{background:var(--bg3)}
+.stk-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.stk-name{font-size:16px;font-weight:700;color:var(--text)}
+.stk-lvl{font-family:var(--mono);font-size:10px;color:var(--accent);border:1px solid var(--accent);padding:2px 8px;border-radius:3px}
+.stk-note{font-size:13px;color:var(--text2)}
+@media(max-width:900px){.stk-grid{grid-template-columns:1fr}}
 
-    /* STACK */
-    #stack{background:var(--sec1)}
-    .stk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .stk-card{background:var(--sec2);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:all .3s;border-top:3px solid transparent}
-    .stk-card:hover{border-top-color:var(--gold);background:var(--card);box-shadow:0 8px 24px rgba(212,168,67,.08)}
-    .stk-name{font-family:"Playfair Display",serif;font-size:17px;font-weight:600;color:var(--title);margin-bottom:6px}
-    .stk-lvl{display:inline-block;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(212,168,67,.1);padding:4px 10px;border-radius:2px;margin-bottom:12px}
-    .stk-note{font-size:12px;font-weight:300;color:var(--body);line-height:1.65}
+/* RESULTADOS */
+#resultados{background:var(--bg)}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.res-card{border:1px solid var(--border);border-radius:8px;padding:28px;background:var(--card)}
+.res-mark{font-family:var(--mono);font-size:32px;color:var(--accent);opacity:0.4;line-height:1;margin-bottom:12px}
+.res-txt{font-size:14px;color:var(--text2);margin-bottom:18px}
+.res-tag{font-family:var(--mono);font-size:11px;color:var(--accent)}
+@media(max-width:900px){.res-grid{grid-template-columns:1fr}}
 
-    /* TESTIMONIOS */
-    #testimonios{background:var(--sec2)}
-    #testimonios .wrap{text-align:center}
-    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:left}
-    .test-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:36px 28px;transition:all .3s}
-    .test-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.15)}
-    .test-q{font-size:48px;font-family:"Playfair Display",serif;color:var(--gold);opacity:0.25;line-height:1;margin-bottom:8px}
-    .test-txt{font-size:14px;font-weight:300;color:var(--body);line-height:1.8;margin-bottom:20px;font-style:italic}
-    .test-res{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+/* PORTFOLIO */
+#portafolio{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
+.port-box{border:1px solid var(--border);border-radius:8px;padding:64px 40px;background:var(--card);position:relative;overflow:hidden}
+.port-box::before{content:"";position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,var(--accent-dim) 0%,transparent 70%);pointer-events:none}
+.port-sub{font-size:15px;color:var(--text2);max-width:480px;margin:0 auto 32px;position:relative}
 
-    /* PORTAFOLIO */
-    #portafolio{background:#08112A;text-align:center;position:relative;overflow:hidden}
-    #portafolio::before{content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(26,86,255,.1) 0%,transparent 65%);pointer-events:none}
-    .port-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;max-width:500px;opacity:0.04;pointer-events:none}
-    #portafolio .wrap{position:relative}
-    #portafolio .ttl{color:#fff}
-    .port-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:48px;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
-    .port-btn{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--gold);color:var(--gold);font-size:15px;font-weight:500;padding:18px 44px;border-radius:3px;text-decoration:none;transition:all .3s}
-    .port-btn:hover{background:var(--gold);color:#08112A}
+/* FORM */
+#formulario{background:var(--bg)}
+.form-box{border:1px solid var(--border);border-radius:8px;padding:40px;background:var(--card);max-width:700px;margin:0 auto}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.fg label{font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase}
+.fg input,.fg textarea{font-family:var(--sans);font-size:14px;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:12px 14px;outline:none;transition:all .2s;width:100%}
+.fg input:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+.fg input.err,.fg textarea.err{border-color:#f87171}
+.fg .em{font-size:11px;color:#f87171;display:none}
+.fg.ferr .em{display:block}
+.fg textarea{resize:vertical;min-height:120px}
+.fsub{background:var(--accent);color:var(--bg);font-weight:600;font-size:14px;padding:14px 36px;border:none;border-radius:6px;cursor:pointer;width:100%;transition:all .2s}
+.fsub:hover{background:var(--accent2)}
+.fok{display:none;text-align:center;padding:18px;background:var(--accent-dim);border:1px solid var(--accent);border-radius:6px;margin-top:18px;color:var(--text);font-size:14px}
+@media(max-width:700px){.frow{grid-template-columns:1fr}}
 
-    /* FORMULARIO */
-    #formulario{background:var(--sec1)}
-    .form-box{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:48px;max-width:680px;margin:0 auto;text-align:left}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .fgrp{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-    .fgrp label{font-size:11px;font-weight:500;color:var(--title);letter-spacing:1px;text-transform:uppercase}
-    .fgrp input,.fgrp textarea{font-family:"Inter",sans-serif;font-size:14px;font-weight:300;color:var(--title);background:var(--input);border:1px solid var(--input-bd);border-radius:3px;padding:12px 16px;outline:none;transition:all .25s;width:100%}
-    .fgrp input:focus,.fgrp textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.08)}
-    .fgrp input.err,.fgrp textarea.err{border-color:#E84545}
-    .fgrp .emsg{font-size:11px;color:#E84545;display:none}
-    .fgrp.ferr .emsg{display:block}
-    .fgrp textarea{resize:vertical;min-height:130px}
-    .fsub{background:var(--gold);color:#08112A;font-size:14px;font-weight:600;padding:14px 40px;border:none;border-radius:3px;cursor:pointer;width:100%;transition:all .25s}
-    .fsub:hover{background:#e6b84d}
-    .fok{display:none;text-align:center;padding:20px;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.2);border-radius:4px;margin-top:20px;color:var(--title);font-size:15px}
+/* CONTACT */
+#contacto{background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+.cta-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:440px;margin:0 auto 56px}
+.cta-card{border:1px solid var(--border);border-radius:8px;padding:28px 20px;background:var(--card);text-decoration:none;transition:all .25s}
+.cta-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.cta-icon{font-size:24px;margin-bottom:10px;display:block}
+.cta-ttl{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.cta-det{font-size:12px;color:var(--text3)}
+.footer{font-family:var(--mono);font-size:12px;color:var(--text3);padding:32px 0;border-top:1px solid var(--border)}
+@media(max-width:500px){.cta-cards{grid-template-columns:1fr;max-width:280px}}
 
-    /* CONTACTO */
-    #contacto{background:linear-gradient(135deg,#08112A 0%,#0F2460 100%);text-align:center;position:relative;overflow:hidden}
-    .cta-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:55%;max-width:460px;opacity:0.04;pointer-events:none}
-    #contacto .wrap{position:relative}
-    #contacto .ttl{color:#fff}
-    .cta-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.45);margin-bottom:52px;line-height:1.6}
-    .cta-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:420px;margin:0 auto 56px}
-    .cta-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:28px 20px;text-align:center;text-decoration:none;transition:all .3s}
-    .cta-card:hover{background:rgba(212,168,67,.1);border-color:var(--gold);transform:translateY(-3px)}
-    .cta-icon{font-size:26px;margin-bottom:12px;display:block}
-    .cta-ttl{font-family:"Playfair Display",serif;font-size:14px;font-weight:600;color:#fff;margin-bottom:6px}
-    .cta-det{font-size:11px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.5}
-    .footer{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;font-size:12px;color:rgba(255,255,255,.2)}
+/* FLOATING BUTTONS */
+.float-stack{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;flex-direction:column;gap:12px}
+.fab{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:24px;transition:all .25s;box-shadow:0 4px 16px rgba(0,0,0,0.3)}
+.fab:hover{transform:scale(1.08)}
+.fab-wa{background:#25D366}
+.fab-wa svg{width:26px;height:26px;fill:#fff}
+.fab-cv{background:var(--accent);color:var(--bg)}
+@media(max-width:600px){.float-stack{bottom:18px;right:18px}}
 
-    /* WHATSAPP */
-    .wa{position:fixed;bottom:32px;right:32px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;animation:wap 2s infinite}
-    .wa:hover{transform:scale(1.1)}
-    .wa svg{width:28px;height:28px;fill:white}
-    @keyframes wap{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
-
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-    .rl{opacity:0;transform:translateX(-30px);transition:opacity .7s ease,transform .7s ease}
-    .rr{opacity:0;transform:translateX(30px);transition:opacity .7s ease,transform .7s ease}
-    .rs{opacity:0;transform:scale(0.95);transition:opacity .6s ease,transform .6s ease}
-    .rv.on,.rl.on,.rr.on,.rs.on{opacity:1;transform:none}
-    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-
-    @media(max-width:960px){
-      nav{padding:0 20px}
-      nav ul{display:none}
-      .wrap{padding:72px 24px}
-      .sobre-grid,.srv-grid,.stk-grid,.test-grid{grid-template-columns:1fr}
-      .proc-line{flex-direction:column;align-items:center;gap:32px}
-      .proc-line::before{display:none}
-      .form-row{grid-template-columns:1fr}
-      .cta-cards{grid-template-columns:1fr;max-width:300px}
-      .wa{bottom:20px;right:20px}
-      .form-box{padding:28px 20px}
-    }
-  </style>
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+</style>
 </head>
 <body>
 
-<a href="https://wa.me/56997442005" target="_blank" class="wa" title="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<!-- FLOATING BUTTONS -->
+<div class="float-stack">
+  <a href="CV_Francisco_Santelices.pdf" download class="fab fab-cv" title="Descargar CV">🧾</a>
+  <a href="https://wa.me/56997442005" target="_blank" class="fab fab-wa" title="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <img src="logo_nav.png" alt="FSConsultory">
-    <div class="nav-div"></div>
-    <span>FSConsultory</span>
+  <div class="navin">
+    <a href="#hero" class="brand">
+      <img src="logo_nav.png" alt="FS">
+      <span>FSConsultory</span>
+    </a>
+    <ul class="navlinks">
+      <li><a href="#sobre" data-i18n="nav.sobre">About</a></li>
+      <li><a href="#experiencia" data-i18n="nav.exp">Experience</a></li>
+      <li><a href="#servicios" data-i18n="nav.servicios">Services</a></li>
+      <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
+      <li><a href="#portafolio" data-i18n="nav.portafolio">Portfolio</a></li>
+      <li><a href="#contacto" data-i18n="nav.contacto">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="CV_Francisco_Santelices.pdf" download class="cv-btn"><span>🧾</span><span data-i18n="nav.cv">CV</span></a>
+      <button class="icon-btn" onclick="toggleLang()" id="langBtn" title="Change language"><img id="langFlag" src="flag_cl.svg" alt="lang"></button>
+      <button class="icon-btn" onclick="toggleTheme()" id="tbtn">☀️</button>
+    </div>
   </div>
-  <ul>
-    <li><a href="#sobre" data-i18n="nav.sobre">Sobre mí</a></li>
-    <li><a href="#servicios" data-i18n="nav.servicios">Servicios</a></li>
-    <li><a href="#proceso" data-i18n="nav.proceso">Proceso</a></li>
-    <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
-    <li><a href="#portafolio" data-i18n="nav.portafolio">Portafolio</a></li>
-    <li><a href="#formulario" data-i18n="nav.form">Escríbeme</a></li>
-    <li><a href="#contacto" class="nav-cta" data-i18n="nav.contacto">Contacto</a></li>
-    <li><button class="lang-btn" onclick="toggleLang()" id="langBtn" title="Change language"><img id="langFlag" src="flag_us.svg" alt="lang"></button></li>
-    <li><button class="theme-btn" onclick="toggleTheme()" id="tbtn">☀️</button></li>
-  </ul>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
-  <img class="hero-bg" src="logo_bg.png" alt="">
-  <p class="hero-lbl" data-i18n="hero.label">Inteligencia de Negocios · Analítica Avanzada · Agentes IA</p>
-  <h1 class="hero-h1" data-i18n="hero.title">¿Tu empresa tiene datos<br>pero no <span class="hl">claridad?</span><br>Yo te ayudo a cambiar eso.</h1>
-  <p class="hero-p" data-i18n="hero.sub">Ingeniero Civil Industrial con +7 años transformando datos en control operacional, detección de pérdidas y decisiones ejecutivas.</p>
-  <a href="#formulario" class="hero-btn" data-i18n="hero.cta">Conversemos →</a>
-  <div class="hero-tags">
-    <span class="hero-tag">Power BI Expert</span><span class="dot">·</span>
-    <span class="hero-tag">SQL Expert</span><span class="dot">·</span>
-    <span class="hero-tag" data-i18n="hero.tag3">Python Avanzado</span><span class="dot">·</span>
-    <span class="hero-tag" data-i18n="hero.tag4">+600 locales</span><span class="dot">·</span>
-    <span class="hero-tag" data-i18n="hero.tag5">Agentes IA</span>
+  <img class="hero-bgmark" src="logo_bg.png" alt="">
+  <div class="wrap">
+    <p class="hero-tag mono"><span class="blink"></span><span data-i18n="hero.tag">AVAILABLE FOR PROJECTS</span></p>
+    <h1 class="hero-h1" data-i18n="hero.title">Convierto <span class="grad">datos</span><br>en decisiones de<br>negocio.</h1>
+    <p class="hero-sub" data-i18n="hero.sub">Ingeniero Civil Industrial con <b>+7 años</b> de experiencia en Business Intelligence, control operacional y analítica avanzada con IA aplicada.</p>
+    <div class="hero-actions">
+      <a href="#portafolio" class="btn-primary" data-i18n="hero.btn1">Ver Portafolio →</a>
+      <a href="CV_Francisco_Santelices.pdf" download class="btn-ghost"><span>🧾</span><span data-i18n="hero.btn2">Descargar CV</span></a>
+    </div>
+    <div class="hero-metrics">
+      <div class="hm"><div class="hm-num">7+</div><div class="hm-lbl mono" data-i18n="hero.m1">Years Experience</div></div>
+      <div class="hm"><div class="hm-num">600+</div><div class="hm-lbl mono" data-i18n="hero.m2">Locations Managed</div></div>
+      <div class="hm"><div class="hm-num">50%</div><div class="hm-lbl mono" data-i18n="hero.m3">Faster Reporting</div></div>
+      <div class="hm"><div class="hm-num">6</div><div class="hm-lbl mono" data-i18n="hero.m4">Expert-level Tools</div></div>
+    </div>
   </div>
 </section>
 
+<!-- SOBRE -->
 <section id="sobre">
   <div class="wrap">
+    <div class="sec-num">// 01 <span data-i18n="sobre.label">— About</span></div>
+    <h2 class="sec-title rv" data-i18n="sobre.title">Data that drives <em>real</em> decisions.</h2>
     <div class="sobre-grid">
-      <div class="rl">
-        <span class="lbl" data-i18n="sobre.lbl">Sobre mí</span>
-        <h2 class="ttl" data-i18n="sobre.ttl">Analista que habla<br>el idioma del negocio</h2>
-        <p data-i18n="sobre.p1">Soy Francisco Santelices, Ingeniero Civil Industrial egresado de la Universidad Diego Portales. Durante +7 años he trabajado en entornos de alta complejidad, gestionando analítica para más de 600 puntos operacionales a nivel nacional.</p>
-        <p data-i18n="sobre.p2">Me especializo en convertir datos dispersos en modelos claros que permiten a las jefaturas tomar decisiones con evidencia: control de inventarios, detección de fraude, dashboards ejecutivos y modelos de incentivos comerciales.</p>
-        <p data-i18n="sobre.p3">Integro Inteligencia Artificial en cada etapa del proceso analítico, potenciando la velocidad, precisión y accesibilidad de los insights entregados a equipos técnicos y no técnicos.</p>
-        <p data-i18n="sobre.p4">Hoy ofrezco esa misma capacidad como servicio independiente para empresas que quieren resultados reales, no solo reportes.</p>
+      <div class="sobre-text rv">
+        <span class="sobre-badge">🎓 <span data-i18n="sobre.badge">Industrial Civil Engineer · UDP</span></span>
+        <p data-i18n="sobre.p1">I'm <strong>Francisco Santelices</strong>, Industrial Civil Engineer with over <strong>7 years of experience</strong> in environments of high operational complexity, managing analytics for <strong>600+ locations</strong> nationwide.</p>
+        <p data-i18n="sobre.p2">I specialize in transforming scattered data into clear models that empower leadership to make evidence-based decisions: inventory control, fraud detection, executive dashboards and commercial incentive models.</p>
+        <p data-i18n="sobre.p3">I integrate <strong>Artificial Intelligence</strong> across the analytical workflow — boosting speed, accuracy and accessibility of insights for both technical and non-technical teams.</p>
+        <div class="tags-row">
+          <span class="tag-pill">Power BI</span>
+          <span class="tag-pill">SQL</span>
+          <span class="tag-pill">Python</span>
+          <span class="tag-pill">AI Agents</span>
+          <span class="tag-pill">DAX</span>
+        </div>
       </div>
-      <div class="rr">
-        <div class="stat-row"><div class="stat-num" data-target="7" data-pre="+">+7</div><div class="stat-desc" data-i18n="sobre.stat1">Años de experiencia</div></div>
-        <div class="stat-row"><div class="stat-num" data-target="600" data-pre="+">+600</div><div class="stat-desc" data-i18n="sobre.stat2">Locales operacionales gestionados</div></div>
-        <div class="stat-row"><div class="stat-num" data-target="50" data-suf="%">50%</div><div class="stat-desc" data-i18n="sobre.stat3">Reducción en tiempos de análisis</div></div>
-        <div class="stat-row"><div class="stat-num" data-target="6">6</div><div class="stat-desc" data-i18n="sobre.stat4">Herramientas nivel avanzado o experto</div></div>
-        <div class="stat-row"><div class="stat-num">IA</div><div class="stat-desc" data-i18n="sobre.stat5">Integrada en cada proceso</div></div>
+      <div class="side-stats rv d2">
+        <div class="sstat"><div class="sstat-num" data-target="7" data-pre="+">+7</div><div class="sstat-lbl" data-i18n="sobre.s1">Years of experience</div></div>
+        <div class="sstat"><div class="sstat-num" data-target="600" data-pre="+">+600</div><div class="sstat-lbl" data-i18n="sobre.s2">Operational locations</div></div>
+        <div class="sstat"><div class="sstat-num" data-target="50" data-suf="%">50%</div><div class="sstat-lbl" data-i18n="sobre.s3">Faster analysis</div></div>
+        <div class="sstat"><div class="sstat-num" data-target="6">6</div><div class="sstat-lbl" data-i18n="sobre.s4">Expert-level tools</div></div>
+        <div class="sstat"><div class="sstat-num">IA</div><div class="sstat-lbl" data-i18n="sobre.s5">In every process</div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="wrap">
+    <div class="sec-num">// 02 <span data-i18n="exp.label">— Experience</span></div>
+    <h2 class="sec-title rv" data-i18n="exp.title">Professional <em>Journey.</em></h2>
+    <div class="tl">
+      <div class="tl-item rv">
+        <div class="tl-date mono">08/2019 — <span data-i18n="exp.present">Present</span></div>
+        <div class="tl-content">
+          <div class="tl-dot"></div>
+          <div class="tl-role" data-i18n="exp.j1role">Senior BI &amp; Loss Prevention Analyst<span class="tl-badge" data-i18n="exp.j1badge">CURRENT</span></div>
+          <div class="tl-company mono">Empresas SB — Intelligence &amp; Loss Prevention</div>
+          <ul class="tl-list">
+            <li data-i18n="exp.j1l1">Designed analytical models to detect <b>loss and fraud patterns</b> nationwide across 600+ operational locations, strengthening internal control.</li>
+            <li data-i18n="exp.j1l2">Built executive <b>Power BI dashboards</b> used by leadership and strategic teams, reducing analysis time by over <b>50%</b>.</li>
+            <li data-i18n="exp.j1l3">Optimized inventory management through stockout and overstock analysis across stores and distribution centers.</li>
+            <li data-i18n="exp.j1l4">Developed commercial performance indicators aligning incentives with real business outcomes nationwide.</li>
+            <li data-i18n="exp.j1l5">Led the national bonus calculation and allocation process, ensuring accuracy and traceability.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Power BI</span><span class="tl-tag">SQL</span><span class="tl-tag">Python</span><span class="tl-tag">Excel Avanzado</span><span class="tl-tag">Data Modeling</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item rv">
+        <div class="tl-date mono">2018<br><span class="mono" style="font-size:11px;color:var(--text3)" data-i18n="exp.months2">2 months</span></div>
+        <div class="tl-content">
+          <div class="tl-dot"></div>
+          <div class="tl-role" data-i18n="exp.j2role">Professional Internship</div>
+          <div class="tl-company mono" data-i18n="exp.j2company">Superintendencia de Bancos e Instituciones Financieras (SBIF) — Modeling Dept.</div>
+          <ul class="tl-list">
+            <li data-i18n="exp.j2l1">Researched and built probabilistic models to understand banking sector phenomena in Chile, supporting the foundations of <b>Basel II</b> regulatory frameworks.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Probabilistic Models</span><span class="tl-tag">Banking Regulation</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item rv">
+        <div class="tl-date mono">2017<br><span class="mono" style="font-size:11px;color:var(--text3)" data-i18n="exp.months2">2 months</span></div>
+        <div class="tl-content">
+          <div class="tl-dot"></div>
+          <div class="tl-role" data-i18n="exp.j3role">Operations Internship</div>
+          <div class="tl-company mono">ICIL-ICAFAL Maquinaria S.p.A</div>
+          <ul class="tl-list">
+            <li data-i18n="exp.j3l1">Supported operational areas related to machinery rental, maintenance and fleet management processes.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag" data-i18n="exp.j3tag">Operations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
 <section id="servicios">
   <div class="wrap">
-    <span class="lbl rv" data-i18n="servicios.lbl">Servicios</span>
-    <h2 class="ttl rv" data-i18n="servicios.ttl">¿En qué puedo ayudarte?</h2>
+    <div class="sec-num">// 03 <span data-i18n="srv.label">— Services</span></div>
+    <h2 class="sec-title rv" data-i18n="srv.title">How can I <em>help</em> you?</h2>
     <div class="srv-grid">
-      <div class="srv-card rs d1"><span class="srv-icon">📊</span><h3 class="srv-title" data-i18n="servicios.s1t">Dashboards Ejecutivos</h3><p class="srv-desc" data-i18n="servicios.s1d">Diseño e implemento reportes en Power BI conectados a tus datos reales. Tus jefaturas verán el negocio en tiempo real, sin depender de planillas.</p></div>
-      <div class="srv-card rs d2"><span class="srv-icon">🔍</span><h3 class="srv-title" data-i18n="servicios.s2t">Control Operacional y Pérdidas</h3><p class="srv-desc" data-i18n="servicios.s2d">Identifico patrones de desvío, fraude e ineficiencia en tus operaciones. Metodología probada en entornos de +600 puntos operacionales.</p></div>
-      <div class="srv-card rs d3"><span class="srv-icon">⚙️</span><h3 class="srv-title" data-i18n="servicios.s3t">Modelos de Datos a Medida</h3><p class="srv-desc" data-i18n="servicios.s3d">Construyo modelos en SQL, Python y Excel que automatizan análisis repetitivos y generan indicadores accionables para tu equipo.</p></div>
-      <div class="srv-card rs d1"><span class="srv-icon">🤖</span><h3 class="srv-title" data-i18n="servicios.s4t">Agentes de Inteligencia Artificial</h3><p class="srv-desc" data-i18n="servicios.s4d">Desarrollo e integro agentes de IA en tus procesos analíticos y operacionales, potenciando velocidad y calidad de decisiones.</p></div>
-      <div class="srv-card rs d2"><span class="srv-icon">💬</span><h3 class="srv-title" data-i18n="servicios.s5t">Comunicación de Datos</h3><p class="srv-desc" data-i18n="servicios.s5d">Traduzco análisis complejos a un lenguaje claro y amigable para equipos directivos, comerciales y operacionales.</p></div>
-      <div class="srv-card rs d3"><span class="srv-icon">🎯</span><h3 class="srv-title" data-i18n="servicios.s6t">Optimización Comercial</h3><p class="srv-desc" data-i18n="servicios.s6d">Diseño modelos de incentivos y KPIs alineados con resultados reales, aumentando efectividad de equipos mediante datos e IA.</p></div>
+      <div class="srv-card rv d1">
+        <div class="srv-num mono">01 / 📊</div>
+        <div class="srv-title" data-i18n="srv.s1t">Executive Dashboards</div>
+        <div class="srv-desc" data-i18n="srv.s1d">Power BI reports connected to real data. Leadership sees the business in real time, without spreadsheets.</div>
+      </div>
+      <div class="srv-card rv d2">
+        <div class="srv-num mono">02 / 🔍</div>
+        <div class="srv-title" data-i18n="srv.s2t">Operational Control &amp; Loss Prevention</div>
+        <div class="srv-desc" data-i18n="srv.s2d">Identify deviation, fraud and inefficiency patterns. Proven methodology across 600+ locations.</div>
+      </div>
+      <div class="srv-card rv d3">
+        <div class="srv-num mono">03 / ⚙️</div>
+        <div class="srv-title" data-i18n="srv.s3t">Custom Data Models</div>
+        <div class="srv-desc" data-i18n="srv.s3d">SQL, Python and Excel models that automate repetitive analysis and generate actionable indicators.</div>
+      </div>
+      <div class="srv-card rv d1">
+        <div class="srv-num mono">04 / 🤖</div>
+        <div class="srv-title" data-i18n="srv.s4t">AI Agents</div>
+        <div class="srv-desc" data-i18n="srv.s4d">Develop and integrate AI agents into analytical and operational processes, boosting decision quality.</div>
+      </div>
+      <div class="srv-card rv d2">
+        <div class="srv-num mono">05 / 💬</div>
+        <div class="srv-title" data-i18n="srv.s5t">Data Communication</div>
+        <div class="srv-desc" data-i18n="srv.s5d">Translate complex analysis into clear language for executive, commercial and operational teams.</div>
+      </div>
+      <div class="srv-card rv d3">
+        <div class="srv-num mono">06 / 🎯</div>
+        <div class="srv-title" data-i18n="srv.s6t">Commercial Optimization</div>
+        <div class="srv-desc" data-i18n="srv.s6d">Incentive models and KPIs aligned with real business outcomes through data and AI.</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- PROCESO -->
 <section id="proceso">
   <div class="wrap">
-    <span class="lbl rv" style="display:block;text-align:center" data-i18n="proceso.lbl">Cómo trabajo</span>
-    <h2 class="ttl rv" style="text-align:center;color:#fff" data-i18n="proceso.full">Del dato al resultado,<br><em style="font-weight:400;color:var(--gold)">paso a paso.</em></h2>
-    <div class="proc-line rv">
-      <div class="proc-step">
-        <div class="proc-icon">🔎<span class="proc-n">1</span></div>
-        <div class="proc-title" data-i18n="proceso.p1t">Diagnóstico</div>
-        <div class="proc-desc" data-i18n="proceso.p1d">Entiendo tu negocio, tus datos disponibles y el problema real a resolver.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-icon">✏️<span class="proc-n">2</span></div>
-        <div class="proc-title" data-i18n="proceso.p2t">Diseño</div>
-        <div class="proc-desc" data-i18n="proceso.p2d">Defino la arquitectura de datos, métricas clave y entregables esperados.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-icon">⚙️<span class="proc-n">3</span></div>
-        <div class="proc-title" data-i18n="proceso.p3t">Desarrollo</div>
-        <div class="proc-desc" data-i18n="proceso.p3d">Construyo modelos, dashboards o agentes con las herramientas adecuadas.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-icon">🚀<span class="proc-n">4</span></div>
-        <div class="proc-title" data-i18n="proceso.p4t">Implementación</div>
-        <div class="proc-desc" data-i18n="proceso.p4d">Despliego la solución en tu entorno real, asegurando funcionalidad completa.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-icon">🎓<span class="proc-n">5</span></div>
-        <div class="proc-title" data-i18n="proceso.p5t">Capacitación</div>
-        <div class="proc-desc" data-i18n="proceso.p5d">Transfiero el conocimiento para que tu equipo opere con autonomía.</div>
-      </div>
+    <div class="sec-num">// 04 <span data-i18n="proc.label">— Process</span></div>
+    <h2 class="sec-title rv" data-i18n="proc.title">From data to <em>results.</em></h2>
+    <div class="proc-grid">
+      <div class="proc-step rv d1"><div class="proc-n">01</div><div class="proc-title" data-i18n="proc.p1t">Diagnosis</div><div class="proc-desc" data-i18n="proc.p1d">Understand your business, available data and the real problem.</div></div>
+      <div class="proc-step rv d2"><div class="proc-n">02</div><div class="proc-title" data-i18n="proc.p2t">Design</div><div class="proc-desc" data-i18n="proc.p2d">Define data architecture, key metrics and deliverables.</div></div>
+      <div class="proc-step rv d3"><div class="proc-n">03</div><div class="proc-title" data-i18n="proc.p3t">Development</div><div class="proc-desc" data-i18n="proc.p3d">Build models, dashboards or agents with the right tools.</div></div>
+      <div class="proc-step rv d4"><div class="proc-n">04</div><div class="proc-title" data-i18n="proc.p4t">Implementation</div><div class="proc-desc" data-i18n="proc.p4d">Deploy the solution in your real environment.</div></div>
+      <div class="proc-step rv d5"><div class="proc-n">05</div><div class="proc-title" data-i18n="proc.p5t">Training</div><div class="proc-desc" data-i18n="proc.p5d">Transfer knowledge for your team to operate independently.</div></div>
     </div>
   </div>
 </section>
 
+<!-- STACK -->
 <section id="stack">
   <div class="wrap">
-    <span class="lbl rv" data-i18n="stack.lbl">Herramientas</span>
-    <h2 class="ttl rv" data-i18n="stack.ttl">Trabajo con las herramientas<br>que el negocio exige.</h2>
+    <div class="sec-num">// 05 <span data-i18n="stk.label">— Tech Stack</span></div>
+    <h2 class="sec-title rv" data-i18n="stk.title">Tools I work with.</h2>
     <div class="stk-grid">
-      <div class="stk-card rv d1"><div class="stk-name">Power BI</div><span class="stk-lvl" data-i18n="stack.exp">Experto</span><p class="stk-note" data-i18n="stack.n1">Certificado UTN Curitiba, Brasil. Dashboards con DAX avanzado, modelos estrella y publicación en Power BI Service.</p></div>
-      <div class="stk-card rv d2"><div class="stk-name">SQL</div><span class="stk-lvl" data-i18n="stack.exp">Experto</span><p class="stk-note" data-i18n="stack.n2">Consultas complejas, joins, CTEs y modelamiento relacional para grandes volúmenes de datos operacionales.</p></div>
-      <div class="stk-card rv d3"><div class="stk-name">Excel</div><span class="stk-lvl" data-i18n="stack.exp">Experto</span><p class="stk-note" data-i18n="stack.n3">Tablas dinámicas, Power Query, macros VBA y modelos financieros. Herramienta central para reportería.</p></div>
-      <div class="stk-card rv d1"><div class="stk-name">Python</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n4">Certificado UTN Curitiba, Brasil. Análisis con pandas, visualización con matplotlib y automatización.</p></div>
-      <div class="stk-card rv d2"><div class="stk-name">STATA</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n5">Modelos econométricos, regresiones y análisis estadístico inferencial aplicado a datos de negocio.</p></div>
-      <div class="stk-card rv d3"><div class="stk-name">SPSS</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n6">Análisis multivariante, clustering y segmentación para identificar patrones en operaciones distribuidas.</p></div>
-      <div class="stk-card rv d1"><div class="stk-name">ChatGPT</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n7">Generación de código analítico, automatización de reportes narrativos y exploración de datos no estructurados.</p></div>
-      <div class="stk-card rv d2"><div class="stk-name">Claude</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n8">Análisis de documentos extensos, síntesis de información compleja y razonamiento para decisiones críticas.</p></div>
-      <div class="stk-card rv d3"><div class="stk-name" data-i18n="stack.agents">Agentes IA</div><span class="stk-lvl" data-i18n="stack.avz">Avanzado</span><p class="stk-note" data-i18n="stack.n9">Flujos autónomos con LLMs para automatizar tareas analíticas e integrar fuentes de datos con alertas inteligentes.</p></div>
+      <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name">Power BI</span><span class="stk-lvl" data-i18n="stk.exp">EXPERT</span></div><div class="stk-note" data-i18n="stk.n1">Certified, UTN Curitiba. Advanced DAX, star schema models, Power BI Service.</div></div>
+      <div class="stk-card rv d2"><div class="stk-head"><span class="stk-name">SQL</span><span class="stk-lvl" data-i18n="stk.exp">EXPERT</span></div><div class="stk-note" data-i18n="stk.n2">Complex queries, joins, CTEs and relational modeling for large datasets.</div></div>
+      <div class="stk-card rv d3"><div class="stk-head"><span class="stk-name">Excel</span><span class="stk-lvl" data-i18n="stk.exp">EXPERT</span></div><div class="stk-note" data-i18n="stk.n3">Pivot tables, Power Query, VBA macros and financial models.</div></div>
+      <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name">Python</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n4">Certified, UTN Curitiba. Pandas, matplotlib, automation pipelines.</div></div>
+      <div class="stk-card rv d2"><div class="stk-head"><span class="stk-name">STATA</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n5">Econometric models, regressions and inferential statistics.</div></div>
+      <div class="stk-card rv d3"><div class="stk-head"><span class="stk-name">SPSS</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n6">Multivariate analysis, clustering and segmentation.</div></div>
+      <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name">ChatGPT</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n7">Analytical code generation, narrative report automation.</div></div>
+      <div class="stk-card rv d2"><div class="stk-head"><span class="stk-name">Claude</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n8">Document analysis, complex information synthesis, critical reasoning.</div></div>
+      <div class="stk-card rv d3"><div class="stk-head"><span class="stk-name" data-i18n="stk.ai">Inteligencia Artificial</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n10">Certified, UTN Curitiba. Applied AI for analytics, automation and decision support.</div></div>
+      <div class="stk-card rv d1"><div class="stk-head"><span class="stk-name" data-i18n="stk.agents">AI Agents</span><span class="stk-lvl" data-i18n="stk.adv">ADVANCED</span></div><div class="stk-note" data-i18n="stk.n9">Autonomous LLM workflows for analytics and smart alerts.</div></div>
     </div>
   </div>
 </section>
 
-<section id="testimonios">
+<!-- RESULTADOS -->
+<section id="resultados">
   <div class="wrap">
-    <span class="lbl rv" data-i18n="test.lbl">Resultados</span>
-    <h2 class="ttl rv" data-i18n="test.ttl">Impacto medible en operaciones reales</h2>
-    <div class="test-grid">
-      <div class="test-card rv d1">
-        <div class="test-q">"</div>
-        <p class="test-txt" data-i18n="test.t1">Implementé modelos de análisis que detectaron patrones de pérdida y fraude a nivel nacional, reduciendo desviaciones operacionales y fortaleciendo el control interno en más de 600 puntos.</p>
-        <div class="test-res" data-i18n="test.r1">↓ Pérdidas operacionales · Control nacional</div>
+    <div class="sec-num">// 06 <span data-i18n="res.label">— Results</span></div>
+    <h2 class="sec-title rv" data-i18n="res.title">Measurable <em>impact.</em></h2>
+    <div class="res-grid">
+      <div class="res-card rv d1">
+        <div class="res-mark">"</div>
+        <div class="res-txt" data-i18n="res.t1">Implemented analytical models detecting loss and fraud patterns nationwide across 600+ locations, strengthening internal control.</div>
+        <div class="res-tag mono" data-i18n="res.r1">↓ OPERATIONAL LOSSES</div>
       </div>
-      <div class="test-card rv d2">
-        <div class="test-q">"</div>
-        <p class="test-txt" data-i18n="test.t2">Generé dashboards ejecutivos en Power BI utilizados por jefaturas y áreas estratégicas, reduciendo los tiempos de análisis en más de un 50% y acelerando la toma de decisiones.</p>
-        <div class="test-res" data-i18n="test.r2">↓ 50% tiempo de análisis · Decisiones más rápidas</div>
+      <div class="res-card rv d2">
+        <div class="res-mark">"</div>
+        <div class="res-txt" data-i18n="res.t2">Built executive Power BI dashboards, cutting analysis time by 50%+ and accelerating decision-making for leadership.</div>
+        <div class="res-tag mono" data-i18n="res.r2">↓ 50% ANALYSIS TIME</div>
       </div>
-      <div class="test-card rv d3">
-        <div class="test-q">"</div>
-        <p class="test-txt" data-i18n="test.t3">Desarrollé indicadores de desempeño comercial que alinearon incentivos con resultados reales de negocio, aumentando la efectividad del esquema de bonificaciones a nivel nacional.</p>
-        <div class="test-res" data-i18n="test.r3">↑ Efectividad comercial · Incentivos alineados</div>
+      <div class="res-card rv d3">
+        <div class="res-mark">"</div>
+        <div class="res-txt" data-i18n="res.t3">Developed commercial performance indicators aligning incentives with real outcomes nationwide.</div>
+        <div class="res-tag mono" data-i18n="res.r3">↑ COMMERCIAL EFFECTIVENESS</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PORTAFOLIO -->
 <section id="portafolio">
-  <img class="port-bg" src="logo_bg.png" alt="">
   <div class="wrap">
-    <span class="lbl rv" data-i18n="port.lbl">Portafolio</span>
-    <h2 class="ttl rv" data-i18n="port.ttl">Trabajos en Power BI</h2>
-    <p class="port-sub rv" data-i18n="port.sub">Explora dashboards y modelos de datos reales desarrollados para operaciones de alta complejidad.</p>
-    <a href="https://bit.ly/fsconsultory" target="_blank" class="port-btn rv" data-i18n="port.btn">Ver portafolio completo →</a>
+    <div class="sec-num" style="justify-content:center">// 07 <span data-i18n="port.label">— Portfolio</span></div>
+    <h2 class="sec-title rv" data-i18n="port.title">Power BI <em>Work.</em></h2>
+    <div class="port-box rv">
+      <p class="port-sub" data-i18n="port.sub">Explore dashboards and real data models built for highly complex operations.</p>
+      <a href="https://bit.ly/fsconsultory" target="_blank" class="btn-primary" data-i18n="port.btn">View Full Portfolio →</a>
+    </div>
   </div>
 </section>
 
+<!-- FORM -->
 <section id="formulario">
   <div class="wrap">
-    <span class="lbl rv" data-i18n="form.lbl">Escríbeme</span>
-    <h2 class="ttl rv" data-i18n="form.ttl">Cuéntame tu desafío</h2>
-    <div class="form-box rs">
-      <div class="form-row">
-        <div class="fgrp" id="gn"><label data-i18n="form.name">Nombre</label><input type="text" id="fn" data-i18n-ph="form.namePh" placeholder="Tu nombre completo"><span class="emsg" data-i18n="form.errName">Ingresa tu nombre</span></div>
-        <div class="fgrp" id="gt"><label data-i18n="form.phone">Teléfono</label><input type="tel" id="ft" placeholder="+56 9 XXXX XXXX"><span class="emsg" data-i18n="form.errPhone">Ingresa tu teléfono</span></div>
+    <div class="sec-num">// 08 <span data-i18n="form.label">— Get in Touch</span></div>
+    <h2 class="sec-title rv" data-i18n="form.title">Tell me your <em>challenge.</em></h2>
+    <div class="form-box rv">
+      <div class="frow">
+        <div class="fg" id="gn"><label data-i18n="form.name">NAME</label><input type="text" id="fn" data-i18n-ph="form.namePh" placeholder="Your full name"><span class="em" data-i18n="form.errName">Please enter your name</span></div>
+        <div class="fg" id="gt"><label data-i18n="form.phone">PHONE</label><input type="tel" id="ft" placeholder="+56 9 XXXX XXXX"><span class="em" data-i18n="form.errPhone">Please enter your phone</span></div>
       </div>
-      <div class="fgrp" id="ge"><label data-i18n="form.email">Email</label><input type="email" id="fe" data-i18n-ph="form.emailPh" placeholder="tu@empresa.com"><span class="emsg" data-i18n="form.errEmail">Ingresa un email válido</span></div>
-      <div class="fgrp" id="gm"><label data-i18n="form.msg">Mensaje</label><textarea id="fm" data-i18n-ph="form.msgPh" placeholder="Cuéntame tu desafío o proyecto..."></textarea><span class="emsg" data-i18n="form.errMsg">Escribe tu mensaje</span></div>
-      <button class="fsub" onclick="enviar()" data-i18n="form.submit">Enviar mensaje →</button>
-      <div class="fok" id="fok" data-i18n="form.success">✅ ¡Mensaje enviado! Te responderé a la brevedad.</div>
+      <div class="fg" id="ge"><label data-i18n="form.email">EMAIL</label><input type="email" id="fe" data-i18n-ph="form.emailPh" placeholder="you@company.com"><span class="em" data-i18n="form.errEmail">Please enter a valid email</span></div>
+      <div class="fg" id="gm"><label data-i18n="form.msg">MESSAGE</label><textarea id="fm" data-i18n-ph="form.msgPh" placeholder="Tell me about your project..."></textarea><span class="em" data-i18n="form.errMsg">Please write your message</span></div>
+      <button class="fsub" onclick="enviar()" data-i18n="form.submit">Send Message →</button>
+      <div class="fok" id="fok" data-i18n="form.success">✅ Message sent! I'll get back to you shortly.</div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contacto">
-  <img class="cta-bg" src="logo_bg.png" alt="">
   <div class="wrap">
-    <span class="lbl rv" data-i18n="cta.lbl">Contacto</span>
-    <h2 class="ttl rv" style="color:#fff" data-i18n="cta.full">Transformemos tus datos<br><em style="font-weight:400;color:var(--gold)">en resultados reales.</em></h2>
-    <p class="cta-sub rv" data-i18n="cta.sub">Selecciona cómo prefieres contactarme y conversamos sin compromiso.</p>
+    <div class="sec-num" style="justify-content:center">// 09 <span data-i18n="cta.label">— Contact</span></div>
+    <h2 class="sec-title rv" data-i18n="cta.title">Let's <em>Talk.</em></h2>
     <div class="cta-cards rv">
       <a href="mailto:francisco@fsconsultory.com" class="cta-card">
         <span class="cta-icon">✉️</span>
         <div class="cta-ttl">Email</div>
-        <div class="cta-det">francisco@<br>fsconsultory.com</div>
+        <div class="cta-det mono">francisco@fsconsultory.com</div>
       </a>
       <a href="https://www.linkedin.com/in/svntelices/" target="_blank" class="cta-card">
         <span class="cta-icon">💼</span>
         <div class="cta-ttl">LinkedIn</div>
-        <div class="cta-det">Francisco Santelices</div>
+        <div class="cta-det mono">Francisco Santelices</div>
       </a>
     </div>
-    <div class="footer rv">© 2026 Francisco Santelices · fsconsultory.com</div>
+    <div class="footer">© 2026 FSConsultory — Francisco Santelices Contreras</div>
   </div>
 </section>
 
 <script src="i18n.js"></script>
 <script>
-// REVEAL ON SCROLL
-const io = new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("on")})},{threshold:0.1});
-document.querySelectorAll(".rv,.rl,.rr,.rs").forEach(el=>io.observe(el));
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("on")})},{threshold:0.1});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
 
-// CONTADOR 2 SEGUNDOS
 function count(el){
   const t=parseInt(el.dataset.target),pre=el.dataset.pre||"",suf=el.dataset.suf||"";
   if(!t)return;
@@ -400,24 +502,21 @@ function count(el){
   const tm=setInterval(()=>{c=Math.min(c+step,t);el.textContent=pre+Math.floor(c)+suf;if(c>=t)clearInterval(tm)},16);
 }
 const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&x.target.dataset.target){count(x.target);co.unobserve(x.target)}})},{threshold:0.5});
-document.querySelectorAll(".stat-num[data-target]").forEach(el=>co.observe(el));
+document.querySelectorAll(".sstat-num[data-target]").forEach(el=>co.observe(el));
 
-// NAV ACTIVO
-const links=document.querySelectorAll("nav a[href^='#']");
+const links=document.querySelectorAll(".navlinks a[href^='#']");
 window.addEventListener("scroll",()=>{
   let cur="";
-  document.querySelectorAll("section[id]").forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
+  document.querySelectorAll("section[id]").forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id});
   links.forEach(a=>{a.classList.remove("active");if(a.getAttribute("href")==="#"+cur)a.classList.add("active")});
 });
 
-// TEMA
 function toggleTheme(){
   const h=document.documentElement,b=document.getElementById("tbtn");
   if(h.dataset.theme==="dark"){h.dataset.theme="light";b.textContent="🌙";}
   else{h.dataset.theme="dark";b.textContent="☀️";}
 }
 
-// FORMULARIO
 function enviar(){
   let ok=true;
   [{id:"fn",g:"gn",t:"tx"},{id:"ft",g:"gt",t:"tx"},{id:"fe",g:"ge",t:"em"},{id:"fm",g:"gm",t:"tx"}].forEach(c=>{
