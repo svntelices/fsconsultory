@@ -60,7 +60,19 @@ const translations = {
     "form.name":"NAME","form.namePh":"Your full name","form.phone":"PHONE","form.email":"EMAIL","form.emailPh":"you@company.com","form.msg":"MESSAGE","form.msgPh":"Tell me about your project...",
     "form.submit":"Send Message →","form.success":"✅ Message sent! I'll get back to you shortly.",
     "form.errName":"Please enter your name","form.errPhone":"Please enter your phone","form.errEmail":"Please enter a valid email","form.errMsg":"Please write your message",
-    "cta.label":"— Contact","cta.title":"Let's <em>Talk.</em>"
+    "cta.label":"— Contact","cta.title":"Let's <em>Talk.</em>",
+    "port.subtitle":"Real projects developed for companies across different industries and countries.",
+    "port.billing":"BILLING","port.branches":"BRANCHES","port.orders":"ORDERS/YEAR",
+    "port.modules":"MODULES","port.multistate":"MULTI-STATE","port.countries":"COUNTRIES",
+    "port.products":"PRODUCTS","port.cities":"CITIES",
+    "port.p1name":"Multi-Branch Retail Dashboard",
+    "port.p1desc":"Executive sales overview for a 4-branch retail chain. Goal tracking with real vs target comparison, billing by category, delivery time and monthly order trends.",
+    "port.p2name":"Commercial Analytics Platform",
+    "port.p2desc":"3-module platform: geographic billing by state/city (USA), individual salesperson performance with ranking, and customer segmentation by profile and purchase behavior.",
+    "port.p3name":"Multinational Sales Analysis — XSales",
+    "port.p3desc":"Financial dashboard for a 5-country operation. Monitors $118.7M in revenue, product margins, country-level profitability and customer type segmentation. Includes Mobile/Desktop responsive toggle.",
+    "port.p4name":"Sales Tracking Dashboard — Colombia",
+    "port.p4desc":"Commercial tracking dashboard for a multi-branch chain in Colombia. Sales by store, top salespeople, product treemap by category, monthly trends and geographic map."
   },
   es: {
     "nav.sobre":"Sobre mí","nav.exp":"Experiencia","nav.servicios":"Servicios","nav.stack":"Stack","nav.portafolio":"Portafolio","nav.contacto":"Contacto","nav.cv":"CV",
@@ -123,7 +135,19 @@ const translations = {
     "form.name":"NOMBRE","form.namePh":"Tu nombre completo","form.phone":"TELÉFONO","form.email":"EMAIL","form.emailPh":"tu@empresa.com","form.msg":"MENSAJE","form.msgPh":"Cuéntame tu desafío o proyecto...",
     "form.submit":"Enviar Mensaje →","form.success":"✅ ¡Mensaje enviado! Te responderé a la brevedad.",
     "form.errName":"Ingresa tu nombre","form.errPhone":"Ingresa tu teléfono","form.errEmail":"Ingresa un email válido","form.errMsg":"Escribe tu mensaje",
-    "cta.label":"— Contacto","cta.title":"Conversemos."
+    "cta.label":"— Contacto","cta.title":"Conversemos.",
+    "port.subtitle":"Proyectos reales desarrollados para empresas de distintas industrias y países.",
+    "port.billing":"FACTURACIÓN","port.branches":"SUCURSALES","port.orders":"PEDIDOS/AÑO",
+    "port.modules":"MÓDULOS","port.multistate":"MULTI-ESTADO","port.countries":"PAÍSES",
+    "port.products":"PRODUCTOS","port.cities":"CIUDADES",
+    "port.p1name":"Dashboard Retail Multi-Sucursal",
+    "port.p1desc":"Visión ejecutiva de ventas para cadena retail con 4 sucursales. Seguimiento de metas con comparativo real vs objetivo, análisis por categoría, tiempo de entrega y evolución mensual.",
+    "port.p2name":"Plataforma Analítica Comercial",
+    "port.p2desc":"Plataforma de 3 módulos: facturación geográfica por estado/ciudad (USA), performance individual de vendedores con ranking, y segmentación de clientes por perfil y comportamiento de compra.",
+    "port.p3name":"Análisis de Ventas Multinacional — XSales",
+    "port.p3desc":"Dashboard financiero para operación en 5 países. Monitorea $118.7M en facturación, margen por producto, rentabilidad por país y segmentación por tipo de cliente. Incluye versión responsive Mobile/Desktop.",
+    "port.p4name":"Acompañamiento de Ventas — Colombia",
+    "port.p4desc":"Dashboard de seguimiento comercial para cadena multi-sucursal en Colombia. Ventas por tienda, top vendedores, treemap de productos por categoría, evolución mensual y mapa geográfico."
   }
 };
 
