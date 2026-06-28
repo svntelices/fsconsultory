@@ -62,24 +62,19 @@ const translations = {
     "form.errName":"Please enter your name","form.errPhone":"Please enter your phone","form.errEmail":"Please enter a valid email","form.errMsg":"Please write your message",
     "cta.label":"— Contact","cta.title":"Let's <em>Talk.</em>",,
     "port.clients":"CLIENTS","port.states":"STATES","port.margin":"MARGIN",
-    "port.p1desc":"End-to-end Power BI solution with Power Query ETL, star schema modeling and DAX semantic layer. Measures operational throughput (orders/hour), delivery fulfillment rate, profit evolution vs prior year (YoY) and profitability by product category SKU. Published in Power BI Service with row-level security (RLS) per branch.",
-    "port.p2desc":"BI system with high-cardinality relational model (800+ clients, 12+ states). Implements time intelligence measures with DATEADD and CALCULATE for current period vs LY comparisons. Includes geospatial visualizations with Bing Maps, enriched tooltips and drill-through between modules. Customer segmentation by status and Class-A/Class-B classification with conditional DAX logic.",
-    "port.p3desc":"Sales analytics dashboard with snowflake architecture adapted for multinational operations. Implements Country → Customer Type → Product hierarchies with interactive drill-down. Calculated measures for marginal contribution per SKU, ROI by market and discount elasticity. Responsive design with differentiated Mobile/Desktop layouts using bookmarks and conditional visibility.",
-    "port.p4desc":"Operational dashboard with star schema (sales facts + store, salesperson, product and date dimensions). DAX measures for commercial KPIs: market share by branch, category rotation speed and salesperson benchmark vs team average. Category treemap with conditional color logic and interactive geographic coverage map of Colombia.",
     "port.subtitle":"Real projects developed for companies across different industries and countries.",
     "port.billing":"BILLING","port.branches":"BRANCHES","port.orders":"ORDERS/YEAR",
     "port.modules":"MODULES","port.multistate":"MULTI-STATE","port.countries":"COUNTRIES",
     "port.products":"PRODUCTS","port.cities":"CITIES",
     "port.p1name":"Multi-Branch Retail Dashboard",
-    "port.p1desc":"Executive sales overview for a 4-branch retail chain. Goal tracking with real vs target comparison, billing by category, delivery time and monthly order trends.",
     "port.p2name":"Commercial Analytics Platform",
+    "port.p3name":"Multinational Sales Analysis — XSales",,
+    "port.p1desc":"Executive sales overview for a 4-branch retail chain. Goal tracking with real vs target comparison, billing by category, delivery time and monthly order trends.",
     "port.p2desc":"3-module platform: geographic billing by state/city (USA), individual salesperson performance with ranking, and customer segmentation by profile and purchase behavior.",
-    "port.p3name":"Multinational Sales Analysis — XSales",
     "port.p3desc":"Financial dashboard for a 5-country operation. Monitors $118.7M in revenue, product margins, country-level profitability and customer type segmentation. Includes Mobile/Desktop responsive toggle.",
-    "port.p4name":"Sales Tracking Dashboard — Colombia",
     "port.p4desc":"Commercial tracking dashboard for a multi-branch chain in Colombia. Sales by store, top salespeople, product treemap by category, monthly trends and geographic map."
-  },
-  es: {
+    "port.p4name":"Sales Tracking Dashboard — Colombia"
+  }  es: {
     "nav.sobre":"Sobre mí","nav.exp":"Experiencia","nav.servicios":"Servicios","nav.stack":"Stack","nav.portafolio":"Portafolio","nav.contacto":"Contacto","nav.cv":"CV",
     "hero.tag":"BUSINESS INTELLIGENCE CONSULTANT",
     "hero.title":"Convierto <span class=\"grad\">datos</span><br>en decisiones ejecutivas.",
@@ -142,22 +137,18 @@ const translations = {
     "form.errName":"Ingresa tu nombre","form.errPhone":"Ingresa tu teléfono","form.errEmail":"Ingresa un email válido","form.errMsg":"Escribe tu mensaje",
     "cta.label":"— Contacto","cta.title":"Conversemos.",,
     "port.clients":"CLIENTES","port.states":"ESTADOS","port.margin":"MARGEN",
-    "port.p1desc":"Solución Power BI end-to-end con ETL en Power Query, modelamiento en estrella y capa semántica DAX. Mide throughput operacional (pedidos/hora), tasa de cumplimiento de entregas, evolución de ganancia vs período anterior (AA) y rentabilidad por SKU de categoría. Publicado en Power BI Service con RLS por sucursal.",
-    "port.p2desc":"Sistema de BI con modelo relacional de alta cardinalidad (800+ clientes, 12+ estados). Implementa medidas de inteligencia de tiempo con DATEADD y CALCULATE para comparativos período actual vs LY. Incluye visualizaciones geoespaciales con Bing Maps, tooltips enriquecidos y drill-through entre módulos. Segmentación de clientes por status y clasificación Class-A/Class-B con lógica DAX condicional.",
-    "port.p3desc":"Dashboard de analítica de ventas con arquitectura snowflake adaptada a operación multinacional. Implementa jerarquías País → Tipo de Cliente → Producto con drill-down interactivo. Medidas calculadas de contribución marginal por SKU, ROI por mercado y elasticidad de descuento. Diseño responsivo con layouts diferenciados Mobile/Desktop mediante bookmarks y visibilidad condicional.",
-    "port.p4desc":"Dashboard operacional con modelo estrella (hechos de ventas + dimensiones de tienda, vendedor, producto y fecha). Medidas DAX de KPIs comerciales: participación de mercado por sucursal, velocidad de rotación por categoría y benchmark de vendedor vs media del equipo. Treemap de categorías con lógica de color condicional y mapa interactivo de cobertura geográfica Colombia.",
     "port.subtitle":"Proyectos reales desarrollados para empresas de distintas industrias y países.",
     "port.billing":"FACTURACIÓN","port.branches":"SUCURSALES","port.orders":"PEDIDOS/AÑO",
     "port.modules":"MÓDULOS","port.multistate":"MULTI-ESTADO","port.countries":"PAÍSES",
     "port.products":"PRODUCTOS","port.cities":"CIUDADES",
     "port.p1name":"Dashboard Retail Multi-Sucursal",
-    "port.p1desc":"Visión ejecutiva de ventas para cadena retail con 4 sucursales. Seguimiento de metas con comparativo real vs objetivo, análisis por categoría, tiempo de entrega y evolución mensual.",
     "port.p2name":"Plataforma Analítica Comercial",
+    "port.p3name":"Análisis de Ventas Multinacional — XSales",,
+    "port.p1desc":"Visión ejecutiva de ventas para cadena retail con 4 sucursales. Seguimiento de metas con comparativo real vs objetivo, análisis por categoría, tiempo de entrega y evolución mensual.",
     "port.p2desc":"Plataforma de 3 módulos: facturación geográfica por estado/ciudad (USA), performance individual de vendedores con ranking, y segmentación de clientes por perfil y comportamiento de compra.",
-    "port.p3name":"Análisis de Ventas Multinacional — XSales",
     "port.p3desc":"Dashboard financiero para operación en 5 países. Monitorea $118.7M en facturación, margen por producto, rentabilidad por país y segmentación por tipo de cliente. Incluye versión responsive Mobile/Desktop.",
-    "port.p4name":"Acompañamiento de Ventas — Colombia",
     "port.p4desc":"Dashboard de seguimiento comercial para cadena multi-sucursal en Colombia. Ventas por tienda, top vendedores, treemap de productos por categoría, evolución mensual y mapa geográfico."
+    "port.p4name":"Acompañamiento de Ventas — Colombia"
   }
 };
 
