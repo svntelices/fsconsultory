@@ -231,7 +231,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
     </ul>
     <div class="nr">
       <a href="CV_Francisco_Santelices.pdf" download class="cv-btn"><span>🧾</span><span data-i18n="nav.cv">CV</span></a>
-      <button class="ib" onclick="toggleLang()" title="Language"><img id="lf" src="flag_cl.svg" alt="lang"></button>
+      <button class="ib" onclick="toggleLang()" title="Language"><img id="langFlag" src="flag_cl.svg" alt="lang"></button>
     </div>
   </div>
 </nav>
@@ -675,7 +675,7 @@ function goTo(id, idx){
   </div>
 </section>
 
-<script src="i18n.js?v=5"></script>
+<script src="i18n.js?v=6"></script>
 <script>
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("on")})},{threshold:0.08});
 document.querySelectorAll(".rv").forEach(el=>io.observe(el));
@@ -696,12 +696,6 @@ window.addEventListener("scroll",()=>{
 
 
 
-function toggleLang(){
-  if(typeof currentLang==="undefined")return;
-  currentLang=currentLang==="en"?"es":"en";
-  applyTranslations(currentLang);
-  document.getElementById("lf").src=currentLang==="en"?"flag_cl.svg":"flag_us.svg";
-}
 
 function enviar(){
   let ok=true;
