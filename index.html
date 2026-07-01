@@ -926,9 +926,8 @@ function toggleLang(){
   if(flag) flag.src = currentLang === "en" ? "flag_cl.svg" : "flag_us.svg";
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-  applyTranslations("en");
-});
+// Apply EN translations immediately since script is at end of body
+applyTranslations("en");
 </script>
 </body>
 </html>
