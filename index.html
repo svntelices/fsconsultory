@@ -908,30 +908,36 @@ const translations = {
 
 var currentLang = "en";
 
-function applyTranslations(lang) {
+function applyLang(lang) {
   var t = translations[lang];
-  if (!t) { console.error("No translations for:", lang); return; }
-  var els = document.querySelectorAll("[data-i18n]");
-  for (var i = 0; i < els.length; i++) {
-    var key = els[i].getAttribute("data-i18n");
-    if (t[key] !== undefined) els[i].innerHTML = t[key];
+  if (!t) return;
+  var all = document.getElementsByTagName("*");
+  for (var i = 0; i < all.length; i++) {
+    var el = all[i];
+    var key = el.getAttribute("data-i18n");
+    if (key && t[key] !== undefined) {
+      el.innerHTML = t[key];
+    }
+    var ph = el.getAttribute("data-i18n-ph");
+    if (ph && t[ph] !== undefined) {
+      el.placeholder = t[ph];
+    }
   }
-  var phs = document.querySelectorAll("[data-i18n-ph]");
-  for (var i = 0; i < phs.length; i++) {
-    var key = phs[i].getAttribute("data-i18n-ph");
-    if (t[key] !== undefined) phs[i].setAttribute("placeholder", t[key]);
-  }
-  document.documentElement.setAttribute("lang", lang);
+  document.documentElement.lang = lang;
 }
 
 function toggleLang() {
   currentLang = (currentLang === "en") ? "es" : "en";
-  setTimeout(function(){ applyTranslations(currentLang); }, 50);
-  var flag = document.getElementById("langFlag");
-  if (flag) flag.src = (currentLang === "en") ? "flag_cl.svg" : "flag_us.svg";
+  applyLang(currentLang);
+  var f = document.getElementById("langFlag");
+  if (f) f.src = (currentLang === "en") ? "flag_cl.svg" : "flag_us.svg";
 }
 
-setTimeout(function(){ applyTranslations(currentLang); }, 50);
+/* Run immediately + again after 100ms to catch animated elements */
+applyLang("en");
+setTimeout(function(){ applyLang("en"); }, 100);
+setTimeout(function(){ applyLang("en"); }, 500);
+setTimeout(function(){ applyLang("en"); }, 1000);
 </script>
 </body>
 </html>
