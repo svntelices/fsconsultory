@@ -715,6 +715,9 @@ function enviar(){
 
 
 
+
+
+
 <script>
 (function(){
   const c = document.getElementById('canvas-particles');
@@ -748,8 +751,7 @@ function enviar(){
   draw();
 })();
 </script>
-
-<script>
+<script id="i18n-script">
 const translations = {
   en: {
     "nav.sobre":"About","nav.exp":"Experience","nav.servicios":"Services","nav.stack":"Stack","nav.portafolio":"Portfolio","nav.contacto":"Contact","nav.cv":"CV",
@@ -904,30 +906,32 @@ const translations = {
   }
 };
 
-let currentLang = "en";
+var currentLang = "en";
 
-function applyTranslations(lang){
-  if(!translations[lang]) return;
-  document.querySelectorAll("[data-i18n]").forEach(function(el){
-    var key = el.getAttribute("data-i18n");
-    if(translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
-  });
-  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
-    var key = el.getAttribute("data-i18n-ph");
-    if(translations[lang][key] !== undefined) el.setAttribute("placeholder", translations[lang][key]);
-  });
-  document.documentElement.lang = lang;
+function applyTranslations(lang) {
+  var t = translations[lang];
+  if (!t) { console.error("No translations for:", lang); return; }
+  var els = document.querySelectorAll("[data-i18n]");
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute("data-i18n");
+    if (t[key] !== undefined) els[i].innerHTML = t[key];
+  }
+  var phs = document.querySelectorAll("[data-i18n-ph]");
+  for (var i = 0; i < phs.length; i++) {
+    var key = phs[i].getAttribute("data-i18n-ph");
+    if (t[key] !== undefined) phs[i].setAttribute("placeholder", t[key]);
+  }
+  document.documentElement.setAttribute("lang", lang);
 }
 
-function toggleLang(){
-  currentLang = currentLang === "en" ? "es" : "en";
+function toggleLang() {
+  currentLang = (currentLang === "en") ? "es" : "en";
   applyTranslations(currentLang);
   var flag = document.getElementById("langFlag");
-  if(flag) flag.src = currentLang === "en" ? "flag_cl.svg" : "flag_us.svg";
+  if (flag) flag.src = (currentLang === "en") ? "flag_cl.svg" : "flag_us.svg";
 }
 
-// Apply EN translations immediately since script is at end of body
-applyTranslations("en");
+applyTranslations(currentLang);
 </script>
 </body>
 </html>
