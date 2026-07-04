@@ -378,16 +378,94 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
     <div class="sec-num">// 05 <span data-i18n="stk.label">— Tech Stack</span></div>
     <h2 class="sec-title rv" data-i18n="stk.title">Tools I work with.</h2>
-    <div class="stk-grid">
-      <div class="stk-card rv d1"><div class="stk-h"><span class="stk-n">Power BI</span><span class="stk-l" data-i18n="stk.exp">EXPERT</span></div><p class="stk-d" data-i18n="stk.n1">Certified UTN Curitiba. Advanced DAX, star schema, Power BI Service.</p></div>
-      <div class="stk-card rv d2"><div class="stk-h"><span class="stk-n">SQL</span><span class="stk-l" data-i18n="stk.exp">EXPERT</span></div><p class="stk-d" data-i18n="stk.n2">Complex queries, joins, CTEs and relational modeling.</p></div>
-      <div class="stk-card rv d3"><div class="stk-h"><span class="stk-n">Excel</span><span class="stk-l" data-i18n="stk.exp">EXPERT</span></div><p class="stk-d" data-i18n="stk.n3">Pivot tables, Power Query, VBA macros and financial models.</p></div>
-      <div class="stk-card rv d1"><div class="stk-h"><span class="stk-n">Python</span><span class="stk-l" data-i18n="stk.adv">ADVANCED</span></div><p class="stk-d" data-i18n="stk.n4">Certified UTN Curitiba. Pandas, matplotlib, automation.</p></div>
-      <div class="stk-card rv d2"><div class="stk-h"><span class="stk-n">STATA</span><span class="stk-l" data-i18n="stk.adv">ADVANCED</span></div><p class="stk-d" data-i18n="stk.n5">Econometric models, regressions, inferential statistics.</p></div>
-      <div class="stk-card rv d3"><div class="stk-h"><span class="stk-n">SPSS</span><span class="stk-l" data-i18n="stk.adv">ADVANCED</span></div><p class="stk-d" data-i18n="stk.n6">Multivariate analysis, clustering and segmentation.</p></div>
-      <div class="stk-card rv d1"><div class="stk-h"><span class="stk-n">Claude</span><span class="stk-l" data-i18n="stk.adv">ADVANCED</span></div><p class="stk-d" data-i18n="stk.n8">Document analysis, synthesis and reasoning for critical decisions.</p></div>
-      <div class="stk-card rv d2"><div class="stk-h"><span class="stk-n" data-i18n="stk.ai">Artificial Intelligence</span><span class="stk-l" data-i18n="stk.adv">ADVANCED</span></div><p class="stk-d" data-i18n="stk.n10">Certified UTN Curitiba. Applied AI for analytics and automation.</p></div>
-      <div class="stk-card rv d3"><div class="stk-h"><span class="stk-n" data-i18n="stk.agents">AI Agents</span><span class="stk-l" data-i18n="stk.adv">ADVANCED</span></div><p class="stk-d" data-i18n="stk.n9">Autonomous LLM workflows for analytics and smart alerts.</p></div>
+    <style>
+      .stk-grid-oct{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:800px;margin:0 auto}
+      .stk-oct-wrap{position:relative;width:96px;display:flex;flex-direction:column;align-items:center;gap:8px}
+      .stk-oct{width:82px;height:82px;clip-path:polygon(29% 0%,71% 0%,100% 29%,100% 71%,71% 100%,29% 100%,0% 71%,0% 29%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:transform .2s,box-shadow .2s;cursor:default}
+      .stk-oct:hover{transform:scale(1.08)}
+      .stk-oct-cert{background:linear-gradient(135deg,#1A1200,#3A2800);border:2px solid #FFB547;box-shadow:0 0 14px rgba(255,181,71,0.2)}
+      .stk-oct-exp{background:linear-gradient(135deg,#0F0D00,#1A1500);border:2px solid #F59E0B}
+      .stk-oct-adv{background:#141416;border:2px solid #2A2A2E}
+      .stk-oct-name{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;color:#F5F5F5;text-align:center;line-height:1.2}
+      .stk-oct-lvl{font-size:8px;letter-spacing:0.5px;font-family:"JetBrains Mono",monospace}
+      .stk-oct-lvl-c{color:#FFB547}
+      .stk-oct-lvl-e{color:#F59E0B}
+      .stk-oct-lvl-a{color:#6B6B70}
+      .stk-ribbon{position:absolute;top:0;right:0;background:linear-gradient(135deg,#F59E0B,#FFB547);font-size:7px;font-weight:700;color:#000;padding:2px 6px;border-radius:0 0 0 6px;font-family:"JetBrains Mono",monospace;letter-spacing:0.5px;z-index:2}
+      .stk-legend{display:flex;gap:20px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+      .stk-leg-item{font-family:"JetBrains Mono",monospace;font-size:10px;display:flex;align-items:center;gap:6px}
+      .stk-leg-dot{width:10px;height:10px;border-radius:2px}
+    </style>
+    <div class="stk-grid-oct rv">
+
+      <!-- CERTIFICADOS UTN (prioridad 1) -->
+      <div class="stk-oct-wrap">
+        <span class="stk-ribbon">UTN ★</span>
+        <div class="stk-oct stk-oct-cert">
+          <span class="stk-oct-name">Power<br>BI</span>
+          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.exp">EXPERT</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <span class="stk-ribbon">UTN ★</span>
+        <div class="stk-oct stk-oct-cert">
+          <span class="stk-oct-name">Python</span>
+          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <span class="stk-ribbon">UTN ★</span>
+        <div class="stk-oct stk-oct-cert">
+          <span class="stk-oct-name" data-i18n="stk.ai">Artificial<br>Intelligence</span>
+          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+
+      <!-- EXPERT SIN CERTIFICACIÓN (prioridad 2) -->
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-exp">
+          <span class="stk-oct-name">SQL</span>
+          <span class="stk-oct-lvl stk-oct-lvl-e" data-i18n="stk.exp">EXPERT</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-exp">
+          <span class="stk-oct-name">Excel</span>
+          <span class="stk-oct-lvl stk-oct-lvl-e" data-i18n="stk.exp">EXPERT</span>
+        </div>
+      </div>
+
+      <!-- ADVANCED (prioridad 3) -->
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name">STATA</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name">SPSS</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name">Claude</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name" data-i18n="stk.agents">AI Agents</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="stk-legend rv">
+      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#FFB547"></span><span style="color:#FFB547" data-i18n="stk.cert">★ Certificado UTN Curitiba, Brasil</span></span>
+      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#F59E0B"></span><span style="color:#F59E0B" data-i18n="stk.expleg">Expert</span></span>
+      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#2A2A2E"></span><span style="color:#6B6B70" data-i18n="stk.advleg">Advanced</span></span>
     </div>
   </div>
 </section>
@@ -793,7 +871,7 @@ const translations = {
     "proc.p3t":"Development","proc.p3d":"Build models, dashboards or agents with the right tools.",
     "proc.p4t":"Implementation","proc.p4d":"Deploy the solution in your real environment.",
     "proc.p5t":"Training","proc.p5d":"Transfer knowledge for your team to operate independently.",
-    "stk.label":"— Tech Stack","stk.title":"Tools I work with.","stk.exp":"EXPERT","stk.adv":"ADVANCED","stk.agents":"AI Agents",
+    "stk.label":"— Tech Stack","stk.title":"Tools I work with.","stk.exp":"EXPERT","stk.cert":"★ Certified UTN Curitiba, Brazil","stk.expleg":"Expert","stk.advleg":"Advanced",,"stk.adv":"ADVANCED","stk.agents":"AI Agents",
     "stk.n1":"Certified, UTN Curitiba. Advanced DAX, star schema models, Power BI Service.",
     "stk.n2":"Complex queries, joins, CTEs and relational modeling for large datasets.",
     "stk.n3":"Pivot tables, Power Query, VBA macros and financial models.",
