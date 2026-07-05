@@ -476,10 +476,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
     <div class="sec-num">// 06 <span data-i18n="res.label">— Results</span></div>
     <h2 class="sec-title rv" data-i18n="res.title">Measurable <em>impact.</em></h2>
-    <div class="res-grid">
-      <div class="res-card rv d1"><div class="res-q">"</div><p class="res-t" data-i18n="res.t1">Implemented models detecting loss and fraud nationwide across 600+ locations, strengthening internal control.</p><div class="res-r" data-i18n="res.r1">↓ OPERATIONAL LOSSES</div></div>
-      <div class="res-card rv d2"><div class="res-q">"</div><p class="res-t" data-i18n="res.t2">Built Power BI dashboards cutting analysis time 50%+ and accelerating leadership decisions.</p><div class="res-r" data-i18n="res.r2">↓ 50% ANALYSIS TIME</div></div>
-      <div class="res-card rv d3"><div class="res-q">"</div><p class="res-t" data-i18n="res.t3">Developed commercial indicators aligning incentives with real business outcomes nationwide.</p><div class="res-r" data-i18n="res.r3">↑ COMMERCIAL EFFECTIVENESS</div></div>
+    <style>
+      .res4-grid{display:flex;flex-direction:column;gap:14px;max-width:860px;margin:0 auto}
+      .res4-card{background:#141416;border:1px solid #2A2A2E;border-radius:10px;padding:22px 24px;display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;transition:border-color .2s}
+      .res4-card:hover{border-color:#F59E0B}
+      .res4-icon{width:52px;height:52px;border-radius:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+      .res4-title{font-size:15px;font-weight:700;color:#F5F5F5;margin-bottom:6px;line-height:1.3}
+      .res4-desc{font-size:13px;color:#A1A1AA;line-height:1.65;margin-bottom:12px}
+      .res4-bar-wrap{height:5px;background:#1A1A1D;border-radius:3px;overflow:hidden;margin-bottom:6px}
+      .res4-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,#F59E0B,#FFB547)}
+      .res4-metric{font-family:"JetBrains Mono",monospace;font-size:10px;color:#F59E0B;letter-spacing:0.5px}
+      @media(max-width:600px){.res4-card{grid-template-columns:1fr}.res4-icon{display:none}}
+    </style>
+    <div class="res4-grid">
+      <div class="res4-card rv d1">
+        <div class="res4-icon">⚡</div>
+        <div>
+          <div class="res4-title" data-i18n="res.t1title">Reporting Time Reduced by 50%</div>
+          <div class="res4-desc" data-i18n="res.t1desc">Executive Power BI dashboards with DAX time intelligence (YTD, MTD, YoY) and star schema modeling deployed in Power BI Service with row-level security. Used daily by leadership and strategic areas across a 4-branch retail chain.</div>
+          <div class="res4-bar-wrap"><div class="res4-bar" style="width:50%"></div></div>
+          <span class="res4-metric" data-i18n="res.t1tag">↓ 50% · Power BI · DAX · Star Schema · RLS</span>
+        </div>
+      </div>
+      <div class="res4-card rv d2">
+        <div class="res4-icon">🔍</div>
+        <div>
+          <div class="res4-title" data-i18n="res.t2title">Fraud Detection Across 600+ Locations</div>
+          <div class="res4-desc" data-i18n="res.t2desc">Python + SQL anomaly detection models monitoring deviation patterns and fraud signals across a nationwide operational network of 600+ retail points. Strengthened internal control and reduced operational losses significantly.</div>
+          <div class="res4-bar-wrap"><div class="res4-bar" style="width:90%"></div></div>
+          <span class="res4-metric" data-i18n="res.t2tag">600+ pts · Python · SQL · Anomaly Detection · Power BI</span>
+        </div>
+      </div>
+      <div class="res4-card rv d3">
+        <div class="res4-icon">🎯</div>
+        <div>
+          <div class="res4-title" data-i18n="res.t3title">National Bonus & KPI Incentive Model</div>
+          <div class="res4-desc" data-i18n="res.t3desc">RANKX + TOPN + CALCULATE DAX model redesigning the national commercial incentive scheme. Aligned salesperson performance metrics with real business outcomes across all branches, increasing commercial team effectiveness.</div>
+          <div class="res4-bar-wrap"><div class="res4-bar" style="width:75%"></div></div>
+          <span class="res4-metric" data-i18n="res.t3tag">↑ Commercial ROI · DAX · RANKX · TOPN · CALCULATE</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -490,7 +526,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
     <div class="sec-num" style="justify-content:center">// 07 <span data-i18n="port.label">— Portfolio</span></div>
     <h2 class="sec-title rv" style="text-align:center" data-i18n="port.title">Power BI <em>Work.</em></h2>
-    <p class="port-intro rv" data-i18n="port.subtitle">Proyectos reales desarrollados para empresas de distintas industrias y países.</p>
+    <p class="port-intro rv" data-i18n="port.subtitle">Real projects developed for companies across different industries and countries.</p>
 
     <style>
       .port-intro{text-align:center;font-size:14px;color:var(--tx2);margin:-28px 0 44px;display:block}
@@ -551,7 +587,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
         <div class="pcard-body">
           <div>
             <div class="pcard-num mono">01 / RETAIL BI</div>
-            <h3 class="pcard-title" data-i18n="port.p1name">Dashboard Retail Multi-Sucursal</h3>
+            <h3 class="pcard-title" data-i18n="port.p1name">Multi-Branch Retail Dashboard</h3>
             <p class="pcard-desc" data-i18n="port.p1desc">Solución Power BI end-to-end con ETL en Power Query, modelamiento en estrella y capa semántica DAX. Mide throughput operacional (pedidos/hora), tasa de cumplimiento de entregas, evolución de ganancia vs período anterior (AA) y rentabilidad por SKU de categoría. Publicado en Power BI Service con RLS por sucursal.</p>
             <div class="pcard-tags">
               <span class="ptag-ac">Power BI</span>
@@ -564,9 +600,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
             </div>
           </div>
           <div class="pcard-metrics">
-            <div><div class="pm-n">$6.7M</div><div class="pm-l" data-i18n="port.billing">FACTURACIÓN</div></div>
-            <div><div class="pm-n">4</div><div class="pm-l" data-i18n="port.branches">SUCURSALES</div></div>
-            <div><div class="pm-n">3.000</div><div class="pm-l" data-i18n="port.orders">PEDIDOS/AÑO</div></div>
+            <div><div class="pm-n">$6.7M</div><div class="pm-l" data-i18n="port.billing">BILLING</div></div>
+            <div><div class="pm-n">4</div><div class="pm-l" data-i18n="port.branches">BRANCHES</div></div>
+            <div><div class="pm-n">3.000</div><div class="pm-l" data-i18n="port.orders">ORDERS/YEAR</div></div>
           </div>
         </div>
       </div>
@@ -578,7 +614,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
         <div class="pcard-body">
           <div>
             <div class="pcard-num mono">02 / COMMERCIAL BI</div>
-            <h3 class="pcard-title" data-i18n="port.p2name">Plataforma Analítica Comercial</h3>
+            <h3 class="pcard-title" data-i18n="port.p2name">Commercial Analytics Platform</h3>
             <p class="pcard-desc" data-i18n="port.p2desc">Sistema de BI con modelo relacional de alta cardinalidad (800+ clientes, 12+ estados). Implementa medidas de inteligencia de tiempo con DATEADD y CALCULATE para comparativos período actual vs LY. Incluye visualizaciones geoespaciales con Bing Maps, tooltips enriquecidos y drill-through entre módulos. Segmentación de clientes por status y clasificación Class-A/Class-B con lógica DAX condicional.</p>
             <div class="pcard-tags">
               <span class="ptag-ac">Power BI</span>
@@ -591,7 +627,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
             </div>
           </div>
           <div class="pcard-metrics">
-            <div><div class="pm-n">3</div><div class="pm-l" data-i18n="port.modules">MÓDULOS</div></div>
+            <div><div class="pm-n">3</div><div class="pm-l" data-i18n="port.modules">MODULES</div></div>
             <div><div class="pm-n">800+</div><div class="pm-l" data-i18n="port.clients">CLIENTES</div></div>
             <div><div class="pm-n">12+</div><div class="pm-l" data-i18n="port.states">ESTADOS</div></div>
           </div>
@@ -626,8 +662,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
         <div class="pcard-body">
           <div>
             <div class="pcard-num mono">03 / MULTINATIONAL BI</div>
-            <h3 class="pcard-title" data-i18n="port.p3name">Análisis de Ventas Multinacional — XSales</h3>
-            <p class="pcard-desc" data-i18n="port.p3desc">Dashboard de analítica de ventas con arquitectura snowflake adaptada a operación multinacional. Implementa jerarquías País → Tipo de Cliente → Producto con drill-down interactivo. Medidas calculadas de contribución marginal por SKU, ROI por mercado y elasticidad de descuento. Diseño responsivo con layouts diferenciados Mobile/Desktop mediante bookmarks y visibilidad condicional.</p>
+            <h3 class="pcard-title" data-i18n="port.p3name">Multinational Sales Analysis — XSales</h3>
+            <p class="pcard-desc" data-i18n="port.p3desc">Snowflake schema adapted for 5-country operations. Country → Customer Type → Product drill-down hierarchy. Calculated measures for marginal contribution per SKU, ROI by market and discount elasticity. Responsive Mobile/Desktop layouts via bookmarks.</p>
             <div class="pcard-tags">
               <span class="ptag-ac">Power BI</span>
               <span class="ptag-ac">Snowflake Schema</span>
@@ -639,8 +675,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
             </div>
           </div>
           <div class="pcard-metrics">
-            <div><div class="pm-n">$118.7M</div><div class="pm-l" data-i18n="port.billing">FACTURACIÓN</div></div>
-            <div><div class="pm-n">5</div><div class="pm-l" data-i18n="port.countries">PAÍSES</div></div>
+            <div><div class="pm-n">$118.7M</div><div class="pm-l" data-i18n="port.billing">BILLING</div></div>
+            <div><div class="pm-n">5</div><div class="pm-l" data-i18n="port.countries">COUNTRIES</div></div>
             <div><div class="pm-n">13.2%</div><div class="pm-l" data-i18n="port.margin">MARGEN</div></div>
           </div>
         </div>
@@ -653,8 +689,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
         <div class="pcard-body">
           <div>
             <div class="pcard-num mono">04 / SALES TRACKING</div>
-            <h3 class="pcard-title" data-i18n="port.p4name">Acompañamiento de Ventas — Colombia</h3>
-            <p class="pcard-desc" data-i18n="port.p4desc">Dashboard operacional con modelo estrella (hechos de ventas + dimensiones de tienda, vendedor, producto y fecha). Medidas DAX de KPIs comerciales: participación de mercado por sucursal, velocidad de rotación por categoría y benchmark de vendedor vs media del equipo. Treemap de categorías con lógica de color condicional y mapa interactivo de cobertura geográfica Colombia.</p>
+            <h3 class="pcard-title" data-i18n="port.p4name">Sales Tracking Dashboard — Colombia</h3>
+            <p class="pcard-desc" data-i18n="port.p4desc">Star schema operational dashboard (sales facts + store, salesperson, product, date dimensions). DAX measures for market share by branch, category rotation speed and salesperson benchmark vs team average. Conditional treemap and geographic map of Colombia.</p>
             <div class="pcard-tags">
               <span class="ptag-ac">Power BI</span>
               <span class="ptag-ac">RANKX</span>
@@ -666,8 +702,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
             </div>
           </div>
           <div class="pcard-metrics">
-            <div><div class="pm-n">3</div><div class="pm-l" data-i18n="port.branches">SUCURSALES</div></div>
-            <div><div class="pm-n">MED·BOG·BUC</div><div class="pm-l" data-i18n="port.cities">CIUDADES</div></div>
+            <div><div class="pm-n">3</div><div class="pm-l" data-i18n="port.branches">BRANCHES</div></div>
+            <div><div class="pm-n">MED·BOG·BUC</div><div class="pm-l" data-i18n="port.cities">CITIES</div></div>
           </div>
         </div>
         <div class="pcard-img">
@@ -882,7 +918,7 @@ const translations = {
     "stk.n8":"Document analysis, complex information synthesis, critical reasoning.",
     "stk.n9":"Autonomous LLM workflows for analytics and smart alerts.",
     "stk.ai":"Artificial Intelligence","stk.n10":"Certified, UTN Curitiba. Applied AI for analytics, automation and decision support.",
-    "res.label":"— Results","res.title":"Measurable <em>impact.</em>",
+    "res.label":"— Results","res.title":"Measurable <em>impact.</em>","res.t1title":"Reporting Time Reduced by 50%","res.t1desc":"Executive Power BI dashboards with DAX time intelligence (YTD, MTD, YoY) and star schema modeling deployed in Power BI Service with row-level security. Used daily by leadership and strategic areas across a 4-branch retail chain.","res.t1tag":"↓ 50% · Power BI · DAX · Star Schema · RLS","res.t2title":"Fraud Detection Across 600+ Locations","res.t2desc":"Python + SQL anomaly detection models monitoring deviation patterns and fraud signals across a nationwide operational network of 600+ retail points. Strengthened internal control and reduced operational losses significantly.","res.t2tag":"600+ pts · Python · SQL · Anomaly Detection · Power BI","res.t3title":"National Bonus & KPI Incentive Model","res.t3desc":"RANKX + TOPN + CALCULATE DAX model redesigning the national commercial incentive scheme. Aligned salesperson performance with real business outcomes across all branches, increasing commercial effectiveness.","res.t3tag":"↑ Commercial ROI · DAX · RANKX · TOPN · CALCULATE","res.title":"Measurable <em>impact.</em>",
     "res.t1":"Implemented analytical models detecting loss and fraud patterns nationwide across 600+ locations, strengthening internal control.","res.r1":"↓ OPERATIONAL LOSSES",
     "res.t2":"Built executive Power BI dashboards, cutting analysis time by 50%+ and accelerating decision-making for leadership.","res.r2":"↓ 50% ANALYSIS TIME",
     "res.t3":"Developed commercial performance indicators aligning incentives with real outcomes nationwide.","res.r3":"↑ COMMERCIAL EFFECTIVENESS",
@@ -957,7 +993,7 @@ const translations = {
     "stk.n8":"Análisis de documentos extensos, síntesis de información compleja, razonamiento crítico.",
     "stk.n9":"Flujos autónomos con LLMs para analítica y alertas inteligentes.",
     "stk.ai":"Inteligencia Artificial","stk.n10":"Certificado UTN Curitiba. IA aplicada a analítica, automatización y soporte de decisiones.",
-    "res.label":"— Resultados","res.title":"Impacto <em>medible.</em>",
+    "res.label":"— Resultados","res.title":"Impacto <em>medible.</em>","res.t1title":"Tiempo de Análisis Reducido en un 50%","res.t1desc":"Dashboards ejecutivos en Power BI con inteligencia de tiempo DAX (YTD, MTD, YoY) y modelamiento estrella, publicados en Power BI Service con RLS por sucursal. Usados diariamente por jefaturas y áreas estratégicas en cadena retail de 4 sucursales.","res.t1tag":"↓ 50% · Power BI · DAX · Modelo Estrella · RLS","res.t2title":"Detección de Fraude en más de 600 Locales","res.t2desc":"Modelos de detección de anomalías en Python + SQL monitoreando patrones de desvío y señales de fraude en red operacional de 600+ puntos a nivel nacional. Fortaleció el control interno y redujo pérdidas operacionales significativamente.","res.t2tag":"600+ pts · Python · SQL · Detección de Anomalías · Power BI","res.t3title":"Modelo de Bonos e Incentivos KPI Nacional","res.t3desc":"Modelo DAX con RANKX + TOPN + CALCULATE que rediseñó el esquema de incentivos comerciales nacional. Alineó métricas de desempeño de vendedores con resultados reales del negocio en todas las sucursales, aumentando la efectividad comercial.","res.t3tag":"↑ ROI Comercial · DAX · RANKX · TOPN · CALCULATE","res.title":"Impacto <em>medible.</em>",
     "res.t1":"Implementé modelos de análisis que detectaron patrones de pérdida y fraude a nivel nacional en +600 locales, fortaleciendo el control interno.","res.r1":"↓ PÉRDIDAS OPERACIONALES",
     "res.t2":"Generé dashboards ejecutivos en Power BI, reduciendo el tiempo de análisis en más de 50% y acelerando la toma de decisiones.","res.r2":"↓ 50% TIEMPO DE ANÁLISIS",
     "res.t3":"Desarrollé indicadores de desempeño comercial que alinearon incentivos con resultados reales a nivel nacional.","res.r3":"↑ EFECTIVIDAD COMERCIAL",
@@ -984,38 +1020,34 @@ const translations = {
   }
 };
 
-var currentLang = "en";
+var _lang = "en";
 
-function applyLang(lang) {
-  var t = translations[lang];
+function applyLang(l) {
+  var t = translations[l];
   if (!t) return;
-  var all = document.getElementsByTagName("*");
-  for (var i = 0; i < all.length; i++) {
-    var el = all[i];
-    var key = el.getAttribute("data-i18n");
-    if (key && t[key] !== undefined) {
-      el.innerHTML = t[key];
-    }
-    var ph = el.getAttribute("data-i18n-ph");
-    if (ph && t[ph] !== undefined) {
-      el.placeholder = t[ph];
-    }
+  var els = document.querySelectorAll("[data-i18n]");
+  for (var i = 0; i < els.length; i++) {
+    var k = els[i].getAttribute("data-i18n");
+    if (t[k] !== undefined) els[i].innerHTML = t[k];
   }
-  document.documentElement.lang = lang;
+  var phs = document.querySelectorAll("[data-i18n-ph]");
+  for (var i = 0; i < phs.length; i++) {
+    var k = phs[i].getAttribute("data-i18n-ph");
+    if (t[k] !== undefined) phs[i].placeholder = t[k];
+  }
+  document.documentElement.lang = l;
 }
 
 function toggleLang() {
-  currentLang = (currentLang === "en") ? "es" : "en";
-  applyLang(currentLang);
+  _lang = (_lang === "en") ? "es" : "en";
+  applyLang(_lang);
   var f = document.getElementById("langFlag");
-  if (f) f.src = (currentLang === "en") ? "flag_cl.svg" : "flag_us.svg";
+  if (f) f.src = (_lang === "en") ? "flag_cl.svg" : "flag_us.svg";
 }
 
-/* Run immediately + again after 100ms to catch animated elements */
 applyLang("en");
-setTimeout(function(){ applyLang("en"); }, 100);
-setTimeout(function(){ applyLang("en"); }, 500);
-setTimeout(function(){ applyLang("en"); }, 1000);
+setTimeout(function(){ applyLang("en"); }, 200);
+setTimeout(function(){ applyLang("en"); }, 800);
 </script>
 </body>
 </html>
