@@ -231,7 +231,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
     </ul>
     <div class="nr">
       <a href="CV_Francisco_Santelices.pdf" download class="cv-btn"><span>🧾</span><span data-i18n="nav.cv">CV</span></a>
-      <button class="ib" onclick="toggleLang()" title="Language"><img id="langFlag" src="flag_cl.svg" alt="lang"></button>
     </div>
   </div>
 </nav>
@@ -323,7 +322,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
       <div class="tl-c"><div class="tl-dot"></div>
         <div class="tl-role" data-i18n="exp.j2role">Professional Internship</div>
         <div class="tl-co mono" data-i18n="exp.j2company">SBIF — Modeling Dept.</div>
-        <ul class="tl-ul"><li data-i18n="exp.j2l1">Trabajo realizado en el Departamento de Modelación y Metodología. En la búsqueda, creación y estudio de modelos probabilísticos para entender los fenómenos vividos en la banca de Chile. Sentando las bases de <b>Basilea II</b> (marco fundamental de regulación bancaria del Comité de Supervisión Bancaria de Basilea).</li></ul>
+        <ul class="tl-ul"><li data-i18n="exp.j2l1">Work carried out in the Modeling and Methodology Department. Research, creation and study of probabilistic models to understand phenomena in the Chilean banking sector, laying the foundations of <b>Basel II</b> (the fundamental banking regulatory framework of the Basel Committee on Banking Supervision).</li></ul>
         <div class="tl-tags"><span class="tl-tag">Probabilistic Models</span><span class="tl-tag">Banking</span></div>
       </div>
     </div>
@@ -965,7 +964,7 @@ const translations = {
     "exp.months2":"2 meses",
     "exp.j2role":"Práctica Profesional",
     "exp.j2company":"Superintendencia de Bancos e Instituciones Financieras (SBIF) — Depto. Modelación",
-    "exp.j2l1":"Trabajo realizado en el Departamento de Modelación y Metodología. En la búsqueda, creación y estudio de modelos probabilísticos para entender los fenómenos vividos en la banca de Chile. Sentando las bases de <b>Basilea II</b> (marco fundamental de regulación bancaria del Comité de Supervisión Bancaria de Basilea).",
+    "exp.j2l1":"Work carried out in the Modeling and Methodology Department. Research, creation and study of probabilistic models to understand phenomena in the Chilean banking sector, laying the foundations of <b>Basel II</b> (the fundamental banking regulatory framework of the Basel Committee on Banking Supervision).",
     "exp.j3role":"Práctica Operativa",
     "exp.j3l1":"Apoyé áreas operativas relacionadas con arriendo, mantención y gestión de flota de maquinaria.",
     "exp.j3tag":"Operaciones",
@@ -1038,12 +1037,6 @@ function applyLang(l) {
   document.documentElement.lang = l;
 }
 
-function toggleLang() {
-  _lang = (_lang === "en") ? "es" : "en";
-  applyLang(_lang);
-  var f = document.getElementById("langFlag");
-  if (f) f.src = (_lang === "en") ? "flag_cl.svg" : "flag_us.svg";
-}
 
 applyLang("en");
 setTimeout(function(){ applyLang("en"); }, 200);
