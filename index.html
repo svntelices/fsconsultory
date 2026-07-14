@@ -272,8 +272,10 @@ nav { z-index: 999 !important; }
         <span style="font-weight:700;background:#0A66C2;border-radius:2px;width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">in</span>
         LinkedIn
       </a>
-      <div class="lang-pill" onclick="toggleLang()">
-        <div class="lang-opt active" id="opt-en">🇺🇸 EN</div>
+      <div style="display:flex;align-items:center;gap:4px">
+        <button onclick="if(_lang!=='en'){toggleLang()}" title="English" style="background:none;border:none;cursor:pointer;font-size:20px;opacity:1;transition:opacity .2s;padding:2px" id="btn-en">🇺🇸</button>
+        <button onclick="if(_lang!=='es'){toggleLang()}" title="Español" style="background:none;border:none;cursor:pointer;font-size:20px;opacity:0.35;transition:opacity .2s;padding:2px" id="btn-es">🇨🇱</button>
+      </div>
         <div class="lang-opt" id="opt-es">🇨🇱 ES</div>
       </div>
       <a href="CV_Francisco_Santelices.pdf" download style="background:var(--ac);color:#000;font-family:var(--mono);font-size:11px;font-weight:700;padding:7px 14px;border-radius:4px;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:background .2s" onmouseover="this.style.background='var(--ac2)'" onmouseout="this.style.background='var(--ac)'">🧾 CV <span style="font-size:13px;line-height:1">→</span></a>
@@ -1022,7 +1024,67 @@ var translations = {
     "form.errMsg":"Please write your message",
     "form.submit":"Send Message →",
     "form.success":"✅ Message sent! I will get back to you shortly.",
-    "cta.label":"— Contact","cta.title":"Let's <em>Talk.</em>"
+    "cta.label":"— Contact","cta.title":"Let's <em>Talk.</em>",
+    "nav.servicios":"Services",
+    "nav.stack":"Stack",
+    "nav.portafolio":"Portfolio",
+    "nav.contacto":"Contact",
+    "sobre.label":"— About",
+    "sobre.title":"Data that drives <em>real",
+    "sobre.badge":"Industrial Civil Engineer · UDP",
+    "sobre.p1":"I am <strong>Francisco Santelices",
+    "sobre.p2":"I specialize in transforming scattered data into clear models that enable leadership to make evidence-based decisions: inventory control, fraud detection, executive dashboards and commercial incentive models.",
+    "sobre.p3":"I integrate <strong>Artificial Intelligence",
+    "sobre.s1":"Years of experience",
+    "sobre.s2":"Operational locations",
+    "sobre.s3":"Faster analysis",
+    "sobre.s4":"Expert-level tools",
+    "sobre.s5":"In every process",
+    "exp.present":"Present",
+    "exp.j1role":"Senior BI &amp; Loss Prevention Analyst<span class=\"tl-badge\" data-i18n=\"exp.j1badge\">CURRENT",
+    "exp.j1badge":"CURRENT",
+    "exp.j1l1":"Designed analytical models detecting <b>loss and fraud patterns</b> nationwide across 600+ locations.",
+    "exp.j1l2":"Built executive <b>Power BI dashboards</b> cutting analysis time by over <b>50%</b>.",
+    "exp.j1l3":"Optimized inventory via stockout and overstock analysis across stores and distribution centers.",
+    "exp.j1l4":"Developed commercial KPIs aligning incentives with real business outcomes nationwide.",
+    "exp.j1l5":"Led national bonus calculation ensuring accuracy and traceability.",
+    "exp.months2":"2 months",
+    "exp.j2role":"Professional Internship",
+    "exp.j2company":"SBIF — Modeling Dept.",
+    "exp.j2l1":"Work carried out in the Modeling and Methodology Department. Research, creation and study of probabilistic models to understand phenomena in the Chilean banking sector, laying the foundations of <b>Basel II</b> (the fundamental banking regulatory framework of the Basel Committee on Banking Supervision).",
+    "exp.j3role":"Operations Internship",
+    "exp.j3l1":"Supported machinery rental, maintenance and fleet management processes.",
+    "exp.j3tag":"Operations",
+    "srv.label":"— Services",
+    "srv.title":"How can I <em>help",
+    "srv.s1t":"Executive Dashboards",
+    "srv.s1d":"Power BI reports connected to real data. Leadership sees the business in real time, no spreadsheets.",
+    "srv.s2t":"Operational Control &amp; Loss Prevention",
+    "srv.s2d":"Identify deviation, fraud and inefficiency patterns. Proven across 600+ locations.",
+    "srv.s3t":"Custom Data Models",
+    "srv.s3d":"SQL, Python and Excel models automating repetitive analysis and generating actionable indicators.",
+    "srv.s4t":"AI Agents",
+    "srv.s4d":"Develop and integrate AI agents into analytical and operational processes, boosting decision quality.",
+    "srv.s5t":"Data Communication",
+    "srv.s5d":"Translate complex analysis into clear language for executive, commercial and operational teams.",
+    "srv.s6t":"Commercial Optimization",
+    "srv.s6d":"Incentive models and KPIs aligned with real business outcomes through data and AI.",
+    "proc.label":"— Process",
+    "proc.title":"From data to <em>results.",
+    "proc.p1t":"Diagnosis",
+    "proc.p1d":"Understand your business, data and the real problem.",
+    "proc.p2t":"Design",
+    "proc.p2d":"Define architecture, key metrics and deliverables.",
+    "proc.p3t":"Development",
+    "proc.p3d":"Build models, dashboards or agents.",
+    "proc.p4t":"Implementation",
+    "proc.p4d":"Deploy in your real environment.",
+    "proc.p5t":"Training",
+    "proc.p5d":"Transfer knowledge for team autonomy.",
+    "port.p1desc":"End-to-end Power BI solution with Power Query ETL, star schema and DAX semantic layer. Measures operational throughput, delivery fulfillment, profit vs prior year and profitability by category SKU. Published with RLS per branch.",
+    "port.p2desc":"BI system with high-cardinality relational model (800+ clients, 12+ states). DATEADD and CALCULATE time intelligence, geospatial Bing Maps, drill-through between modules and Class-A/B customer segmentation with conditional DAX logic.",
+    "port.p3desc":"Snowflake schema adapted for 5-country operations. Country → Customer Type → Product drill-down hierarchy. Calculated measures for marginal contribution per SKU, ROI by market and discount elasticity. Responsive Mobile/Desktop layouts via bookmarks.",
+    "port.p4desc":"Star schema operational dashboard (sales facts + store, salesperson, product, date dimensions). DAX measures for market share by branch, category rotation speed and salesperson benchmark vs team average. Conditional treemap and geographic map of Colombia."
   },
   es: {
     "nav.sobre":"Sobre mí","nav.exp":"Experiencia","nav.ser":"Servicios",
@@ -1074,7 +1136,67 @@ var translations = {
     "form.errMsg":"Por favor escribe tu mensaje",
     "form.submit":"Enviar Mensaje →",
     "form.success":"✅ ¡Mensaje enviado! Me pondré en contacto contigo pronto.",
-    "cta.label":"— Contacto","cta.title":"Conversemos."
+    "cta.label":"— Contacto","cta.title":"Conversemos.",
+    "nav.servicios":"Servicios",
+    "nav.stack":"Stack",
+    "nav.portafolio":"Portafolio",
+    "nav.contacto":"Contacto",
+    "sobre.label":"— Sobre mí",
+    "sobre.title":"Datos que generan <em>resultados reales</em>.",
+    "sobre.badge":"Ingeniero Civil Industrial · UDP",
+    "sobre.p1":"Soy <strong>Francisco Santelices</strong>, Ingeniero Civil Industrial de la Universidad Diego Portales, con más de 7 años de experiencia en Business Intelligence, control operacional y analítica avanzada.",
+    "sobre.p2":"Me especializo en transformar datos dispersos en modelos claros que permiten tomar decisiones ejecutivas con información real, oportuna y visualmente comprensible.",
+    "sobre.p3":"Integro <strong>Inteligencia Artificial</strong> y agentes automatizados en flujos de trabajo para generar ventaja competitiva real.",
+    "sobre.s1":"Años de experiencia",
+    "sobre.s2":"Locales operacionales",
+    "sobre.s3":"Análisis más rápido",
+    "sobre.s4":"Herramientas nivel experto",
+    "sobre.s5":"En cada proceso",
+    "exp.present":"Presente",
+    "exp.j1badge":"ACTUAL",
+    "exp.j1role":"Analista Senior BI &amp; Prevención de Pérdidas",
+    "exp.j1l1":"Diseñé modelos analíticos para detectar <b>patrones de pérdida y fraude</b> en red de 600+ locales a nivel nacional.",
+    "exp.j1l2":"Desarrollé <b>dashboards ejecutivos en Power BI</b> reduciendo el tiempo de análisis en un 50%.",
+    "exp.j1l3":"Optimicé inventarios mediante análisis de quiebres y sobrestock en múltiples categorías.",
+    "exp.j1l4":"Desarrollé KPIs comerciales alineando incentivos con resultados reales del negocio.",
+    "exp.j1l5":"Lideré el cálculo del bono nacional asegurando precisión y trazabilidad.",
+    "exp.months2":"2 meses",
+    "exp.j2role":"Práctica Profesional",
+    "exp.j2company":"SBIF — Depto. de Modelación",
+    "exp.j2l1":"Trabajo realizado en el Departamento de Modelación y Metodología. En la búsqueda, creación y estudio de modelos probabilísticos para entender los fenómenos vividos en la banca de Chile. Sentando las bases de <b>Basilea II</b> (marco fundamental de regulación bancaria del Comité de Supervisión Bancaria de Basilea).",
+    "exp.j3role":"Práctica Operacional",
+    "exp.j3l1":"Apoyé el arriendo de maquinaria, mantenimiento y gestión de flota en empresa del rubro.",
+    "exp.j3tag":"Operaciones",
+    "srv.label":"— Servicios",
+    "srv.title":"¿En qué puedo <em>ayudarte</em>?",
+    "srv.s1t":"Dashboards Ejecutivos",
+    "srv.s1d":"Reportes Power BI conectados a datos reales. La jefatura ve lo que necesita, cuando lo necesita.",
+    "srv.s2t":"Control Operacional y Prevención de Pérdidas",
+    "srv.s2d":"Identifica patrones de desvío, fraude e ineficiencia. Probado en redes de 600+ locales a nivel nacional.",
+    "srv.s3t":"Modelos de Datos a Medida",
+    "srv.s3d":"Modelos en SQL, Python y Excel que automatizan análisis repetitivos y reducen errores operacionales.",
+    "srv.s4t":"Agentes de IA",
+    "srv.s4d":"Desarrolla e integra agentes de IA en flujos analíticos y operacionales para automatizar decisiones.",
+    "srv.s5t":"Comunicación de Datos",
+    "srv.s5d":"Traduzco análisis complejos a lenguaje claro para ejecutivos y equipos no técnicos.",
+    "srv.s6t":"Optimización Comercial",
+    "srv.s6d":"Modelos de incentivos y KPIs alineados con los resultados reales del negocio.",
+    "proc.label":"— Proceso",
+    "proc.title":"Del dato al <em>resultado.</em>",
+    "proc.p1t":"Diagnóstico",
+    "proc.p1d":"Entiendo tu negocio, tus datos y el problema real.",
+    "proc.p2t":"Diseño",
+    "proc.p2d":"Defino arquitectura, métricas clave y entregables.",
+    "proc.p3t":"Desarrollo",
+    "proc.p3d":"Construyo modelos, dashboards o agentes.",
+    "proc.p4t":"Implementación",
+    "proc.p4d":"Despliegue en tu entorno real.",
+    "proc.p5t":"Capacitación",
+    "proc.p5d":"Transferencia de conocimiento para autonomía del equipo.",
+    "port.p1desc":"Solución Power BI end-to-end con ETL en Power Query, modelamiento en estrella y capa semántica DAX. Mide throughput operacional, cumplimiento de entregas, ganancia vs año anterior y rentabilidad por SKU de categoría. Publicado con RLS por sucursal.",
+    "port.p2desc":"Sistema BI con modelo relacional de alta cardinalidad (800+ clientes, 12+ estados). Inteligencia de tiempo con DATEADD y CALCULATE, mapas geoespaciales Bing Maps, drill-through entre módulos y segmentación Class-A/B con lógica DAX condicional.",
+    "port.p3desc":"Arquitectura snowflake adaptada para operación en 5 países. Jerarquía País → Tipo de Cliente → Producto con drill-down. Medidas de contribución marginal por SKU, ROI por mercado y elasticidad de descuento. Diseño responsive Mobile/Desktop con bookmarks.",
+    "port.p4desc":"Dashboard operacional con modelo estrella (hechos de ventas + dimensiones de tienda, vendedor, producto y fecha). KPIs DAX de participación por sucursal, velocidad de rotación y benchmark de vendedor vs equipo. Treemap condicional y mapa geográfico de Colombia."
   }
 };
 
@@ -1094,14 +1216,13 @@ function applyLang(l) {
     if (t[k] !== undefined) phs[i].placeholder = t[k];
   }
   document.documentElement.lang = l;
-  var en = document.getElementById("opt-en");
-  var es = document.getElementById("opt-es");
-  if (en && es) {
-    en.className = "lang-opt" + (l === "en" ? " active" : "");
-    es.className = "lang-opt" + (l === "es" ? " active" : "");
+  var ben = document.getElementById("btn-en");
+  var bes = document.getElementById("btn-es");
+  if (ben && bes) {
+    ben.style.opacity = l === "en" ? "1" : "0.35";
+    bes.style.opacity = l === "es" ? "1" : "0.35";
   }
 }
-
 function toggleLang() {
   _lang = (_lang === "en") ? "es" : "en";
   applyLang(_lang);
