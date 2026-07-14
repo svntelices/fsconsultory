@@ -272,9 +272,15 @@ nav { z-index: 999 !important; }
         <span style="font-weight:700;background:#0A66C2;border-radius:2px;width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">in</span>
         LinkedIn
       </a>
-      <div style="display:flex;align-items:center;gap:4px">
-        <button onclick="if(_lang!=='en'){toggleLang()}" title="English" style="background:none;border:none;cursor:pointer;font-size:20px;opacity:1;transition:opacity .2s;padding:2px" id="btn-en">🇺🇸</button>
-        <button onclick="if(_lang!=='es'){toggleLang()}" title="Español" style="background:none;border:none;cursor:pointer;font-size:20px;opacity:0.35;transition:opacity .2s;padding:2px" id="btn-es">🇨🇱</button>
+      <div style="display:flex;align-items:center;gap:2px">
+        <button id="btn-en" onclick="setLang('en')" title="English" style="background:none;border:none;cursor:pointer;padding:4px 6px;display:flex;flex-direction:column;align-items:center;gap:3px;opacity:1;transition:opacity .2s">
+          <span style="font-size:18px">🇺🇸</span>
+          <span id="bar-en" style="height:2px;width:100%;background:#F59E0B;border-radius:1px;display:block;transition:background .2s"></span>
+        </button>
+        <button id="btn-es" onclick="setLang('es')" title="Español" style="background:none;border:none;cursor:pointer;padding:4px 6px;display:flex;flex-direction:column;align-items:center;gap:3px;opacity:0.35;transition:opacity .2s">
+          <span style="font-size:18px">🇨🇱</span>
+          <span id="bar-es" style="height:2px;width:100%;background:transparent;border-radius:1px;display:block;transition:background .2s"></span>
+        </button>
       </div>
         <div class="lang-opt" id="opt-es">🇨🇱 ES</div>
       </div>
@@ -1218,14 +1224,25 @@ function applyLang(l) {
   document.documentElement.lang = l;
   var ben = document.getElementById("btn-en");
   var bes = document.getElementById("btn-es");
+  var barEn = document.getElementById("bar-en");
+  var barEs = document.getElementById("bar-es");
   if (ben && bes) {
     ben.style.opacity = l === "en" ? "1" : "0.35";
     bes.style.opacity = l === "es" ? "1" : "0.35";
   }
+  if (barEn && barEs) {
+    barEn.style.background = l === "en" ? "#F59E0B" : "transparent";
+    barEs.style.background = l === "es" ? "#F59E0B" : "transparent";
+  }
 }
-function toggleLang() {
-  _lang = (_lang === "en") ? "es" : "en";
+
+function setLang(l) {
+  _lang = l;
   applyLang(_lang);
+}
+
+function toggleLang() {
+  setLang(_lang === "en" ? "es" : "en");
 }
 
 applyLang("en");
