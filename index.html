@@ -93,11 +93,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
 .btn-p:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,.25)}
 .btn-g{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--tx);font-size:14px;font-weight:500;padding:13px 26px;border-radius:5px;text-decoration:none;transition:all .2s}
 .btn-g:hover{border-color:var(--ac);color:var(--ac)}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;opacity:0;animation:up .7s ease .7s forwards;position:relative;z-index:1}
-.hm{background:var(--bg2);padding:20px 18px}
-.hm-n{font-family:"JetBrains Mono",monospace;font-size:24px;font-weight:700;color:var(--ac);margin-bottom:4px}
-.hm-l{font-size:11px;color:var(--tx3)}
-@media(max-width:740px){.metrics{grid-template-columns:repeat(2,1fr)}}
+
+
+
+
+@media(max-width:740px){}
 
 /* ── ABOUT ── */
 #sobre{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -308,13 +308,7 @@ nav { z-index: 999 !important; }
         <div style="padding-left:20px"><span style="color:#A1A1AA">años_exp  = </span><span style="color:#F5F5F5">7</span></div>
         <div style="padding-left:20px"><span style="color:#A1A1AA">disponible = </span><span style="color:#1CC88A" data-i18n="hero.termavail">True</span><span style="display:inline-block;width:8px;height:14px;background:#F59E0B;margin-left:3px;animation:cur .9s infinite;vertical-align:middle"></span></div>
       </div>
-      <div class="metrics">
-        <div class="hm"><div class="hm-n">7+</div><div class="hm-l mono" data-i18n="hero.m1">Years Experience</div></div>
-        <div class="hm"><div class="hm-n">600+</div><div class="hm-l mono" data-i18n="hero.m2">Locations Managed</div></div>
-        <div class="hm"><div class="hm-n">50%</div><div class="hm-l mono" data-i18n="hero.m3">Faster Reporting</div></div>
-        <div class="hm"><div class="hm-n">6</div><div class="hm-l mono" data-i18n="hero.m4">Expert-level Tools</div></div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -334,10 +328,10 @@ nav { z-index: 999 !important; }
       .about-text{display:flex;flex-direction:column;gap:16px}
       .about-text p{font-size:15px;color:var(--tx2);line-height:1.8;margin:0}
       .about-text strong{color:var(--tx)}
-      .about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
-      .about-stat{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:12px 16px}
-      .about-stat-n{font-family:"JetBrains Mono",monospace;font-size:22px;font-weight:700;color:#F59E0B}
-      .about-stat-l{font-size:11px;color:var(--tx2);margin-top:2px}
+      .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2A2A2E;border:1px solid #2A2A2E;border-radius:8px;overflow:hidden;margin-top:16px}
+      .about-stat{background:#0B0B0D;padding:18px 16px;text-align:center}
+      .about-stat-n{font-family:"JetBrains Mono",monospace;font-size:28px;font-weight:700;color:#F59E0B;line-height:1}
+      .about-stat-l{font-size:10px;color:#6B6B70;margin-top:6px;letter-spacing:0.5px;line-height:1.4}
       @media(max-width:720px){.about-grid{grid-template-columns:1fr}.about-photo-wrap{flex-direction:row;gap:20px;align-items:center}.about-photo{width:100px;height:100px}}
     </style>
 
@@ -355,7 +349,9 @@ nav { z-index: 999 !important; }
           <div class="about-stat"><div class="about-stat-n">7+</div><div class="about-stat-l" data-i18n="sobre.s1">Years of experience</div></div>
           <div class="about-stat"><div class="about-stat-n">600+</div><div class="about-stat-l" data-i18n="sobre.s2">Operational locations</div></div>
           <div class="about-stat"><div class="about-stat-n">50%</div><div class="about-stat-l" data-i18n="sobre.s3">Faster reporting</div></div>
-          <div class="about-stat"><div class="about-stat-n">0</div><div class="about-stat-l" data-i18n="sobre.s4">Generic solutions</div></div>
+          <div class="about-stat"><div class="about-stat-n">9</div><div class="about-stat-l" data-i18n="sobre.s4">Expert &amp; advanced tools</div></div>
+          <div class="about-stat"><div class="about-stat-n">3</div><div class="about-stat-l" data-i18n="sobre.s5">Masters · Power BI · Python · AI</div></div>
+          <div class="about-stat"><div class="about-stat-n">4</div><div class="about-stat-l" data-i18n="sobre.s6">Countries · Multinational projects</div></div>
         </div>
       </div>
     </div>
@@ -1056,8 +1052,8 @@ var translations = {
     "sobre.s1":"Years of experience",
     "sobre.s2":"Operational locations",
     "sobre.s3":"Faster reporting",
-    "sobre.s4":"Generic solutions",
-    "sobre.s5":"In every process",
+    "sobre.s4":"Expert &amp; advanced tools","sobre.s5":"Masters · Power BI · Python · AI","sobre.s6":"Countries · Multinational projects",
+    "sobre.s5":"Masters · Power BI · Python · AI",
     "exp.present":"Present",
     "exp.j1role":"Senior BI &amp; Loss Prevention Analyst<span class=\"tl-badge\" data-i18n=\"exp.j1badge\">CURRENT",
     "exp.j1badge":"CURRENT",
@@ -1168,8 +1164,8 @@ var translations = {
     "sobre.s1":"Años de experiencia",
     "sobre.s2":"Locales operacionales",
     "sobre.s3":"Reportes más rápidos",
-    "sobre.s4":"Soluciones genéricas",
-    "sobre.s5":"En cada proceso",
+    "sobre.s4":"Herramientas experto &amp; avanzado","sobre.s5":"Másteres · Power BI · Python · IA","sobre.s6":"Países · Proyectos multinacionales",
+    "sobre.s5":"Másteres · Power BI · Python · IA",
     "exp.present":"Presente",
     "exp.j1badge":"ACTUAL",
     "exp.j1role":"Analista Senior BI &amp; Prevención de Pérdidas",
