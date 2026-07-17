@@ -246,9 +246,20 @@ nav { z-index: 999 !important; }
         🧾 CV <span style="font-size:11px">▾</span>
       </button>
       <div class="cv-dropdown-menu">
-        <a href="CV_Francisco_Santelices.pdf" download class="cv-dropdown-item">
-          <span>🇺🇸</span> Download in English
+        <div style="position:relative;display:inline-block" id="cv-wrap">
+      <button onclick="var m=document.getElementById('cv-menu');m.style.display=m.style.display==='block'?'none':'block'" style="background:var(--ac);color:#000;font-family:var(--mono);font-size:11px;font-weight:700;padding:7px 14px;border-radius:4px;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap">
+        🧾 CV <span style="font-size:10px">▾</span>
+      </button>
+      <div id="cv-menu" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:#141416;border:1px solid #2A2A2E;border-radius:6px;overflow:hidden;min-width:180px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,0.5)">
+        <a href="CV_Francisco_Santelices.pdf" download style="display:flex;align-items:center;gap:10px;padding:10px 14px;font-family:var(--mono);font-size:10px;color:#A1A1AA;text-decoration:none;transition:background .15s" onmouseover="this.style.background='#1A1A1D';this.style.color='#F5F5F5'" onmouseout="this.style.background='';this.style.color='#A1A1AA'">
+          <span style="font-size:15px">🇺🇸</span> Download in English
         </a>
+        <div style="height:1px;background:#2A2A2E"></div>
+        <a href="CV_Francisco_Santelices_ES.pdf" download style="display:flex;align-items:center;gap:10px;padding:10px 14px;font-family:var(--mono);font-size:10px;color:#A1A1AA;text-decoration:none;transition:background .15s" onmouseover="this.style.background='#1A1A1D';this.style.color='#F5F5F5'" onmouseout="this.style.background='';this.style.color='#A1A1AA'">
+          <span style="font-size:15px">🇨🇱</span> Descargar en Español
+        </a>
+      </div>
+    </div>
         <div class="cv-dropdown-divider"></div>
         <a href="CV_Francisco_Santelices_ES.pdf" download class="cv-dropdown-item">
           <span>🇨🇱</span> Descargar en Español
@@ -1251,30 +1262,43 @@ function applyLang(l) {
   if (es) es.style.color = l === "es" ? "#000" : "#6B6B70";
 }
 
-function setLang(l) {
-  _lang = l;
+function toggleLang() {
+  _lang = (_lang === "en") ? "es" : "en";
   applyLang(_lang);
 }
 
-function toggleLang() {
-  setLang(_lang === "en" ? "es" : "en");
+/* Apply after DOM is fully ready */
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang('en');
+    setTimeout(function(){ applyLang('en'); }, 300);
+    setTimeout(function(){ applyLang('en'); }, 800);
+  });
+} else {
+  applyLang('en');
+  setTimeout(function(){ applyLang('en'); }, 300);
+  setTimeout(function(){ applyLang('en'); }, 800);
 }
-
-applyLang("en");
-setTimeout(function(){ applyLang("en"); }, 150);
-setTimeout(function(){ applyLang("en"); }, 600);
 </script>
 
+
+
 <script>
-function toggleCVDropdown() {
-  var d = document.getElementById('cv-dropdown');
-  d.classList.toggle('open');
-}
-// Close when clicking outside
-document.addEventListener('click', function(e) {
-  var d = document.getElementById('cv-dropdown');
-  if (d && !d.contains(e.target)) d.classList.remove('open');
+/* CV dropdown */
+document.addEventListener('click', function(e){
+  var wrap = document.getElementById('cv-wrap');
+  var menu = document.getElementById('cv-menu');
+  if(!wrap || !menu) return;
+  if(!wrap.contains(e.target)){
+    menu.style.display = 'none';
+    menu.classList.remove('cv-open');
+  }
 });
+/* Toggle show/hide */
+(function(){
+  var orig = HTMLElement.prototype.toggle;
+  document.querySelectorAll && document.addEventListener('DOMContentLoaded', function(){});
+})();
 </script>
 </body>
 </html>
