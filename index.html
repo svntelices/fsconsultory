@@ -645,7 +645,24 @@ nav { z-index: 999 !important; }
         .pcard-inner,.pcard-inner.rev{grid-template-columns:1fr}
         .pcard-img{min-height:220px}
       }
-    </style>
+    
+/* ── HAMBURGER MOBILE ─────────────────────────── */
+.ham-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1001}
+.ham-btn span{display:block;width:20px;height:2px;background:#F59E0B;border-radius:1px;transition:all .3s}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,8,10,0.97);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mob-menu.open{display:flex}
+.mob-menu-link{font-family:"JetBrains Mono",monospace;font-size:20px;color:#A1A1AA;text-decoration:none;letter-spacing:2px;transition:color .2s}
+.mob-menu-link:hover,.mob-menu-link:active{color:#F59E0B}
+.mob-divider{width:40px;height:1px;background:#2A2A2E}
+@media(max-width:768px){
+  .nl{display:none!important}
+  .nr{display:none!important}
+  .ham-btn{display:flex!important}
+}
+</style>
 
     <!-- PROJECT 1 -->
     <div class="pcard rv">
