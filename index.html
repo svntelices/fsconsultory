@@ -257,6 +257,7 @@ nav { z-index: 999 !important; }
       <img src="logo_nav.png" alt="FSC">
       <span class="brand-n">FSConsultory</span>
     </a>
+    <button class="ham-btn" id="ham-btn" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
     <ul class="nl">
       <li><a href="#sobre" data-i18n="nav.sobre">About</a></li>
       <li><a href="#experiencia" data-i18n="nav.exp">Experience</a></li>
@@ -1234,6 +1235,60 @@ document.addEventListener("click", function() {
   var m = document.getElementById("cv-drop-menu");
   if (m) m.style.display = "none";
 });
+</script>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mob-menu" id="mob-menu">
+  <a class="mob-menu-link" href="#sobre" onclick="closeMobileMenu()" data-i18n="nav.sobre">About</a>
+  <a class="mob-menu-link" href="#experiencia" onclick="closeMobileMenu()" data-i18n="nav.exp">Experience</a>
+  <a class="mob-menu-link" href="#servicios" onclick="closeMobileMenu()" data-i18n="nav.servicios">Services</a>
+  <a class="mob-menu-link" href="#stack" onclick="closeMobileMenu()" data-i18n="nav.stack">Stack</a>
+  <a class="mob-menu-link" href="#portafolio" onclick="closeMobileMenu()" data-i18n="nav.portafolio">Portfolio</a>
+  <a class="mob-menu-link" href="#formulario" onclick="closeMobileMenu()" data-i18n="nav.contacto">Contact</a>
+  <div class="mob-divider"></div>
+  <!-- Lang toggle mobile -->
+  <div style="display:flex;align-items:center;background:#141416;border:1px solid #2A2A2E;border-radius:20px;padding:3px;cursor:pointer" onclick="doToggleLang()">
+    <div id="mob-en" style="width:48px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#F59E0B;color:#000;border-radius:16px;transition:all .2s">EN</div>
+    <div id="mob-es" style="width:48px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#6B6B70;border-radius:16px;transition:all .2s">ES</div>
+  </div>
+  <!-- LinkedIn mobile -->
+  <a href="https://www.linkedin.com/in/svntelices/" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#A1A1AA;text-decoration:none;display:flex;align-items:center;gap:8px">
+    <span style="background:#0A66C2;border-radius:3px;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700">in</span>LinkedIn
+  </a>
+  <!-- CV mobile -->
+  <div style="display:flex;gap:12px">
+    <a href="CV_Francisco_Santelices.pdf" download onclick="closeMobileMenu()" style="background:#F59E0B;color:#000;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:10px 16px;border-radius:6px;text-decoration:none;display:flex;align-items:center;gap:6px">
+      🇺🇸 CV EN
+    </a>
+    <a href="CV_Francisco_Santelices_ES.pdf" download onclick="closeMobileMenu()" style="background:#141416;color:#F59E0B;border:1px solid #F59E0B;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:10px 16px;border-radius:6px;text-decoration:none;display:flex;align-items:center;gap:6px">
+      🇨🇱 CV ES
+    </a>
+  </div>
+</div>
+
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mob-menu');
+  var btn  = document.getElementById('ham-btn');
+  var open = menu.classList.contains('open');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow = open ? '' : 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mob-menu').classList.remove('open');
+  document.getElementById('ham-btn').classList.remove('open');
+  document.body.style.overflow = '';
+}
+/* Sync mobile lang buttons */
+var _baseApply = applyLang;
+applyLang = function(l) {
+  _baseApply(l);
+  var me = document.getElementById('mob-en');
+  var ms = document.getElementById('mob-es');
+  if (me) { me.style.background = l==='en'?'#F59E0B':'transparent'; me.style.color = l==='en'?'#000':'#6B6B70'; }
+  if (ms) { ms.style.background = l==='es'?'#F59E0B':'transparent'; ms.style.color = l==='es'?'#000':'#6B6B70'; }
+};
 </script>
 </body>
 </html>
