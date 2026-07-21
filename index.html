@@ -250,7 +250,6 @@ nav { z-index: 999 !important; }
 </div>
 
 <!-- NAV -->
-<canvas id="canvas-particles" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
 <nav>
   <div class="ni">
     <a href="#hero" class="brand">
@@ -951,39 +950,7 @@ function enviar(){
 
 
 
-<script>
-(function(){
-  const c = document.getElementById('canvas-particles');
-  function resize(){ c.width = window.innerWidth; c.height = window.innerHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-  const ctx = c.getContext('2d');
-  const NUM = 80;
-  const pts = Array.from({length: NUM}, ()=>({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    vx: (Math.random() - .5) * .35,
-    vy: (Math.random() - .5) * .35,
-    r: Math.random() * 2 + 0.8,
-    a: Math.random() * 0.25 + 0.15
-  }));
-  function draw(){
-    ctx.clearRect(0, 0, c.width, c.height);
-    pts.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if(p.x < 0 || p.x > c.width)  p.vx *= -1;
-      if(p.y < 0 || p.y > c.height) p.vy *= -1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(245,158,11,${p.a})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-</script>
+
 
 
 <script>
@@ -1306,6 +1273,129 @@ applyLang = function(l) {
   if (me) { me.style.background = l==='en'?'#F59E0B':'transparent'; me.style.color = l==='en'?'#000':'#6B6B70'; }
   if (ms) { ms.style.background = l==='es'?'#F59E0B':'transparent'; ms.style.color = l==='es'?'#000':'#6B6B70'; }
 };
+</script>
+
+<!-- DUAL PARTICLE SYSTEM -->
+<canvas id="canvas-hero-p" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0"></canvas>
+<canvas id="canvas-rest-p" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0"></canvas>
+
+<script>
+(function(){
+  // ── SETUP ──────────────────────────────────────────
+  var heroCanvas = document.getElementById('canvas-hero-p');
+  var restCanvas = document.getElementById('canvas-rest-p');
+  var hCtx = heroCanvas.getContext('2d');
+  var rCtx = restCanvas.getContext('2d');
+
+  function resize() {
+    heroCanvas.width  = restCanvas.width  = window.innerWidth;
+    heroCanvas.height = restCanvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // ── WHICH CANVAS IS ACTIVE ──────────────────────────
+  function isInHero() {
+    var hero = document.getElementById('hero');
+    if (!hero) return true;
+    var rect = hero.getBoundingClientRect();
+    return rect.bottom > window.innerHeight * 0.4;
+  }
+
+  // ── OPTION 4: PULSATING PARTICLES (Hero) ───────────
+  var t4 = 0;
+  var pts4 = [];
+  for (var i = 0; i < 30; i++) {
+    pts4.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - .5) * .25,
+      vy: (Math.random() - .5) * .25,
+      base: Math.random() * 2 + 1,
+      phase: Math.random() * Math.PI * 2
+    });
+  }
+
+  function drawHero() {
+    var w = heroCanvas.width, h = heroCanvas.height;
+    hCtx.clearRect(0, 0, w, h);
+    t4 += .035;
+    pts4.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var r = p.base + Math.sin(t4 + p.phase) * p.base * .6;
+      var a = .12 + Math.sin(t4 + p.phase) * .06;
+      var grad = hCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 3.5);
+      grad.addColorStop(0, 'rgba(245,158,11,' + (a + .08) + ')');
+      grad.addColorStop(1, 'rgba(245,158,11,0)');
+      hCtx.beginPath(); hCtx.arc(p.x, p.y, r * 3.5, 0, Math.PI * 2);
+      hCtx.fillStyle = grad; hCtx.fill();
+      hCtx.beginPath(); hCtx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      hCtx.fillStyle = 'rgba(245,158,11,' + (a + .15) + ')'; hCtx.fill();
+    });
+  }
+
+  // ── OPTION 2: CONSTELLATION (Rest) ─────────────────
+  var pts2 = [];
+  for (var i = 0; i < 35; i++) {
+    pts2.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - .5) * .22,
+      vy: (Math.random() - .5) * .22
+    });
+  }
+
+  function drawRest() {
+    var w = restCanvas.width, h = restCanvas.height;
+    rCtx.clearRect(0, 0, w, h);
+    pts2.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+    });
+    // Draw lines
+    for (var i = 0; i < pts2.length; i++) {
+      for (var j = i + 1; j < pts2.length; j++) {
+        var dx = pts2[i].x - pts2[j].x;
+        var dy = pts2[i].y - pts2[j].y;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 100) {
+          rCtx.beginPath();
+          rCtx.moveTo(pts2[i].x, pts2[i].y);
+          rCtx.lineTo(pts2[j].x, pts2[j].y);
+          rCtx.strokeStyle = 'rgba(245,158,11,' + ((1 - d/100) * .18) + ')';
+          rCtx.lineWidth = .6;
+          rCtx.stroke();
+        }
+      }
+    }
+    // Draw dots
+    pts2.forEach(function(p) {
+      rCtx.beginPath(); rCtx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+      rCtx.fillStyle = 'rgba(245,158,11,0.45)'; rCtx.fill();
+    });
+  }
+
+  // ── SWITCH LOGIC ────────────────────────────────────
+  function updateVisibility() {
+    var inHero = isInHero();
+    heroCanvas.style.opacity = inHero ? '1' : '0';
+    restCanvas.style.opacity = inHero ? '0' : '1';
+  }
+
+  window.addEventListener('scroll', updateVisibility);
+  updateVisibility();
+
+  // ── ANIMATION LOOP ──────────────────────────────────
+  function loop() {
+    drawHero();
+    drawRest();
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
 </script>
 </body>
 </html>
