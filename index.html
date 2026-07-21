@@ -1289,20 +1289,22 @@ applyLang = function(l) {
   resize();
   window.addEventListener('resize',resize);
 
-  // Hero: pulsating glow
+  // ── HERO: subtle pulsating dots ─────────────────────
   var T=0, HP=[];
-  for(var i=0;i<35;i++) HP.push({
+  for(var i=0;i<28;i++) HP.push({
     x:Math.random()*window.innerWidth, y:Math.random()*window.innerHeight,
-    vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
-    b:Math.random()*2.5+1.2, ph:Math.random()*Math.PI*2
+    vx:(Math.random()-.5)*.2, vy:(Math.random()-.5)*.2,
+    b:Math.random()*1.2+0.4,
+    ph:Math.random()*Math.PI*2
   });
 
-  // Rest: constellation
+  // ── REST: individual floating particles ─────────────
   var CP=[];
-  for(var i=0;i<60;i++) CP.push({
+  for(var i=0;i<55;i++) CP.push({
     x:Math.random()*window.innerWidth, y:Math.random()*window.innerHeight,
-    vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35,
-    r:Math.random()*1.8+1.2
+    vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+    r:Math.random()*1.4+0.8,
+    a:Math.random()*.35+.2
   });
 
   function inHero(){
@@ -1319,42 +1321,43 @@ applyLang = function(l) {
   window.addEventListener('scroll',switchCanvas,{passive:true});
   switchCanvas();
 
+  // Hero: small subtle pulsating
   function drawHero(){
-    var w=hC.width,h=hC.height; hX.clearRect(0,0,w,h); T+=.04;
+    var w=hC.width,h=hC.height; hX.clearRect(0,0,w,h); T+=.03;
     HP.forEach(function(p){
       p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1;
-      var r=p.b+Math.sin(T+p.ph)*p.b*.7, a=.25+Math.sin(T+p.ph)*.12;
-      var g=hX.createRadialGradient(p.x,p.y,0,p.x,p.y,r*4);
-      g.addColorStop(0,'rgba(245,158,11,'+(a+.2)+')');
+      if(p.x<0||p.x>w)p.vx*=-1;
+      if(p.y<0||p.y>h)p.vy*=-1;
+      var r=p.b+Math.sin(T+p.ph)*p.b*.5;
+      var a=.12+Math.sin(T+p.ph)*.07;
+      // subtle glow
+      var g=hX.createRadialGradient(p.x,p.y,0,p.x,p.y,r*3);
+      g.addColorStop(0,'rgba(245,158,11,'+(a+.08)+')');
       g.addColorStop(1,'rgba(245,158,11,0)');
-      hX.beginPath(); hX.arc(p.x,p.y,r*4,0,Math.PI*2); hX.fillStyle=g; hX.fill();
+      hX.beginPath(); hX.arc(p.x,p.y,r*3,0,Math.PI*2);
+      hX.fillStyle=g; hX.fill();
+      // core
       hX.beginPath(); hX.arc(p.x,p.y,r,0,Math.PI*2);
-      hX.fillStyle='rgba(245,158,11,'+(a+.35)+')'; hX.fill();
+      hX.fillStyle='rgba(245,158,11,'+(a+.18)+')'; hX.fill();
     });
   }
 
+  // Rest: plain floating dots, no lines
   function drawRest(){
     var w=rC.width,h=rC.height; rX.clearRect(0,0,w,h);
     CP.forEach(function(p){
       p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1;
-    });
-    for(var i=0;i<CP.length;i++) for(var j=i+1;j<CP.length;j++){
-      var dx=CP[i].x-CP[j].x, dy=CP[i].y-CP[j].y, d=Math.sqrt(dx*dx+dy*dy);
-      if(d<130){
-        rX.beginPath(); rX.moveTo(CP[i].x,CP[i].y); rX.lineTo(CP[j].x,CP[j].y);
-        rX.strokeStyle='rgba(245,158,11,'+((1-d/130)*.55)+')';
-        rX.lineWidth=1; rX.stroke();
-      }
-    }
-    CP.forEach(function(p){
-      var g=rX.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);
-      g.addColorStop(0,'rgba(245,158,11,0.45)');
+      if(p.x<0||p.x>w)p.vx*=-1;
+      if(p.y<0||p.y>h)p.vy*=-1;
+      // soft glow around each dot
+      var g=rX.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
+      g.addColorStop(0,'rgba(245,158,11,'+(p.a*.6)+')');
       g.addColorStop(1,'rgba(245,158,11,0)');
-      rX.beginPath(); rX.arc(p.x,p.y,p.r*5,0,Math.PI*2); rX.fillStyle=g; rX.fill();
+      rX.beginPath(); rX.arc(p.x,p.y,p.r*4,0,Math.PI*2);
+      rX.fillStyle=g; rX.fill();
+      // core dot
       rX.beginPath(); rX.arc(p.x,p.y,p.r,0,Math.PI*2);
-      rX.fillStyle='rgba(245,158,11,.95)'; rX.fill();
+      rX.fillStyle='rgba(245,158,11,'+p.a+')'; rX.fill();
     });
   }
 
