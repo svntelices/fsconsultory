@@ -851,45 +851,37 @@ function goTo(id, idx){
   <div class="wrap">
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
     <div class="sec-num">// 08 <span data-i18n="casos.label">— Success Cases</span></div>
-    <h2 class="sec-title rv" data-i18n="casos.title">Real work. <em>Real decisions.</em></h2>
+    <h2 class="sec-title rv" data-i18n="casos.title">Nothing invented. <em>Nothing assumed.</em></h2>
 
     <style>
       .caso-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s;margin-top:8px}
       .caso-card:hover{border-color:var(--ac)}
-      .caso-header{background:linear-gradient(135deg,#141416,#1A1A1D);padding:28px 32px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
-      .caso-client{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-      .caso-icon{width:44px;height:44px;border-radius:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+      .caso-header{background:linear-gradient(135deg,#141416,#1A1A1D);padding:30px 34px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+      .caso-client{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+      .caso-icon{width:46px;height:46px;border-radius:11px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);display:flex;align-items:center;justify-content:center;font-size:23px;flex-shrink:0}
       .caso-client-name{font-family:var(--mono);font-size:11px;color:var(--ac);font-weight:700;letter-spacing:1px}
-      .caso-client-loc{font-family:var(--mono);font-size:10px;color:var(--tx2)}
-      .caso-headline{font-size:20px;font-weight:700;color:var(--tx);line-height:1.25;margin-bottom:8px}
+      .caso-client-loc{font-family:var(--mono);font-size:10px;color:var(--tx2);margin-top:2px}
+      .caso-headline{font-size:21px;font-weight:700;color:var(--tx);line-height:1.3;margin-bottom:10px}
       .caso-headline em{color:var(--ac);font-style:normal}
-      .caso-sub{font-size:13px;color:var(--tx2);line-height:1.65}
-      .caso-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-      .caso-tag{font-family:var(--mono);font-size:9px;padding:3px 9px;border-radius:10px;border:1px solid var(--border);color:var(--tx2)}
+      .caso-sub{font-size:13.5px;color:var(--tx2);line-height:1.7}
+      .caso-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+      .caso-tag{font-family:var(--mono);font-size:9px;padding:4px 10px;border-radius:10px;border:1px solid var(--border);color:var(--tx2)}
       .caso-status{font-family:var(--mono);font-size:9px;color:#1CC88A;border:1px solid rgba(28,200,138,0.2);background:rgba(28,200,138,0.06);padding:5px 12px;border-radius:20px;white-space:nowrap;display:flex;align-items:center;gap:5px}
-      .caso-body{padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
-      .caso-block-title{font-family:var(--mono);font-size:9px;color:var(--ac);letter-spacing:2px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-      .caso-problem p{font-size:13.5px;color:var(--tx2);line-height:1.75;margin-bottom:10px}
-      .caso-principles{display:flex;flex-direction:column;gap:12px}
-      .caso-principle{display:flex;gap:10px;align-items:flex-start}
-      .caso-p-icon{font-size:14px;flex-shrink:0;margin-top:1px}
-      .caso-p-text{font-size:12.5px;color:var(--tx2);line-height:1.6}
-      .caso-p-text strong{color:var(--tx)}
-      .caso-bugs{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);grid-column:1/-1}
-      .caso-bug-title{font-family:var(--mono);font-size:9px;color:var(--ac);letter-spacing:2px;margin-bottom:14px}
-      .caso-bugs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-      .caso-bug{background:#0D0D10;border:1px solid var(--border);border-radius:8px;padding:14px 16px}
-      .caso-bug-n{font-family:var(--mono);font-size:9px;color:var(--ac);margin-bottom:5px}
-      .caso-bug-txt{font-size:12px;color:var(--tx2);line-height:1.55}
-      .caso-quote{grid-column:1/-1;background:rgba(245,158,11,0.05);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:16px}
-      .caso-quote-txt{font-size:13px;color:var(--tx);line-height:1.7;font-style:italic}
-      .caso-quote-attr{font-family:var(--mono);font-size:10px;color:var(--ac);margin-top:8px}
+      .caso-body{padding:30px 34px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+      .caso-block-title{font-family:var(--mono);font-size:9px;color:var(--ac);letter-spacing:2px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+      .caso-problem p{font-size:13.5px;color:var(--tx2);line-height:1.8;margin-bottom:12px}
+      .caso-principles{display:flex;flex-direction:column;gap:16px}
+      .caso-principle{display:flex;gap:12px;align-items:flex-start}
+      .caso-p-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+      .caso-p-text{font-size:12.5px;color:var(--tx2);line-height:1.7}
+      .caso-p-text strong{color:var(--tx);display:block;margin-bottom:3px}
+      .caso-quote{grid-column:1/-1;background:rgba(245,158,11,0.05);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:20px 24px;margin-top:8px}
+      .caso-quote-txt{font-size:14px;color:var(--tx);line-height:1.75;font-style:italic}
+      .caso-quote-attr{font-family:var(--mono);font-size:10px;color:var(--ac);margin-top:10px}
       @media(max-width:768px){
         .caso-header{grid-template-columns:1fr}
-        .caso-body{grid-template-columns:1fr}
-        .caso-bugs-grid{grid-template-columns:1fr 1fr}
+        .caso-body{grid-template-columns:1fr;gap:26px}
       }
-      @media(max-width:500px){.caso-bugs-grid{grid-template-columns:1fr}}
     </style>
 
     <div class="caso-card rv">
@@ -899,14 +891,14 @@ function goTo(id, idx){
             <div class="caso-icon">🍽️</div>
             <div>
               <div class="caso-client-name" data-i18n="caso1.client">Terraza Abril · Alhué, Región Metropolitana</div>
-              <div class="caso-client-loc" data-i18n="caso1.sector">Restobar · Gastronomy</div>
+              <div class="caso-client-loc" data-i18n="caso1.sector">Restobar · Parrilla &amp; Sushi</div>
             </div>
           </div>
-          <div class="caso-headline" data-i18n="caso1.headline">From a crumpled receipt to<br><em>the day's margin on WhatsApp.</em></div>
-          <div class="caso-sub" data-i18n="caso1.sub">A WhatsApp assistant that lets restaurant staff log purchases by voice, text or photo — and answers the hardest question in any small business: how much is left after costs.</div>
+          <div class="caso-headline" data-i18n="caso1.headline">Costs logged by voice.<br><em>Margin answered on WhatsApp.</em></div>
+          <div class="caso-sub" data-i18n="caso1.sub">A WhatsApp assistant that lets the restaurant team log purchases by voice, text or receipt photo — and answers the hardest question in any business: how much is left after costs.</div>
           <div class="caso-tags">
             <span class="caso-tag">n8n</span>
-            <span class="caso-tag">WhatsApp API</span>
+            <span class="caso-tag">WhatsApp Business API</span>
             <span class="caso-tag">AI Agents</span>
             <span class="caso-tag">Python</span>
             <span class="caso-tag">Google Sheets</span>
@@ -923,8 +915,9 @@ function goTo(id, idx){
         <div>
           <div class="caso-block-title" data-i18n="caso1.prob_label">THE PROBLEM</div>
           <div class="caso-problem">
-            <p data-i18n="caso1.prob1">A small restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is <strong style="color:var(--tx)">how much it spent</strong>, because costs live in crumpled receipts in the cook's pocket, in loose messages, and in purchases nobody logged.</p>
+            <p data-i18n="caso1.prob1">A restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is <strong style="color:var(--tx)">how much it spent</strong>, because costs live in receipts in the cook's pocket, in loose messages, and in purchases nobody logged.</p>
             <p data-i18n="caso1.prob2">Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.</p>
+            <p data-i18n="caso1.prob3">The owner knows daily sales, but only learns the margin at month's end — when nothing can be done with that information anymore.</p>
           </div>
         </div>
 
@@ -933,56 +926,26 @@ function goTo(id, idx){
           <div class="caso-principles">
             <div class="caso-principle">
               <span class="caso-p-icon">⚙️</span>
-              <div class="caso-p-text" data-i18n="caso1.p1"><strong>Numbers never go through a language model.</strong> The model understands the message; the code does the math.</div>
+              <div class="caso-p-text" data-i18n="caso1.p1"><strong>Numbers never go through a language model.</strong>The model understands the message; the code does the math. A system handling someone else's money cannot have a creative component in its arithmetic.</div>
             </div>
             <div class="caso-principle">
               <span class="caso-p-icon">🔍</span>
-              <div class="caso-p-text" data-i18n="caso1.p2"><strong>The code checks the model.</strong> When the assistant reads a receipt, it compares the sum of line items against the printed total and flags mismatches.</div>
+              <div class="caso-p-text" data-i18n="caso1.p2"><strong>The code checks the model.</strong>When the assistant reads a receipt, it compares the sum of line items against the printed total and flags any mismatch. The model isn't trusted to get it right — it's verified.</div>
             </div>
             <div class="caso-principle">
               <span class="caso-p-icon">🤫</span>
-              <div class="caso-p-text" data-i18n="caso1.p3"><strong>When it doesn't know, it stays silent.</strong> Price alerts only fire when the system is certain which product and package it's looking at.</div>
+              <div class="caso-p-text" data-i18n="caso1.p3"><strong>When it doesn't know, it stays silent.</strong>Price alerts only fire when the system is certain which product and package size it's looking at. A wrong alert about money destroys more trust than ten alerts that never fired.</div>
             </div>
             <div class="caso-principle">
               <span class="caso-p-icon">📊</span>
-              <div class="caso-p-text" data-i18n="caso1.p4"><strong>The system tells you what it isn't counting.</strong> Every margin response ends by stating how many costs were included.</div>
+              <div class="caso-p-text" data-i18n="caso1.p4"><strong>The system says what it isn't counting.</strong>Every margin response states how many costs were included and warns that unlogged purchases inflate the number. Without that line, the figure reads as profitability — and it isn't.</div>
             </div>
           </div>
         </div>
 
-        <div class="caso-bugs">
-          <div class="caso-bug-title" data-i18n="caso1.bugs_label">8 SILENT DEFECTS CAUGHT BEFORE DELIVERY</div>
-          <div class="caso-bugs-grid">
-            <div class="caso-bug">
-              <div class="caso-bug-n">#1</div>
-              <div class="caso-bug-txt" data-i18n="caso1.b1">A tax counted twice. The system added VAT already included in line prices, inflating costs by 15% with a total that looked perfectly credible.</div>
-            </div>
-            <div class="caso-bug">
-              <div class="caso-bug-n">#2</div>
-              <div class="caso-bug-txt" data-i18n="caso1.b2">A correction that raised the price instead of lowering it. Two prompts interpreted the same phrase in opposite directions.</div>
-            </div>
-            <div class="caso-bug">
-              <div class="caso-bug-n">#3</div>
-              <div class="caso-bug-txt" data-i18n="caso1.b3">Invented comparisons. "Aceite" matched four products at very different prices — alerting about a product the restaurant never bought.</div>
-            </div>
-            <div class="caso-bug">
-              <div class="caso-bug-n">#4</div>
-              <div class="caso-bug-txt" data-i18n="caso1.b4">Lost traceability. Every voice-logged purchase was saved as text with no audio transcript — the record needed when someone disputes what was said.</div>
-            </div>
-            <div class="caso-bug">
-              <div class="caso-bug-n">#5</div>
-              <div class="caso-bug-txt" data-i18n="caso1.b5">A query that never worked. The API always replied no expenses — whether there were any or not.</div>
-            </div>
-            <div class="caso-bug">
-              <div class="caso-bug-n">→</div>
-              <div class="caso-bug-txt" data-i18n="caso1.blast"><em>A zero is not data — it's a hypothesis.</em> An empty response deserves the same suspicion as a strange one.</div>
-            </div>
-          </div>
-
-          <div class="caso-quote">
-            <div class="caso-quote-txt" data-i18n="caso1.quote">"The system responded something reasonable while doing something wrong." That is the signature of a silent defect.</div>
-            <div class="caso-quote-attr">— FSConsultory · Engineering criterion</div>
-          </div>
+        <div class="caso-quote">
+          <div class="caso-quote-txt" data-i18n="caso1.quote">Anyone can build a WhatsApp bot. What separates this work is the criterion behind the hard decisions — built on the premise that a system handling someone else's money must be incapable of lying without it showing.</div>
+          <div class="caso-quote-attr">— FSConsultory · Engineering criterion</div>
         </div>
       </div>
     </div>
@@ -1227,7 +1190,7 @@ var translations = {
     "form.errMsg":"Please write your message","form.submit":"Send Message →",
     "form.success":"✅ Message sent! I will get back to you shortly.",
     "cta.label":"— Contact",
-    "casos.label":"— Success Cases","casos.title":"Real work. <em>Real decisions.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Gastronomy","caso1.headline":"From a crumpled receipt to<br><em>the day's margin on WhatsApp.</em>","caso1.sub":"A WhatsApp assistant that lets restaurant staff log purchases by voice, text or photo — and answers the hardest question in any small business: how much is left after costs.","caso1.status":"Delivered · Sep 2026","caso1.type":"First FSConsultory client","caso1.prob_label":"THE PROBLEM","caso1.prob1":"A small restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is <strong style=\"color:var(--tx)\">how much it spent</strong>, because costs live in crumpled receipts in the cook's pocket, in loose messages, and in purchases nobody logged.","caso1.prob2":"Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.","caso1.princ_label":"HOW IT WAS BUILT","caso1.p1":"<strong>Numbers never go through a language model.</strong> The model understands the message; the code does the math.","caso1.p2":"<strong>The code checks the model.</strong> When the assistant reads a receipt, it compares the sum of line items against the printed total and flags mismatches.","caso1.p3":"<strong>When it doesn't know, it stays silent.</strong> Price alerts only fire when the system is certain which product and package it's looking at.","caso1.p4":"<strong>The system tells you what it isn't counting.</strong> Every margin response ends by stating how many costs were included.","caso1.bugs_label":"8 SILENT DEFECTS CAUGHT BEFORE DELIVERY","caso1.b1":"A tax counted twice. The system added VAT already included in line prices, inflating costs by 15% with a total that looked perfectly credible.","caso1.b2":"A correction that raised the price instead of lowering it. Two prompts interpreted the same phrase in opposite directions.","caso1.b3":"Invented comparisons. \"Aceite\" matched four products at very different prices — alerting about a product the restaurant never bought.","caso1.b4":"Lost traceability. Every voice-logged purchase was saved as text with no audio transcript — the record needed when someone disputes what was said.","caso1.b5":"A query that never worked. The API always replied no expenses — whether there were any or not.","caso1.blast":"<em>A zero is not data — it's a hypothesis.</em> An empty response deserves the same suspicion as a strange one.","caso1.quote":"\"The system responded something reasonable while doing something wrong.\" That is the signature of a silent defect.","cta.title":"Let's <em>Talk.</em>"
+    "casos.label":"— Success Cases","casos.title":"Nothing invented. <em>Nothing assumed.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Parrilla &amp; Sushi","caso1.headline":"Costs logged by voice.<br><em>Margin answered on WhatsApp.</em>","caso1.sub":"A WhatsApp assistant that lets restaurant staff log purchases by voice, text or photo — and answers the hardest question in any small business: how much is left after costs.","caso1.status":"Delivered · Sep 2026","caso1.type":"First FSConsultory client","caso1.prob_label":"THE PROBLEM","caso1.prob1":"A restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is <strong style=\"color:var(--tx)\">how much it spent</strong>, because costs live in receipts in the cook's pocket, in loose messages, and in purchases nobody logged."color:var(--tx)\">how much it spent</strong>, because costs live in crumpled receipts in the cook's pocket, in loose messages, and in purchases nobody logged.","caso1.prob2":"Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.","caso1.prob3":"The owner knows daily sales, but only learns the margin at month's end — when nothing can be done with that information anymore.","caso1.princ_label":"HOW IT WAS BUILT","caso1.p1":"<strong>Numbers never go through a language model.</strong> The model understands the message; the code does the math.","caso1.p2":"<strong>The code checks the model.</strong> When the assistant reads a receipt, it compares the sum of line items against the printed total and flags mismatches.","caso1.p3":"<strong>When it doesn't know, it stays silent.</strong> Price alerts only fire when the system is certain which product and package it's looking at.","caso1.p4":"<strong>The system tells you what it isn't counting.</strong> Every margin response ends by stating how many costs were included.",Aceite\" matched four products at very different prices — alerting about a product the restaurant never bought.","caso1.quote":"Anyone can build a WhatsApp bot. What separates this work is the criterion behind the hard decisions — built on the premise that a system handling someone else's money must be incapable of lying without it showing."The system responded something reasonable while doing something wrong.\" That is the signature of a silent defect.","cta.title":"Let's <em>Talk.</em>"
   },
   es: {
     "nav.sobre":"Sobre mí","nav.exp":"Experiencia","nav.servicios":"Servicios",
@@ -1312,7 +1275,7 @@ var translations = {
     "form.errMsg":"Por favor escribe tu mensaje","form.submit":"Enviar Mensaje →",
     "form.success":"✅ ¡Mensaje enviado! Me pondré en contacto contigo pronto.",
     "cta.label":"— Contacto",
-    "casos.label":"— Casos de Éxito","casos.title":"Trabajo real. <em>Decisiones reales.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Gastronomía","caso1.headline":"De la boleta arrugada al<br><em>margen del día en WhatsApp.</em>","caso1.sub":"Un asistente de WhatsApp que permite al equipo del restaurante anotar compras por voz, texto o foto — y responde la pregunta más difícil de cualquier negocio chico: cuánto queda después de los costos.","caso1.status":"Entregado · Sep 2026","caso1.type":"Primer cliente de FSConsultory","caso1.prob_label":"EL PROBLEMA","caso1.prob1":"Un restaurante chico sabe perfectamente cuánto vendió. Lo que casi nunca sabe a tiempo es <strong style=\"color:var(--tx)\">cuánto gastó</strong>, porque los costos viven en boletas arrugadas en el bolsillo del cocinero.","caso1.prob2":"Anotar los costos es un trabajo que nadie quiere hacer en medio de un servicio. La apuesta: si anotar una compra cuesta lo mismo que mandar un audio de WhatsApp, se va a hacer.","caso1.princ_label":"CÓMO SE CONSTRUYÓ","caso1.p1":"<strong>Los números nunca pasan por un modelo de lenguaje.</strong> El modelo entiende el mensaje; el código hace las cuentas.","caso1.p2":"<strong>El código revisa al modelo.</strong> Cuando el asistente lee una boleta, compara la suma de los ítems contra el total impreso y avisa si no calza.","caso1.p3":"<strong>Cuando no sabe, se calla.</strong> El control de precios no avisa si no puede determinar con certeza de qué producto y envase se trata.","caso1.p4":"<strong>El sistema dice lo que no está contando.</strong> Toda respuesta de margen termina advirtiendo que lo que no se anota infla el número.","caso1.bugs_label":"8 DEFECTOS SILENCIOSOS DETECTADOS ANTES DE LA ENTREGA","caso1.b1":"Un impuesto contado dos veces. El sistema sumaba el IVA ya incluido en los precios, inflando el costo un 15% con un total perfectamente creíble.","caso1.b2":"Una corrección que subía el precio en vez de bajarlo. Dos prompts interpretaban la misma frase de formas opuestas.","caso1.b3":"Comparaciones inventadas. \"Aceite\" calzaba con cuatro productos de precios muy distintos — avisando diferencias contra un producto que el restaurante nunca compró.","caso1.b4":"Trazabilidad perdida. Todo gasto dictado por voz se guardaba sin la transcripción — el dato que sirve cuando alguien discute lo que dijo.","caso1.b5":"Una consulta que nunca funcionó. La API siempre respondía sin gastos — hubiera o no.","caso1.blast":"<em>Un cero no es un dato, es una hipótesis.</em> Una respuesta vacía merece la misma desconfianza que una respuesta rara.","caso1.quote":"\"El sistema respondía algo razonable mientras hacía algo mal.\" Esa es la firma de un defecto silencioso.","cta.title":"Conversemos."
+    "casos.label":"— Casos de Éxito","casos.title":"Nada se inventa. <em>Nada se asume.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Parrilla y Sushi","caso1.headline":"Costos anotados hablando.<br><em>Margen respondido en WhatsApp.</em>","caso1.sub":"Un asistente de WhatsApp que permite al equipo del restaurante anotar compras por voz, texto o foto — y responde la pregunta más difícil de cualquier negocio chico: cuánto queda después de los costos.","caso1.status":"Entregado · Sep 2026","caso1.type":"Primer cliente de FSConsultory","caso1.prob_label":"EL PROBLEMA","caso1.prob1":"Un restaurante sabe perfectamente cuánto vendió: el punto de venta se lo dice. Lo que casi nunca sabe a tiempo es <strong style=\"color:var(--tx)\">cuánto gastó</strong>, porque los costos viven en boletas en el bolsillo del cocinero, en mensajes sueltos y en compras que nadie anotó."color:var(--tx)\">cuánto gastó</strong>, porque los costos viven en boletas arrugadas en el bolsillo del cocinero.","caso1.prob2":"Anotar los costos es un trabajo que nadie quiere hacer en medio de un servicio. La apuesta: si anotar una compra cuesta lo mismo que mandar un audio de WhatsApp, se va a hacer.","caso1.prob3":"El dueño conoce sus ventas al día, pero el margen recién a fin de mes — cuando ya no puede hacer nada con esa información.","caso1.princ_label":"CÓMO SE CONSTRUYÓ","caso1.p1":"<strong>Los números nunca pasan por un modelo de lenguaje.</strong> El modelo entiende el mensaje; el código hace las cuentas.","caso1.p2":"<strong>El código revisa al modelo.</strong> Cuando el asistente lee una boleta, compara la suma de los ítems contra el total impreso y avisa si no calza.","caso1.p3":"<strong>Cuando no sabe, se calla.</strong> El control de precios no avisa si no puede determinar con certeza de qué producto y envase se trata.","caso1.p4":"<strong>El sistema dice lo que no está contando.</strong> Toda respuesta de margen termina advirtiendo que lo que no se anota infla el número.",Aceite\" calzaba con cuatro productos de precios muy distintos — avisando diferencias contra un producto que el restaurante nunca compró.","caso1.quote":"Cualquiera arma un bot de WhatsApp. Lo que separa este trabajo es el criterio con que se tomaron las decisiones difíciles — con la premisa de que un sistema que maneja plata ajena tiene que ser incapaz de mentir sin que se note."El sistema respondía algo razonable mientras hacía algo mal.\" Esa es la firma de un defecto silencioso.","cta.title":"Conversemos."
   }
 };
 
