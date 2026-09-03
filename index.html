@@ -262,6 +262,7 @@ nav { z-index: 999 !important; }
       <li><a href="#servicios" data-i18n="nav.servicios">Services</a></li>
       <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
       <li><a href="#portafolio" data-i18n="nav.portafolio">Portfolio</a></li>
+      <li><a href="#casos" data-i18n="nav.casos">Cases</a></li>
       <li><a href="#contacto" data-i18n="nav.contacto">Contact</a></li>
     </ul>
     <div class="nr">
@@ -845,11 +846,154 @@ function goTo(id, idx){
 ['c1','c2'].forEach(initCarousel);
 </script>
 
+<!-- CASOS -->
+<section id="casos" style="background:rgba(11,11,13,0.78);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
+    <div class="sec-num">// 08 <span data-i18n="casos.label">— Success Cases</span></div>
+    <h2 class="sec-title rv" data-i18n="casos.title">Real work. <em>Real decisions.</em></h2>
+
+    <style>
+      .caso-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s;margin-top:8px}
+      .caso-card:hover{border-color:var(--ac)}
+      .caso-header{background:linear-gradient(135deg,#141416,#1A1A1D);padding:28px 32px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+      .caso-client{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+      .caso-icon{width:44px;height:44px;border-radius:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+      .caso-client-name{font-family:var(--mono);font-size:11px;color:var(--ac);font-weight:700;letter-spacing:1px}
+      .caso-client-loc{font-family:var(--mono);font-size:10px;color:var(--tx2)}
+      .caso-headline{font-size:20px;font-weight:700;color:var(--tx);line-height:1.25;margin-bottom:8px}
+      .caso-headline em{color:var(--ac);font-style:normal}
+      .caso-sub{font-size:13px;color:var(--tx2);line-height:1.65}
+      .caso-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+      .caso-tag{font-family:var(--mono);font-size:9px;padding:3px 9px;border-radius:10px;border:1px solid var(--border);color:var(--tx2)}
+      .caso-status{font-family:var(--mono);font-size:9px;color:#1CC88A;border:1px solid rgba(28,200,138,0.2);background:rgba(28,200,138,0.06);padding:5px 12px;border-radius:20px;white-space:nowrap;display:flex;align-items:center;gap:5px}
+      .caso-body{padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+      .caso-block-title{font-family:var(--mono);font-size:9px;color:var(--ac);letter-spacing:2px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+      .caso-problem p{font-size:13.5px;color:var(--tx2);line-height:1.75;margin-bottom:10px}
+      .caso-principles{display:flex;flex-direction:column;gap:12px}
+      .caso-principle{display:flex;gap:10px;align-items:flex-start}
+      .caso-p-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+      .caso-p-text{font-size:12.5px;color:var(--tx2);line-height:1.6}
+      .caso-p-text strong{color:var(--tx)}
+      .caso-bugs{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);grid-column:1/-1}
+      .caso-bug-title{font-family:var(--mono);font-size:9px;color:var(--ac);letter-spacing:2px;margin-bottom:14px}
+      .caso-bugs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+      .caso-bug{background:#0D0D10;border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+      .caso-bug-n{font-family:var(--mono);font-size:9px;color:var(--ac);margin-bottom:5px}
+      .caso-bug-txt{font-size:12px;color:var(--tx2);line-height:1.55}
+      .caso-quote{grid-column:1/-1;background:rgba(245,158,11,0.05);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:16px}
+      .caso-quote-txt{font-size:13px;color:var(--tx);line-height:1.7;font-style:italic}
+      .caso-quote-attr{font-family:var(--mono);font-size:10px;color:var(--ac);margin-top:8px}
+      @media(max-width:768px){
+        .caso-header{grid-template-columns:1fr}
+        .caso-body{grid-template-columns:1fr}
+        .caso-bugs-grid{grid-template-columns:1fr 1fr}
+      }
+      @media(max-width:500px){.caso-bugs-grid{grid-template-columns:1fr}}
+    </style>
+
+    <div class="caso-card rv">
+      <div class="caso-header">
+        <div>
+          <div class="caso-client">
+            <div class="caso-icon">🍽️</div>
+            <div>
+              <div class="caso-client-name" data-i18n="caso1.client">Terraza Abril · Alhué, Región Metropolitana</div>
+              <div class="caso-client-loc" data-i18n="caso1.sector">Restobar · Gastronomy</div>
+            </div>
+          </div>
+          <div class="caso-headline" data-i18n="caso1.headline">From a crumpled receipt to<br><em>the day's margin on WhatsApp.</em></div>
+          <div class="caso-sub" data-i18n="caso1.sub">A WhatsApp assistant that lets restaurant staff log purchases by voice, text or photo — and answers the hardest question in any small business: how much is left after costs.</div>
+          <div class="caso-tags">
+            <span class="caso-tag">n8n</span>
+            <span class="caso-tag">WhatsApp API</span>
+            <span class="caso-tag">AI Agents</span>
+            <span class="caso-tag">Python</span>
+            <span class="caso-tag">Google Sheets</span>
+            <span class="caso-tag">Fudo API</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+          <div class="caso-status"><span>●</span> <span data-i18n="caso1.status">Delivered · Sep 2026</span></div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--tx2);text-align:right" data-i18n="caso1.type">First FSConsultory client</div>
+        </div>
+      </div>
+
+      <div class="caso-body">
+        <div>
+          <div class="caso-block-title" data-i18n="caso1.prob_label">THE PROBLEM</div>
+          <div class="caso-problem">
+            <p data-i18n="caso1.prob1">A small restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is <strong style="color:var(--tx)">how much it spent</strong>, because costs live in crumpled receipts in the cook's pocket, in loose messages, and in purchases nobody logged.</p>
+            <p data-i18n="caso1.prob2">Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="caso-block-title" data-i18n="caso1.princ_label">HOW IT WAS BUILT</div>
+          <div class="caso-principles">
+            <div class="caso-principle">
+              <span class="caso-p-icon">⚙️</span>
+              <div class="caso-p-text" data-i18n="caso1.p1"><strong>Numbers never go through a language model.</strong> The model understands the message; the code does the math.</div>
+            </div>
+            <div class="caso-principle">
+              <span class="caso-p-icon">🔍</span>
+              <div class="caso-p-text" data-i18n="caso1.p2"><strong>The code checks the model.</strong> When the assistant reads a receipt, it compares the sum of line items against the printed total and flags mismatches.</div>
+            </div>
+            <div class="caso-principle">
+              <span class="caso-p-icon">🤫</span>
+              <div class="caso-p-text" data-i18n="caso1.p3"><strong>When it doesn't know, it stays silent.</strong> Price alerts only fire when the system is certain which product and package it's looking at.</div>
+            </div>
+            <div class="caso-principle">
+              <span class="caso-p-icon">📊</span>
+              <div class="caso-p-text" data-i18n="caso1.p4"><strong>The system tells you what it isn't counting.</strong> Every margin response ends by stating how many costs were included.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caso-bugs">
+          <div class="caso-bug-title" data-i18n="caso1.bugs_label">8 SILENT DEFECTS CAUGHT BEFORE DELIVERY</div>
+          <div class="caso-bugs-grid">
+            <div class="caso-bug">
+              <div class="caso-bug-n">#1</div>
+              <div class="caso-bug-txt" data-i18n="caso1.b1">A tax counted twice. The system added VAT already included in line prices, inflating costs by 15% with a total that looked perfectly credible.</div>
+            </div>
+            <div class="caso-bug">
+              <div class="caso-bug-n">#2</div>
+              <div class="caso-bug-txt" data-i18n="caso1.b2">A correction that raised the price instead of lowering it. Two prompts interpreted the same phrase in opposite directions.</div>
+            </div>
+            <div class="caso-bug">
+              <div class="caso-bug-n">#3</div>
+              <div class="caso-bug-txt" data-i18n="caso1.b3">Invented comparisons. "Aceite" matched four products at very different prices — alerting about a product the restaurant never bought.</div>
+            </div>
+            <div class="caso-bug">
+              <div class="caso-bug-n">#4</div>
+              <div class="caso-bug-txt" data-i18n="caso1.b4">Lost traceability. Every voice-logged purchase was saved as text with no audio transcript — the record needed when someone disputes what was said.</div>
+            </div>
+            <div class="caso-bug">
+              <div class="caso-bug-n">#5</div>
+              <div class="caso-bug-txt" data-i18n="caso1.b5">A query that never worked. The API always replied no expenses — whether there were any or not.</div>
+            </div>
+            <div class="caso-bug">
+              <div class="caso-bug-n">→</div>
+              <div class="caso-bug-txt" data-i18n="caso1.blast"><em>A zero is not data — it's a hypothesis.</em> An empty response deserves the same suspicion as a strange one.</div>
+            </div>
+          </div>
+
+          <div class="caso-quote">
+            <div class="caso-quote-txt" data-i18n="caso1.quote">"The system responded something reasonable while doing something wrong." That is the signature of a silent defect.</div>
+            <div class="caso-quote-attr">— FSConsultory · Engineering criterion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FORM -->
 <section id="formulario">
   <div class="wrap">
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 08 <span data-i18n="form.label">— Get in Touch</span></div>
+    <div class="sec-num">// 09 <span data-i18n="form.label">— Get in Touch</span></div>
     <h2 class="sec-title rv" data-i18n="form.title">Tell me your <em>challenge.</em></h2>
     <div class="form-box rv">
       <form id="contact-form" novalidate>
@@ -889,7 +1033,7 @@ function goTo(id, idx){
 <section id="contacto">
   <div class="wrap">
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num" style="justify-content:center">// 09 <span data-i18n="cta.label">— Contact</span></div>
+    <div class="sec-num" style="justify-content:center">// 10 <span data-i18n="cta.label">— Contact</span></div>
     <h2 class="sec-title rv" style="text-align:center" data-i18n="cta.title">Let's <em>Talk.</em></h2>
     <div class="cta-cards rv">
       <a href="mailto:francisco@fsconsultory.com" class="cta-card">
@@ -1002,7 +1146,7 @@ if(cf){
 var translations = {
   en: {
     "nav.sobre":"About","nav.exp":"Experience","nav.servicios":"Services",
-    "nav.stack":"Stack","nav.portafolio":"Portfolio","nav.contacto":"Contact",
+    "nav.stack":"Stack","nav.portafolio":"Portfolio","nav.casos":"Cases","nav.contacto":"Contact",
     "hero.tag":"BUSINESS INTELLIGENCE CONSULTANT",
     "hero.title":"Turning <span class=\"grad\">data</span><br>into executive decisions.",
     "hero.sub":"Independent consultant in Business Intelligence and applied AI · Santiago, Chile.",
@@ -1087,7 +1231,7 @@ var translations = {
   },
   es: {
     "nav.sobre":"Sobre mí","nav.exp":"Experiencia","nav.servicios":"Servicios",
-    "nav.stack":"Stack","nav.portafolio":"Portafolio","nav.contacto":"Contacto",
+    "nav.stack":"Stack","nav.portafolio":"Portafolio","nav.casos":"Casos","nav.contacto":"Contacto",
     "hero.tag":"CONSULTOR EN BUSINESS INTELLIGENCE",
     "hero.title":"Convierto <span class=\"grad\">datos</span><br>en decisiones ejecutivas.",
     "hero.sub":"Consultor independiente en Business Intelligence e IA aplicada · Santiago, Chile.",
@@ -1229,6 +1373,7 @@ document.addEventListener("click", function() {
   <a class="mob-menu-link" href="#servicios" onclick="closeMobileMenu()" data-i18n="nav.servicios">Services</a>
   <a class="mob-menu-link" href="#stack" onclick="closeMobileMenu()" data-i18n="nav.stack">Stack</a>
   <a class="mob-menu-link" href="#portafolio" onclick="closeMobileMenu()" data-i18n="nav.portafolio">Portfolio</a>
+  <a class="mob-menu-link" href="#casos" onclick="closeMobileMenu()" data-i18n="nav.casos">Cases</a>
   <a class="mob-menu-link" href="#formulario" onclick="closeMobileMenu()" data-i18n="nav.contacto">Contact</a>
   <div class="mob-divider"></div>
   <!-- Lang toggle mobile -->
