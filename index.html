@@ -144,7 +144,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
 @media(max-width:820px){.srv-grid{grid-template-columns:1fr}}
 
 /* ── PROCESS ── */
-#proceso{background:rgba(11,11,13,0.78)}
 .proc{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
 .proc::before{content:"";position:absolute;top:24px;left:8%;right:8%;height:1px;background:var(--border)}
 .ps{padding-right:14px}
@@ -165,7 +164,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
 @media(max-width:820px){.stk-grid{grid-template-columns:1fr}}
 
 /* ── RESULTS ── */
-#resultados{background:rgba(11,11,13,0.78)}
 .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .res-card{border:1px solid var(--border);border-radius:8px;padding:26px;background:var(--card);transition:border-color .2s}
 .res-card:hover{border-color:var(--ac)}
@@ -175,13 +173,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
 @media(max-width:820px){.res-grid{grid-template-columns:1fr}}
 
 /* ── PORTFOLIO ── */
-#portafolio{background:rgba(20,20,22,0.78);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
+#trabajo{background:rgba(20,20,22,0.78)}
 .port-box{border:1px solid var(--border);border-radius:8px;padding:52px 36px;background:var(--card);position:relative;overflow:hidden}
 .port-box::before{}
 .port-sub{font-size:14px;color:var(--tx2);max-width:440px;margin:0 auto 26px;position:relative}
 
 /* ── FORM ── */
-#formulario{background:rgba(11,11,13,0.78)}
 .form-box{border:1px solid var(--border);border-radius:8px;padding:36px;background:var(--card);max-width:660px;margin:0 auto}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fg{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
@@ -225,6 +222,36 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .rv.on{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* ── merged sections ── */
+.work-flag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--ac);background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.28);padding:5px 12px;border-radius:20px;margin-bottom:14px}
+.work-flag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac);flex-shrink:0}
+.work-sep{display:flex;align-items:center;gap:14px;margin:56px 0 30px}
+.work-sep-l{flex:1;height:1px;background:var(--border)}
+.work-sep-t{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--tx2);white-space:nowrap}
+.proc-strip{margin-top:44px;padding-top:26px;border-top:1px solid var(--border)}
+.proc-strip-h{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.proc-strip-t{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--ac);white-space:nowrap}
+.proc-strip-line{flex:1;height:1px;background:var(--border)}
+.proc-strip-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
+.pstep{position:relative;padding-top:26px}
+.pstep::before{content:"";position:absolute;top:9px;left:0;right:0;height:1px;background:var(--border)}
+.pstep::after{content:"";position:absolute;top:5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ac)}
+.pstep:last-child::before{right:50%}
+.pstep-ic{font-size:15px;margin-bottom:5px}
+.pstep-t{font-size:12px;font-weight:600;color:var(--tx);margin-bottom:3px}
+.pstep-d{font-size:11px;color:var(--tx2);line-height:1.5}
+.contact-split{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:start}
+.contact-side{border-left:1px solid var(--border);padding-left:28px}
+.contact-side-t{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--ac);margin-bottom:14px}
+.contact-side .cta-cards{grid-template-columns:1fr!important;max-width:none!important;margin:0!important}
+@media(max-width:860px){
+  .proc-strip-row{grid-template-columns:repeat(2,1fr);gap:20px}
+  .pstep::before,.pstep::after{display:none}
+  .pstep{padding-top:0}
+  .contact-split{grid-template-columns:1fr}
+  .contact-side{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:24px}
+}
 </style>
 
 <style>
@@ -240,9 +267,6 @@ nav { z-index: 999 !important; }
 
 <!-- FLOATING BUTTONS -->
 <div class="fab-stack">
-          
-      </div>
-    </div>
   <a href="https://wa.me/56997442005" target="_blank" class="fab fab-wa" title="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a8.867 8.867 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
@@ -258,11 +282,10 @@ nav { z-index: 999 !important; }
     <button class="ham-btn" id="ham-btn" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
     <ul class="nl">
       <li><a href="#sobre" data-i18n="nav.sobre">About</a></li>
+      <li><a href="#trabajo" data-i18n="nav.work">Work</a></li>
       <li><a href="#experiencia" data-i18n="nav.exp">Experience</a></li>
       <li><a href="#servicios" data-i18n="nav.servicios">Services</a></li>
       <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
-      <li><a href="#portafolio" data-i18n="nav.portafolio">Portfolio</a></li>
-      <li><a href="#casos" data-i18n="nav.casos">Cases</a></li>
       <li><a href="#contacto" data-i18n="nav.contacto">Contact</a></li>
     </ul>
     <div class="nr">
@@ -309,7 +332,7 @@ nav { z-index: 999 !important; }
       <h1 class="hero-h1" data-i18n="hero.title">Turning <span class="grad">data</span><br>into executive decisions.</h1>
       <p class="hero-sub" data-i18n="hero.sub">Independent consultant in Business Intelligence and applied AI · Santiago, Chile.</p>
       <div class="hero-btns" style="justify-content:center">
-        <a href="#portafolio" class="btn-p" data-i18n="hero.btn1">View Portfolio →</a>
+        <a href="#trabajo" class="btn-p" data-i18n="hero.btn1">View Portfolio →</a>
         <a href="CV_Francisco_Santelices.pdf" download class="btn-g"><span>🧾</span><span data-i18n="hero.btn2">Download CV</span></a>
       </div>
       <div style="background:#0D0D10;border:1px solid #2A2A2E;border-radius:8px;padding:20px 24px;font-family:'JetBrains Mono',monospace;font-size:13px;width:100%;max-width:480px;text-align:left;margin-bottom:48px">
@@ -376,239 +399,116 @@ nav { z-index: 999 !important; }
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experiencia">
+<!-- WORK -->
+<section id="trabajo" style="background:rgba(20,20,22,0.78);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="wrap">
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 02 <span data-i18n="exp.label">— Experience</span></div>
-    <h2 class="sec-title rv" data-i18n="exp.title">Professional <em>Journey.</em></h2>
-    <div class="tl-item rv">
-      <div class="tl-dt mono">08/2019 — <span data-i18n="exp.present">Present</span></div>
-      <div class="tl-c"><div class="tl-dot"></div>
-        <div class="tl-role" data-i18n="exp.j1role">Senior BI &amp; Loss Prevention Analyst<span class="tl-badge" data-i18n="exp.j1badge">CURRENT</span></div>
-        <div class="tl-co mono">Empresas SB</div>
-        <ul class="tl-ul">
-          <li data-i18n="exp.j1l1">Architected end-to-end BI solutions in Power BI (star schema, DAX, RLS) consumed daily by C-level and operational teams — cutting reporting cycles from days to hours.</li>
-          <li data-i18n="exp.j1l2">Built anomaly detection models in Python + SQL monitoring loss and fraud signals across <b>600+ nationwide retail locations</b>, strengthening internal control significantly.</li>
-          <li data-i18n="exp.j1l3">Designed the national commercial KPI model (RANKX, TOPN, CALCULATE) aligning salesperson incentives with real business outcomes — deployed across all branches.</li>
-          <li data-i18n="exp.j1l4">Optimized inventory management through stockout and overstock analytics, reducing dead stock and improving category replenishment cycles.</li>
-          <li data-i18n="exp.j1l5">Led the national bonus calculation process, ensuring full traceability and precision across all commercial areas.</li>
-          <li data-i18n="exp.j1l6">Monitor retail-supplier commercial agreement performance through KPI analysis (Loss/Purchase ratio), identifying deviations and providing data-driven evidence to support contract renegotiations.</li>
-        </ul>
-        <div class="tl-tags"><span class="tl-tag">Power BI</span><span class="tl-tag">SQL</span><span class="tl-tag">Python</span><span class="tl-tag">Excel</span></div>
-      </div>
-    </div>
-    <div class="tl-item rv">
-      <div class="tl-dt mono">2018<br><span style="font-size:10px;color:var(--tx3)" data-i18n="exp.months2">2 months</span></div>
-      <div class="tl-c"><div class="tl-dot"></div>
-        <div class="tl-role" data-i18n="exp.j2role">Professional Internship</div>
-        <div class="tl-co mono" data-i18n="exp.j2company">SBIF — Modeling Dept.</div>
-        <ul class="tl-ul"><li data-i18n="exp.j2l1">Work carried out in the Modeling and Methodology Department. Research, creation and study of probabilistic models to understand phenomena in the Chilean banking sector, laying the foundations of <b>Basel II</b> (the fundamental banking regulatory framework of the Basel Committee on Banking Supervision).</li></ul>
-        <div class="tl-tags"><span class="tl-tag">Probabilistic Models</span><span class="tl-tag">Banking</span></div>
-      </div>
-    </div>
-    <div class="tl-item rv">
-      <div class="tl-dt mono">2017<br><span style="font-size:10px;color:var(--tx3)" data-i18n="exp.months2">2 months</span></div>
-      <div class="tl-c"><div class="tl-dot"></div>
-        <div class="tl-role" data-i18n="exp.j3role">Operations Internship</div>
-        <div class="tl-co mono">ICIL-ICAFAL Maquinaria S.p.A</div>
-        <ul class="tl-ul"><li data-i18n="exp.j3l1">Supported machinery rental, maintenance and fleet management processes.</li></ul>
-        <div class="tl-tags"><span class="tl-tag" data-i18n="exp.j3tag">Operations</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="servicios">
-  <div class="wrap">
-    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 03 <span data-i18n="srv.label">— Services</span></div>
-    <h2 class="sec-title rv" data-i18n="srv.title">How can I <em>help</em> you?</h2>
-    <div class="srv-grid">
-      <div class="srv-card rv d1"><div class="srv-num mono">01 / 📊</div><h3 class="srv-t" data-i18n="srv.s1t">Executive Dashboards</h3><p class="srv-d" data-i18n="srv.s1d">Power BI reports connected to real data. Leadership sees the business in real time, no spreadsheets.</p></div>
-      <div class="srv-card rv d2"><div class="srv-num mono">02 / 🔍</div><h3 class="srv-t" data-i18n="srv.s2t">Operational Control &amp; Loss Prevention</h3><p class="srv-d" data-i18n="srv.s2d">Identify deviation, fraud and inefficiency patterns. Proven across 600+ locations.</p></div>
-      <div class="srv-card rv d3"><div class="srv-num mono">03 / ⚙️</div><h3 class="srv-t" data-i18n="srv.s3t">Custom Data Models</h3><p class="srv-d" data-i18n="srv.s3d">SQL, Python and Excel models automating repetitive analysis and generating actionable indicators.</p></div>
-      <div class="srv-card rv d1"><div class="srv-num mono">04 / 🤖</div><h3 class="srv-t" data-i18n="srv.s4t">AI Agents</h3><p class="srv-d" data-i18n="srv.s4d">Develop and integrate AI agents into analytical and operational processes, boosting decision quality.</p></div>
-      <div class="srv-card rv d2"><div class="srv-num mono">05 / 💬</div><h3 class="srv-t" data-i18n="srv.s5t">Data Communication</h3><p class="srv-d" data-i18n="srv.s5d">Translate complex analysis into clear language for executive, commercial and operational teams.</p></div>
-      <div class="srv-card rv d3"><div class="srv-num mono">06 / 🎯</div><h3 class="srv-t" data-i18n="srv.s6t">Commercial Optimization</h3><p class="srv-d" data-i18n="srv.s6d">Incentive models and KPIs aligned with real business outcomes through data and AI.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="proceso">
-  <div class="wrap">
-    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 04 <span data-i18n="proc.label">— Process</span></div>
-    <h2 class="sec-title rv" data-i18n="proc.title">From data to <em>results.</em></h2>
-    <div class="proc rv">
-      <div class="ps"><div class="ps-n">🔎</div><div class="ps-t" data-i18n="proc.p1t">Diagnosis</div><div class="ps-d" data-i18n="proc.p1d">Understand your business, data and the real problem.</div></div>
-      <div class="ps"><div class="ps-n">✏️</div><div class="ps-t" data-i18n="proc.p2t">Design</div><div class="ps-d" data-i18n="proc.p2d">Define architecture, key metrics and deliverables.</div></div>
-      <div class="ps"><div class="ps-n">⚙️</div><div class="ps-t" data-i18n="proc.p3t">Development</div><div class="ps-d" data-i18n="proc.p3d">Build models, dashboards or agents.</div></div>
-      <div class="ps"><div class="ps-n">🚀</div><div class="ps-t" data-i18n="proc.p4t">Implementation</div><div class="ps-d" data-i18n="proc.p4d">Deploy in your real environment.</div></div>
-      <div class="ps"><div class="ps-n">🎓</div><div class="ps-t" data-i18n="proc.p5t">Training</div><div class="ps-d" data-i18n="proc.p5d">Transfer knowledge for team autonomy.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- STACK -->
-<section id="stack">
-  <div class="wrap">
-    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 05 <span data-i18n="stk.label">— Tech Stack</span></div>
-    <h2 class="sec-title rv" data-i18n="stk.title">Tools I work with.</h2>
-    <style>
-      .stk-grid-oct{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:800px;margin:0 auto}
-      .stk-oct-wrap{position:relative;width:96px;display:flex;flex-direction:column;align-items:center;gap:8px}
-      .stk-oct{width:82px;height:82px;clip-path:polygon(29% 0%,71% 0%,100% 29%,100% 71%,71% 100%,29% 100%,0% 71%,0% 29%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:transform .2s,box-shadow .2s;cursor:default}
-      .stk-oct:hover{transform:scale(1.08)}
-      .stk-oct-cert{background:linear-gradient(135deg,#1A1200,#3A2800);border:2px solid #FFB547;box-shadow:0 0 14px rgba(255,181,71,0.2)}
-      .stk-oct-exp{background:linear-gradient(135deg,#0F0D00,#1A1500);border:2px solid #F59E0B}
-      .stk-oct-adv{background:#141416;border:2px solid #2A2A2E}
-      .stk-oct-name{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;color:#F5F5F5;text-align:center;line-height:1.2}
-      .stk-oct-lvl{font-size:8px;letter-spacing:0.5px;font-family:"JetBrains Mono",monospace}
-      .stk-oct-lvl-c{color:#FFB547}
-      .stk-oct-lvl-e{color:#F59E0B}
-      .stk-oct-lvl-a{color:#6B6B70}
-      .stk-ribbon{position:absolute;top:0;right:0;background:linear-gradient(135deg,#F59E0B,#FFB547);font-size:7px;font-weight:700;color:#000;padding:2px 6px;border-radius:0 0 0 6px;font-family:"JetBrains Mono",monospace;letter-spacing:0.5px;z-index:2}
-      .stk-legend{display:flex;gap:20px;justify-content:center;margin-top:24px;flex-wrap:wrap}
-      .stk-leg-item{font-family:"JetBrains Mono",monospace;font-size:10px;display:flex;align-items:center;gap:6px}
-      .stk-leg-dot{width:10px;height:10px;border-radius:2px}
+    <div class="sec-num">// 02 <span data-i18n="work.label">— Work</span></div>
+    <h2 class="sec-title rv" data-i18n="work.title">Nothing invented. <em>Nothing assumed.</em></h2>
+<style>
+      .caso-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s;margin-top:8px}
+      .caso-card:hover{border-color:var(--ac)}
+      .caso-header{background:linear-gradient(135deg,#141416,#1A1A1D);padding:30px 34px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+      .caso-client{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+      .caso-icon-img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(245,158,11,0.35);flex-shrink:0;box-shadow:0 0 16px rgba(245,158,11,0.15)}
+      .caso-client-name{font-family:var(--mono);font-size:11px;color:var(--ac);font-weight:700;letter-spacing:1px}
+      .caso-client-loc{font-family:var(--mono);font-size:10px;color:var(--tx2);margin-top:2px}
+      .caso-headline{font-size:21px;font-weight:700;color:var(--tx);line-height:1.3;margin-bottom:10px}
+      .caso-headline em{color:var(--ac);font-style:normal}
+      .caso-sub{font-size:13.5px;color:var(--tx2);line-height:1.7}
+      .caso-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+      .caso-tag{font-family:var(--mono);font-size:9px;padding:4px 10px;border-radius:10px;border:1px solid var(--border);color:var(--tx2)}
+      .caso-status{font-family:var(--mono);font-size:9px;color:#1CC88A;border:1px solid rgba(28,200,138,0.2);background:rgba(28,200,138,0.06);padding:5px 12px;border-radius:20px;white-space:nowrap;display:flex;align-items:center;gap:5px}
+      .caso-body{padding:30px 34px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+      .caso-block-title{font-family:var(--mono);font-size:9px;color:var(--ac);letter-spacing:2px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+      .caso-problem p{font-size:13.5px;color:var(--tx2);line-height:1.8;margin-bottom:12px}
+      .caso-principles{display:flex;flex-direction:column;gap:16px}
+      .caso-principle{display:flex;gap:12px;align-items:flex-start}
+      .caso-p-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+      .caso-p-text{font-size:12.5px;color:var(--tx2);line-height:1.7}
+      .caso-p-text strong{color:var(--tx);display:block;margin-bottom:3px}
+      .caso-quote{grid-column:1/-1;background:rgba(245,158,11,0.05);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:20px 24px;margin-top:8px}
+      .caso-quote-txt{font-size:14px;color:var(--tx);line-height:1.75;font-style:italic}
+      .caso-quote-attr{font-family:var(--mono);font-size:10px;color:var(--ac);margin-top:10px}
+      @media(max-width:768px){
+        .caso-header{grid-template-columns:1fr}
+        .caso-body{grid-template-columns:1fr;gap:26px}
+      }
     </style>
-    <div class="stk-grid-oct rv">
-
-      <!-- CERTIFICADOS UTN (prioridad 1) -->
-      <div class="stk-oct-wrap">
-        <span class="stk-ribbon">UTN ★</span>
-        <div class="stk-oct stk-oct-cert">
-          <span class="stk-oct-name">Power<br>BI</span>
-          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.exp">EXPERT</span>
-        </div>
-      </div>
-      <div class="stk-oct-wrap">
-        <span class="stk-ribbon">UTN ★</span>
-        <div class="stk-oct stk-oct-cert">
-          <span class="stk-oct-name">Python</span>
-          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.adv">ADVANCED</span>
-        </div>
-      </div>
-      <div class="stk-oct-wrap">
-        <span class="stk-ribbon">UTN ★</span>
-        <div class="stk-oct stk-oct-cert">
-          <span class="stk-oct-name" data-i18n="stk.ai">Artificial<br>Intelligence</span>
-          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.adv">ADVANCED</span>
-        </div>
-      </div>
-
-      <!-- EXPERT SIN CERTIFICACIÓN (prioridad 2) -->
-      <div class="stk-oct-wrap">
-        <div class="stk-oct stk-oct-exp">
-          <span class="stk-oct-name">SQL</span>
-          <span class="stk-oct-lvl stk-oct-lvl-e" data-i18n="stk.exp">EXPERT</span>
-        </div>
-      </div>
-      <div class="stk-oct-wrap">
-        <div class="stk-oct stk-oct-exp">
-          <span class="stk-oct-name">Excel</span>
-          <span class="stk-oct-lvl stk-oct-lvl-e" data-i18n="stk.exp">EXPERT</span>
-        </div>
-      </div>
-
-      <!-- ADVANCED (prioridad 3) -->
-      <div class="stk-oct-wrap">
-        <div class="stk-oct stk-oct-adv">
-          <span class="stk-oct-name">STATA</span>
-          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
-        </div>
-      </div>
-      <div class="stk-oct-wrap">
-        <div class="stk-oct stk-oct-adv">
-          <span class="stk-oct-name">SPSS</span>
-          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
-        </div>
-      </div>
-      <div class="stk-oct-wrap">
-        <div class="stk-oct stk-oct-adv">
-          <span class="stk-oct-name">Claude</span>
-          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
-        </div>
-      </div>
-      <div class="stk-oct-wrap">
-        <div class="stk-oct stk-oct-adv">
-          <span class="stk-oct-name" data-i18n="stk.agents">AI Agents</span>
-          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
-        </div>
-      </div>
-
-    </div>
-    <div class="stk-legend rv">
-      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#FFB547"></span><span style="color:#FFB547" data-i18n="stk.cert">★ Certificado UTN Curitiba, Brasil</span></span>
-      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#F59E0B"></span><span style="color:#F59E0B" data-i18n="stk.expleg">Expert</span></span>
-      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#2A2A2E"></span><span style="color:#6B6B70" data-i18n="stk.advleg">Advanced</span></span>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section id="resultados">
-  <div class="wrap">
-    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 06 <span data-i18n="res.label">— Results</span></div>
-    <h2 class="sec-title rv" data-i18n="res.title">Measurable <em>impact.</em></h2>
-    <style>
-      .res4-grid{display:flex;flex-direction:column;gap:14px;max-width:860px;margin:0 auto}
-      .res4-card{background:#141416;border:1px solid #2A2A2E;border-radius:10px;padding:22px 24px;display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;transition:border-color .2s}
-      .res4-card:hover{border-color:#F59E0B}
-      .res4-icon{width:52px;height:52px;border-radius:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-      .res4-title{font-size:15px;font-weight:700;color:#F5F5F5;margin-bottom:6px;line-height:1.3}
-      .res4-desc{font-size:13px;color:#A1A1AA;line-height:1.65;margin-bottom:12px}
-      .res4-bar-wrap{height:5px;background:#1A1A1D;border-radius:3px;overflow:hidden;margin-bottom:6px}
-      .res4-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,#F59E0B,#FFB547)}
-      .res4-metric{font-family:"JetBrains Mono",monospace;font-size:10px;color:#F59E0B;letter-spacing:0.5px}
-      @media(max-width:600px){.res4-card{grid-template-columns:1fr}.res4-icon{display:none}}
-    </style>
-    <div class="res4-grid">
-      <div class="res4-card rv d1">
-        <div class="res4-icon">⚡</div>
+    <div class="work-flag rv"><span data-i18n="work.clientflag">CLIENT PROJECT</span></div>
+<div class="caso-card rv">
+      <div class="caso-header">
         <div>
-          <div class="res4-title" data-i18n="res.t1title">Reporting Time Reduced by 50%</div>
-          <div class="res4-desc" data-i18n="res.t1desc">Executive Power BI dashboards with DAX time intelligence (YTD, MTD, YoY) and star schema modeling deployed in Power BI Service with row-level security. Used daily by leadership and strategic areas across a 4-branch retail chain.</div>
-          <div class="res4-bar-wrap"><div class="res4-bar" style="width:50%"></div></div>
-          <span class="res4-metric" data-i18n="res.t1tag">↓ 50% · Power BI · DAX · Star Schema · RLS</span>
+          <div class="caso-client">
+            <img src="data:image/jpeg;base64,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" alt="Terraza Abril" class="caso-icon-img">
+            <div>
+              <div class="caso-client-name" data-i18n="caso1.client">Terraza Abril · Alhué, Región Metropolitana</div>
+              <div class="caso-client-loc" data-i18n="caso1.sector">Restobar · Parrilla &amp; Sushi</div>
+            </div>
+          </div>
+          <div class="caso-headline" data-i18n="caso1.headline">Costs logged by voice.<br><em>Margin answered on WhatsApp.</em></div>
+          <div class="caso-sub" data-i18n="caso1.sub">A WhatsApp assistant that lets the restaurant team log purchases by voice, text or receipt photo — and answers the hardest question in any business: how much is left after costs.</div>
+          <div class="caso-tags">
+            <span class="caso-tag">n8n</span>
+            <span class="caso-tag">WhatsApp Business API</span>
+            <span class="caso-tag">AI Agents</span>
+            <span class="caso-tag">Python</span>
+            <span class="caso-tag">Google Sheets</span>
+            <span class="caso-tag">Fudo API</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+          <div class="caso-status"><span>●</span> <span data-i18n="caso1.status">Delivered · Sep 2026</span></div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--tx2);text-align:right" data-i18n="caso1.type">First FSConsultory client</div>
         </div>
       </div>
-      <div class="res4-card rv d2">
-        <div class="res4-icon">🔍</div>
+
+      <div class="caso-body">
         <div>
-          <div class="res4-title" data-i18n="res.t2title">Fraud Detection Across 600+ Locations</div>
-          <div class="res4-desc" data-i18n="res.t2desc">Python + SQL anomaly detection models monitoring deviation patterns and fraud signals across a nationwide operational network of 600+ retail points. Strengthened internal control and reduced operational losses significantly.</div>
-          <div class="res4-bar-wrap"><div class="res4-bar" style="width:90%"></div></div>
-          <span class="res4-metric" data-i18n="res.t2tag">600+ pts · Python · SQL · Anomaly Detection · Power BI</span>
+          <div class="caso-block-title" data-i18n="caso1.prob_label">THE PROBLEM</div>
+          <div class="caso-problem">
+            <p data-i18n="caso1.prob1">A restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is how much it spent, because costs live in receipts in the cook’s pocket, in loose messages, and in purchases nobody logged.</p>
+            <p data-i18n="caso1.prob2">Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.</p>
+            <p data-i18n="caso1.prob3">The owner knows daily sales, but only learns the margin at month's end — when nothing can be done with that information anymore.</p>
+          </div>
         </div>
-      </div>
-      <div class="res4-card rv d3">
-        <div class="res4-icon">🎯</div>
+
         <div>
-          <div class="res4-title" data-i18n="res.t3title">National Bonus & KPI Incentive Model</div>
-          <div class="res4-desc" data-i18n="res.t3desc">RANKX + TOPN + CALCULATE DAX model redesigning the national commercial incentive scheme. Aligned salesperson performance metrics with real business outcomes across all branches, increasing commercial team effectiveness.</div>
-          <div class="res4-bar-wrap"><div class="res4-bar" style="width:75%"></div></div>
-          <span class="res4-metric" data-i18n="res.t3tag">↑ Commercial ROI · DAX · RANKX · TOPN · CALCULATE</span>
+          <div class="caso-block-title" data-i18n="caso1.princ_label">HOW IT WAS BUILT</div>
+          <div class="caso-principles">
+            <div class="caso-principle">
+              <span class="caso-p-icon">⚙️</span>
+              <div class="caso-p-text" data-i18n="caso1.p1"><strong>Numbers never go through a language model.</strong>The model understands the message; the code does the math. A system handling someone else's money cannot have a creative component in its arithmetic.</div>
+            </div>
+            <div class="caso-principle">
+              <span class="caso-p-icon">🔍</span>
+              <div class="caso-p-text" data-i18n="caso1.p2"><strong>The code checks the model.</strong>When the assistant reads a receipt, it compares the sum of line items against the printed total and flags any mismatch. The model isn't trusted to get it right — it's verified.</div>
+            </div>
+            <div class="caso-principle">
+              <span class="caso-p-icon">🤫</span>
+              <div class="caso-p-text" data-i18n="caso1.p3"><strong>When it doesn't know, it stays silent.</strong>Price alerts only fire when the system is certain which product and package size it's looking at. A wrong alert about money destroys more trust than ten alerts that never fired.</div>
+            </div>
+            <div class="caso-principle">
+              <span class="caso-p-icon">📊</span>
+              <div class="caso-p-text" data-i18n="caso1.p4"><strong>The system says what it isn't counting.</strong>Every margin response states how many costs were included and warns that unlogged purchases inflate the number. Without that line, the figure reads as profitability — and it isn't.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caso-quote">
+          <div class="caso-quote-txt" data-i18n="caso1.quote">Anyone can build a WhatsApp bot. What separates this work is the criterion behind the hard decisions — built on the premise that a system handling someone else's money must be incapable of lying without it showing.</div>
+          <div class="caso-quote-attr">— FSConsultory · Engineering criterion</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PORTFOLIO -->
-<section id="portafolio">
-  <div class="wrap">
-    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num" style="justify-content:center">// 07 <span data-i18n="port.label">— Portfolio</span></div>
-    <h2 class="sec-title rv" style="text-align:center" data-i18n="port.title">Power BI <em>Work.</em></h2>
+    <div class="work-sep rv">
+      <span class="work-sep-l"></span>
+      <span class="work-sep-t" data-i18n="work.portlabel">POWER BI PROJECTS</span>
+      <span class="work-sep-l"></span>
+    </div>
     <p class="port-intro rv" data-i18n="port.subtitle">Real projects developed for companies across different industries and countries.</p>
-
-    <style>
+<style>
       .port-intro{text-align:center;font-size:14px;color:var(--tx2);margin:-28px 0 44px;display:block}
       .pcard{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--card);margin-bottom:32px}
       .pcard-inner{display:grid;grid-template-columns:1.1fr 1fr;min-height:280px}
@@ -847,118 +747,189 @@ function goTo(id, idx){
 </script>
 
 <!-- CASOS -->
-<section id="casos" style="background:rgba(11,11,13,0.78);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+
+
+<!-- EXPERIENCE -->
+<section id="experiencia">
   <div class="wrap">
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 08 <span data-i18n="casos.label">— Success Cases</span></div>
-    <h2 class="sec-title rv" data-i18n="casos.title">Nothing invented. <em>Nothing assumed.</em></h2>
-
-    <style>
-      .caso-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s;margin-top:8px}
-      .caso-card:hover{border-color:var(--ac)}
-      .caso-header{background:linear-gradient(135deg,#141416,#1A1A1D);padding:30px 34px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
-      .caso-client{display:flex;align-items:center;gap:13px;margin-bottom:14px}
-      .caso-icon-img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(245,158,11,0.35);flex-shrink:0;box-shadow:0 0 16px rgba(245,158,11,0.15)}
-      .caso-client-name{font-family:var(--mono);font-size:11px;color:var(--ac);font-weight:700;letter-spacing:1px}
-      .caso-client-loc{font-family:var(--mono);font-size:10px;color:var(--tx2);margin-top:2px}
-      .caso-headline{font-size:21px;font-weight:700;color:var(--tx);line-height:1.3;margin-bottom:10px}
-      .caso-headline em{color:var(--ac);font-style:normal}
-      .caso-sub{font-size:13.5px;color:var(--tx2);line-height:1.7}
-      .caso-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-      .caso-tag{font-family:var(--mono);font-size:9px;padding:4px 10px;border-radius:10px;border:1px solid var(--border);color:var(--tx2)}
-      .caso-status{font-family:var(--mono);font-size:9px;color:#1CC88A;border:1px solid rgba(28,200,138,0.2);background:rgba(28,200,138,0.06);padding:5px 12px;border-radius:20px;white-space:nowrap;display:flex;align-items:center;gap:5px}
-      .caso-body{padding:30px 34px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
-      .caso-block-title{font-family:var(--mono);font-size:9px;color:var(--ac);letter-spacing:2px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--border)}
-      .caso-problem p{font-size:13.5px;color:var(--tx2);line-height:1.8;margin-bottom:12px}
-      .caso-principles{display:flex;flex-direction:column;gap:16px}
-      .caso-principle{display:flex;gap:12px;align-items:flex-start}
-      .caso-p-icon{font-size:15px;flex-shrink:0;margin-top:1px}
-      .caso-p-text{font-size:12.5px;color:var(--tx2);line-height:1.7}
-      .caso-p-text strong{color:var(--tx);display:block;margin-bottom:3px}
-      .caso-quote{grid-column:1/-1;background:rgba(245,158,11,0.05);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:20px 24px;margin-top:8px}
-      .caso-quote-txt{font-size:14px;color:var(--tx);line-height:1.75;font-style:italic}
-      .caso-quote-attr{font-family:var(--mono);font-size:10px;color:var(--ac);margin-top:10px}
-      @media(max-width:768px){
-        .caso-header{grid-template-columns:1fr}
-        .caso-body{grid-template-columns:1fr;gap:26px}
-      }
-    </style>
-
-    <div class="caso-card rv">
-      <div class="caso-header">
-        <div>
-          <div class="caso-client">
-            <img src="data:image/jpeg;base64,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" alt="Terraza Abril" class="caso-icon-img">
-            <div>
-              <div class="caso-client-name" data-i18n="caso1.client">Terraza Abril · Alhué, Región Metropolitana</div>
-              <div class="caso-client-loc" data-i18n="caso1.sector">Restobar · Parrilla &amp; Sushi</div>
-            </div>
-          </div>
-          <div class="caso-headline" data-i18n="caso1.headline">Costs logged by voice.<br><em>Margin answered on WhatsApp.</em></div>
-          <div class="caso-sub" data-i18n="caso1.sub">A WhatsApp assistant that lets the restaurant team log purchases by voice, text or receipt photo — and answers the hardest question in any business: how much is left after costs.</div>
-          <div class="caso-tags">
-            <span class="caso-tag">n8n</span>
-            <span class="caso-tag">WhatsApp Business API</span>
-            <span class="caso-tag">AI Agents</span>
-            <span class="caso-tag">Python</span>
-            <span class="caso-tag">Google Sheets</span>
-            <span class="caso-tag">Fudo API</span>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-          <div class="caso-status"><span>●</span> <span data-i18n="caso1.status">Delivered · Sep 2026</span></div>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--tx2);text-align:right" data-i18n="caso1.type">First FSConsultory client</div>
-        </div>
+    <div class="sec-num">// 03 <span data-i18n="exp.label">— Experience</span></div>
+    <h2 class="sec-title rv" data-i18n="exp.title">Professional <em>Journey.</em></h2>
+    <div class="tl-item rv">
+      <div class="tl-dt mono">08/2019 — <span data-i18n="exp.present">Present</span></div>
+      <div class="tl-c"><div class="tl-dot"></div>
+        <div class="tl-role" data-i18n="exp.j1role">Senior BI &amp; Loss Prevention Analyst<span class="tl-badge" data-i18n="exp.j1badge">CURRENT</span></div>
+        <div class="tl-co mono">Empresas SB</div>
+        <ul class="tl-ul">
+          <li data-i18n="exp.j1l1">Architected end-to-end BI solutions in Power BI (star schema, DAX, RLS) consumed daily by C-level and operational teams — cutting reporting cycles from days to hours.</li>
+          <li data-i18n="exp.j1l2">Built anomaly detection models in Python + SQL monitoring loss and fraud signals across <b>600+ nationwide retail locations</b>, strengthening internal control significantly.</li>
+          <li data-i18n="exp.j1l3">Designed the national commercial KPI model (RANKX, TOPN, CALCULATE) aligning salesperson incentives with real business outcomes — deployed across all branches.</li>
+          <li data-i18n="exp.j1l4">Optimized inventory management through stockout and overstock analytics, reducing dead stock and improving category replenishment cycles.</li>
+          <li data-i18n="exp.j1l5">Led the national bonus calculation process, ensuring full traceability and precision across all commercial areas.</li>
+          <li data-i18n="exp.j1l6">Monitor retail-supplier commercial agreement performance through KPI analysis (Loss/Purchase ratio), identifying deviations and providing data-driven evidence to support contract renegotiations.</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">Power BI</span><span class="tl-tag">SQL</span><span class="tl-tag">Python</span><span class="tl-tag">Excel</span></div>
       </div>
-
-      <div class="caso-body">
-        <div>
-          <div class="caso-block-title" data-i18n="caso1.prob_label">THE PROBLEM</div>
-          <div class="caso-problem">
-            <p data-i18n="caso1.prob1">A restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is <strong style="color:var(--tx)">how much it spent</strong>, because costs live in receipts in the cook's pocket, in loose messages, and in purchases nobody logged.</p>
-            <p data-i18n="caso1.prob2">Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.</p>
-            <p data-i18n="caso1.prob3">The owner knows daily sales, but only learns the margin at month's end — when nothing can be done with that information anymore.</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="caso-block-title" data-i18n="caso1.princ_label">HOW IT WAS BUILT</div>
-          <div class="caso-principles">
-            <div class="caso-principle">
-              <span class="caso-p-icon">⚙️</span>
-              <div class="caso-p-text" data-i18n="caso1.p1"><strong>Numbers never go through a language model.</strong>The model understands the message; the code does the math. A system handling someone else's money cannot have a creative component in its arithmetic.</div>
-            </div>
-            <div class="caso-principle">
-              <span class="caso-p-icon">🔍</span>
-              <div class="caso-p-text" data-i18n="caso1.p2"><strong>The code checks the model.</strong>When the assistant reads a receipt, it compares the sum of line items against the printed total and flags any mismatch. The model isn't trusted to get it right — it's verified.</div>
-            </div>
-            <div class="caso-principle">
-              <span class="caso-p-icon">🤫</span>
-              <div class="caso-p-text" data-i18n="caso1.p3"><strong>When it doesn't know, it stays silent.</strong>Price alerts only fire when the system is certain which product and package size it's looking at. A wrong alert about money destroys more trust than ten alerts that never fired.</div>
-            </div>
-            <div class="caso-principle">
-              <span class="caso-p-icon">📊</span>
-              <div class="caso-p-text" data-i18n="caso1.p4"><strong>The system says what it isn't counting.</strong>Every margin response states how many costs were included and warns that unlogged purchases inflate the number. Without that line, the figure reads as profitability — and it isn't.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="caso-quote">
-          <div class="caso-quote-txt" data-i18n="caso1.quote">Anyone can build a WhatsApp bot. What separates this work is the criterion behind the hard decisions — built on the premise that a system handling someone else's money must be incapable of lying without it showing.</div>
-          <div class="caso-quote-attr">— FSConsultory · Engineering criterion</div>
-        </div>
+    </div>
+    <div class="tl-item rv">
+      <div class="tl-dt mono">2018<br><span style="font-size:10px;color:var(--tx3)" data-i18n="exp.months2">2 months</span></div>
+      <div class="tl-c"><div class="tl-dot"></div>
+        <div class="tl-role" data-i18n="exp.j2role">Professional Internship</div>
+        <div class="tl-co mono" data-i18n="exp.j2company">SBIF — Modeling Dept.</div>
+        <ul class="tl-ul"><li data-i18n="exp.j2l1">Work carried out in the Modeling and Methodology Department. Research, creation and study of probabilistic models to understand phenomena in the Chilean banking sector, laying the foundations of <b>Basel II</b> (the fundamental banking regulatory framework of the Basel Committee on Banking Supervision).</li></ul>
+        <div class="tl-tags"><span class="tl-tag">Probabilistic Models</span><span class="tl-tag">Banking</span></div>
+      </div>
+    </div>
+    <div class="tl-item rv">
+      <div class="tl-dt mono">2017<br><span style="font-size:10px;color:var(--tx3)" data-i18n="exp.months2">2 months</span></div>
+      <div class="tl-c"><div class="tl-dot"></div>
+        <div class="tl-role" data-i18n="exp.j3role">Operations Internship</div>
+        <div class="tl-co mono">ICIL-ICAFAL Maquinaria S.p.A</div>
+        <ul class="tl-ul"><li data-i18n="exp.j3l1">Supported machinery rental, maintenance and fleet management processes.</li></ul>
+        <div class="tl-tags"><span class="tl-tag" data-i18n="exp.j3tag">Operations</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FORM -->
-<section id="formulario">
+<!-- SERVICES -->
+<section id="servicios">
   <div class="wrap">
     <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num">// 09 <span data-i18n="form.label">— Get in Touch</span></div>
+    <div class="sec-num">// 04 <span data-i18n="srv.label">— Services</span></div>
+    <h2 class="sec-title rv" data-i18n="srv.title">How can I <em>help</em> you?</h2>
+<div class="srv-grid">
+      <div class="srv-card rv d1"><div class="srv-num mono">01 / 📊</div><h3 class="srv-t" data-i18n="srv.s1t">Executive Dashboards</h3><p class="srv-d" data-i18n="srv.s1d">Power BI reports connected to real data. Leadership sees the business in real time, no spreadsheets.</p></div>
+      <div class="srv-card rv d2"><div class="srv-num mono">02 / 🔍</div><h3 class="srv-t" data-i18n="srv.s2t">Operational Control &amp; Loss Prevention</h3><p class="srv-d" data-i18n="srv.s2d">Identify deviation, fraud and inefficiency patterns. Proven across 600+ locations.</p></div>
+      <div class="srv-card rv d3"><div class="srv-num mono">03 / ⚙️</div><h3 class="srv-t" data-i18n="srv.s3t">Custom Data Models</h3><p class="srv-d" data-i18n="srv.s3d">SQL, Python and Excel models automating repetitive analysis and generating actionable indicators.</p></div>
+      <div class="srv-card rv d1"><div class="srv-num mono">04 / 🤖</div><h3 class="srv-t" data-i18n="srv.s4t">AI Agents</h3><p class="srv-d" data-i18n="srv.s4d">Develop and integrate AI agents into analytical and operational processes, boosting decision quality.</p></div>
+      <div class="srv-card rv d2"><div class="srv-num mono">05 / 💬</div><h3 class="srv-t" data-i18n="srv.s5t">Data Communication</h3><p class="srv-d" data-i18n="srv.s5d">Translate complex analysis into clear language for executive, commercial and operational teams.</p></div>
+      <div class="srv-card rv d3"><div class="srv-num mono">06 / 🎯</div><h3 class="srv-t" data-i18n="srv.s6t">Commercial Optimization</h3><p class="srv-d" data-i18n="srv.s6d">Incentive models and KPIs aligned with real business outcomes through data and AI.</p></div>
+    </div>
+
+    <div class="proc-strip rv">
+      <div class="proc-strip-h">
+        <span class="proc-strip-t" data-i18n="proc.striplabel">HOW I WORK</span>
+        <span class="proc-strip-line"></span>
+      </div>
+      <div class="proc-strip-row">
+<div class="pstep"><div class="pstep-ic">🔎</div><div class="pstep-t" data-i18n="proc.p1t">Diagnosis</div><div class="pstep-d" data-i18n="proc.p1d">Understand your business, data and the real problem.</div></div>
+        <div class="pstep"><div class="pstep-ic">✏️</div><div class="pstep-t" data-i18n="proc.p2t">Design</div><div class="pstep-d" data-i18n="proc.p2d">Define architecture, key metrics and deliverables.</div></div>
+        <div class="pstep"><div class="pstep-ic">⚙️</div><div class="pstep-t" data-i18n="proc.p3t">Development</div><div class="pstep-d" data-i18n="proc.p3d">Build models, dashboards or agents.</div></div>
+        <div class="pstep"><div class="pstep-ic">🚀</div><div class="pstep-t" data-i18n="proc.p4t">Implementation</div><div class="pstep-d" data-i18n="proc.p4d">Deploy in your real environment.</div></div>
+        <div class="pstep"><div class="pstep-ic">🎓</div><div class="pstep-t" data-i18n="proc.p5t">Training</div><div class="pstep-d" data-i18n="proc.p5d">Transfer knowledge for team autonomy.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
+    <div class="sec-num">// 05 <span data-i18n="stk.label">— Tech Stack</span></div>
+    <h2 class="sec-title rv" data-i18n="stk.title">Tools I work with.</h2>
+    <style>
+      .stk-grid-oct{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:800px;margin:0 auto}
+      .stk-oct-wrap{position:relative;width:96px;display:flex;flex-direction:column;align-items:center;gap:8px}
+      .stk-oct{width:82px;height:82px;clip-path:polygon(29% 0%,71% 0%,100% 29%,100% 71%,71% 100%,29% 100%,0% 71%,0% 29%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:transform .2s,box-shadow .2s;cursor:default}
+      .stk-oct:hover{transform:scale(1.08)}
+      .stk-oct-cert{background:linear-gradient(135deg,#1A1200,#3A2800);border:2px solid #FFB547;box-shadow:0 0 14px rgba(255,181,71,0.2)}
+      .stk-oct-exp{background:linear-gradient(135deg,#0F0D00,#1A1500);border:2px solid #F59E0B}
+      .stk-oct-adv{background:#141416;border:2px solid #2A2A2E}
+      .stk-oct-name{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;color:#F5F5F5;text-align:center;line-height:1.2}
+      .stk-oct-lvl{font-size:8px;letter-spacing:0.5px;font-family:"JetBrains Mono",monospace}
+      .stk-oct-lvl-c{color:#FFB547}
+      .stk-oct-lvl-e{color:#F59E0B}
+      .stk-oct-lvl-a{color:#6B6B70}
+      .stk-ribbon{position:absolute;top:0;right:0;background:linear-gradient(135deg,#F59E0B,#FFB547);font-size:7px;font-weight:700;color:#000;padding:2px 6px;border-radius:0 0 0 6px;font-family:"JetBrains Mono",monospace;letter-spacing:0.5px;z-index:2}
+      .stk-legend{display:flex;gap:20px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+      .stk-leg-item{font-family:"JetBrains Mono",monospace;font-size:10px;display:flex;align-items:center;gap:6px}
+      .stk-leg-dot{width:10px;height:10px;border-radius:2px}
+    </style>
+    <div class="stk-grid-oct rv">
+
+      <!-- CERTIFICADOS UTN (prioridad 1) -->
+      <div class="stk-oct-wrap">
+        <span class="stk-ribbon">UTN ★</span>
+        <div class="stk-oct stk-oct-cert">
+          <span class="stk-oct-name">Power<br>BI</span>
+          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.exp">EXPERT</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <span class="stk-ribbon">UTN ★</span>
+        <div class="stk-oct stk-oct-cert">
+          <span class="stk-oct-name">Python</span>
+          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <span class="stk-ribbon">UTN ★</span>
+        <div class="stk-oct stk-oct-cert">
+          <span class="stk-oct-name" data-i18n="stk.ai">Artificial<br>Intelligence</span>
+          <span class="stk-oct-lvl stk-oct-lvl-c" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+
+      <!-- EXPERT SIN CERTIFICACIÓN (prioridad 2) -->
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-exp">
+          <span class="stk-oct-name">SQL</span>
+          <span class="stk-oct-lvl stk-oct-lvl-e" data-i18n="stk.exp">EXPERT</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-exp">
+          <span class="stk-oct-name">Excel</span>
+          <span class="stk-oct-lvl stk-oct-lvl-e" data-i18n="stk.exp">EXPERT</span>
+        </div>
+      </div>
+
+      <!-- ADVANCED (prioridad 3) -->
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name">STATA</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name">SPSS</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name">Claude</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+      <div class="stk-oct-wrap">
+        <div class="stk-oct stk-oct-adv">
+          <span class="stk-oct-name" data-i18n="stk.agents">AI Agents</span>
+          <span class="stk-oct-lvl stk-oct-lvl-a" data-i18n="stk.adv">ADVANCED</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="stk-legend rv">
+      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#FFB547"></span><span style="color:#FFB547" data-i18n="stk.cert">★ Certificado UTN Curitiba, Brasil</span></span>
+      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#F59E0B"></span><span style="color:#F59E0B" data-i18n="stk.expleg">Expert</span></span>
+      <span class="stk-leg-item"><span class="stk-leg-dot" style="background:#2A2A2E"></span><span style="color:#6B6B70" data-i18n="stk.advleg">Advanced</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
+    <div class="sec-num">// 06 <span data-i18n="cta.label">— Contact</span></div>
     <h2 class="sec-title rv" data-i18n="form.title">Tell me your <em>challenge.</em></h2>
-    <div class="form-box rv">
+    <div class="contact-split">
+      <div class="contact-form-col">
+<div class="form-box rv">
       <form id="contact-form" novalidate>
         <div class="frow">
           <div class="fg" id="gn">
@@ -989,16 +960,10 @@ function goTo(id, idx){
         ❌ Something went wrong. Please try again or email <a href="mailto:francisco@fsconsultory.com" style="color:#f87171">francisco@fsconsultory.com</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contacto">
-  <div class="wrap">
-    <div class="logo-div rv"><img src="logo_nav.png" alt=""></div>
-    <div class="sec-num" style="justify-content:center">// 10 <span data-i18n="cta.label">— Contact</span></div>
-    <h2 class="sec-title rv" style="text-align:center" data-i18n="cta.title">Let's <em>Talk.</em></h2>
-    <div class="cta-cards rv">
+      </div>
+      <div class="contact-side">
+        <div class="contact-side-t" data-i18n="cta.direct">OR REACH ME DIRECTLY</div>
+<div class="cta-cards rv">
       <a href="mailto:francisco@fsconsultory.com" class="cta-card">
         <span class="cta-ic">✉️</span><div class="cta-t">Email</div><div class="cta-d">francisco@fsconsultory.com</div>
       </a>
@@ -1006,12 +971,16 @@ function goTo(id, idx){
         <span class="cta-ic">💼</span><div class="cta-t">LinkedIn</div><div class="cta-d">Francisco Santelices</div>
       </a>
     </div>
-    <div class="footer-block rv">
+    
+      </div>
+    </div>
+<div class="footer-block rv">
       <img src="logo_animated.gif" alt="FSConsultory" style="width:144px;height:144px;object-fit:contain">
       <span class="fb-copy">© 2026 Francisco Santelices Contreras · fsconsultory.com</span>
     </div>
   </div>
 </section>
+
 <script>
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("on")})},{threshold:0.08});
 document.querySelectorAll(".rv").forEach(el=>io.observe(el));
@@ -1108,7 +1077,7 @@ if(cf){
 ═══════════════════════════════════════════════ */
 var translations = {
   en: {
-    "nav.sobre":"About","nav.exp":"Experience","nav.servicios":"Services",
+    "nav.sobre":"About","nav.work":"Work","work.label":"— Work","work.title":"Nothing invented. <em>Nothing assumed.</em>","work.clientflag":"CLIENT PROJECT","work.portlabel":"POWER BI PROJECTS","proc.striplabel":"HOW I WORK","cta.direct":"OR REACH ME DIRECTLY","nav.exp":"Experience","nav.servicios":"Services",
     "nav.stack":"Stack","nav.portafolio":"Portfolio","nav.casos":"Cases","nav.contacto":"Contact",
     "hero.tag":"BUSINESS INTELLIGENCE CONSULTANT",
     "hero.title":"Turning <span class=\"grad\">data</span><br>into executive decisions.",
@@ -1190,10 +1159,10 @@ var translations = {
     "form.errMsg":"Please write your message","form.submit":"Send Message →",
     "form.success":"✅ Message sent! I will get back to you shortly.",
     "cta.label":"— Contact",
-    "casos.label":"— Success Cases","casos.title":"Nothing invented. <em>Nothing assumed.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Parrilla &amp; Sushi","caso1.headline":"Costs logged by voice.<br><em>Margin answered on WhatsApp.</em>","caso1.sub":"A WhatsApp assistant that lets restaurant staff log purchases by voice, text or photo — and answers the hardest question in any small business: how much is left after costs.","caso1.status":"Delivered · Sep 2026","caso1.type":"First FSConsultory client","caso1.prob_label":"THE PROBLEM","caso1.prob1":"A restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is <strong style=\"color:var(--tx)\">how much it spent</strong>, because costs live in receipts in the cook's pocket, in loose messages, and in purchases nobody logged."color:var(--tx)\">how much it spent</strong>, because costs live in crumpled receipts in the cook's pocket, in loose messages, and in purchases nobody logged.","caso1.prob2":"Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.","caso1.prob3":"The owner knows daily sales, but only learns the margin at month's end — when nothing can be done with that information anymore.","caso1.princ_label":"HOW IT WAS BUILT","caso1.p1":"<strong>Numbers never go through a language model.</strong> The model understands the message; the code does the math.","caso1.p2":"<strong>The code checks the model.</strong> When the assistant reads a receipt, it compares the sum of line items against the printed total and flags mismatches.","caso1.p3":"<strong>When it doesn't know, it stays silent.</strong> Price alerts only fire when the system is certain which product and package it's looking at.","caso1.p4":"<strong>The system tells you what it isn't counting.</strong> Every margin response ends by stating how many costs were included.",Aceite\" matched four products at very different prices — alerting about a product the restaurant never bought.","caso1.quote":"Anyone can build a WhatsApp bot. What separates this work is the criterion behind the hard decisions — built on the premise that a system handling someone else's money must be incapable of lying without it showing."The system responded something reasonable while doing something wrong.\" That is the signature of a silent defect.","cta.title":"Let's <em>Talk.</em>"
+    "casos.label":"— Success Cases","casos.title":"Nothing invented. <em>Nothing assumed.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Parrilla &amp; Sushi","caso1.headline":"Costs logged by voice.<br><em>Margin answered on WhatsApp.</em>","caso1.sub":"A WhatsApp assistant that lets restaurant staff log purchases by voice, text or photo — and answers the hardest question in any small business: how much is left after costs.","caso1.status":"Delivered · Sep 2026","caso1.type":"First FSConsultory client","caso1.prob_label":"THE PROBLEM","caso1.prob1":"A restaurant knows exactly how much it sold — the POS tells it that. What it almost never knows on time is how much it spent, because costs live in receipts in the cook’s pocket, in loose messages, and in purchases nobody logged.","caso1.prob2":"Logging costs is administrative work nobody wants to do in the middle of a service. The bet: if logging a purchase costs the same as sending a WhatsApp voice note, it will get done.","caso1.prob3":"The owner knows daily sales, but only learns the margin at month's end — when nothing can be done with that information anymore.","caso1.princ_label":"HOW IT WAS BUILT","caso1.p1":"<strong>Numbers never go through a language model.</strong> The model understands the message; the code does the math.","caso1.p2":"<strong>The code checks the model.</strong> When the assistant reads a receipt, it compares the sum of line items against the printed total and flags mismatches.","caso1.p3":"<strong>When it doesn't know, it stays silent.</strong> Price alerts only fire when the system is certain which product and package it's looking at.","caso1.p4":"<strong>The system tells you what it isn't counting.</strong> Every margin response ends by stating how many costs were included.","caso1.quote":"Anyone can build a WhatsApp bot. What separates this work is the criterion behind the hard decisions — built on the premise that a system handling someone else's money must be incapable of lying without it showing.","cta.title":"Let's <em>Talk.</em>"
   },
   es: {
-    "nav.sobre":"Sobre mí","nav.exp":"Experiencia","nav.servicios":"Servicios",
+    "nav.sobre":"Sobre mí","nav.work":"Trabajo","work.label":"— Trabajo","work.title":"Nada se inventa. <em>Nada se asume.</em>","work.clientflag":"PROYECTO DE CLIENTE","work.portlabel":"PROYECTOS POWER BI","proc.striplabel":"CÓMO TRABAJO","cta.direct":"O ESCRÍBEME DIRECTO","nav.exp":"Experiencia","nav.servicios":"Servicios",
     "nav.stack":"Stack","nav.portafolio":"Portafolio","nav.casos":"Casos","nav.contacto":"Contacto",
     "hero.tag":"CONSULTOR EN BUSINESS INTELLIGENCE",
     "hero.title":"Convierto <span class=\"grad\">datos</span><br>en decisiones ejecutivas.",
@@ -1275,7 +1244,7 @@ var translations = {
     "form.errMsg":"Por favor escribe tu mensaje","form.submit":"Enviar Mensaje →",
     "form.success":"✅ ¡Mensaje enviado! Me pondré en contacto contigo pronto.",
     "cta.label":"— Contacto",
-    "casos.label":"— Casos de Éxito","casos.title":"Nada se inventa. <em>Nada se asume.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Parrilla y Sushi","caso1.headline":"Costos anotados hablando.<br><em>Margen respondido en WhatsApp.</em>","caso1.sub":"Un asistente de WhatsApp que permite al equipo del restaurante anotar compras por voz, texto o foto — y responde la pregunta más difícil de cualquier negocio chico: cuánto queda después de los costos.","caso1.status":"Entregado · Sep 2026","caso1.type":"Primer cliente de FSConsultory","caso1.prob_label":"EL PROBLEMA","caso1.prob1":"Un restaurante sabe perfectamente cuánto vendió: el punto de venta se lo dice. Lo que casi nunca sabe a tiempo es <strong style=\"color:var(--tx)\">cuánto gastó</strong>, porque los costos viven en boletas en el bolsillo del cocinero, en mensajes sueltos y en compras que nadie anotó."color:var(--tx)\">cuánto gastó</strong>, porque los costos viven en boletas arrugadas en el bolsillo del cocinero.","caso1.prob2":"Anotar los costos es un trabajo que nadie quiere hacer en medio de un servicio. La apuesta: si anotar una compra cuesta lo mismo que mandar un audio de WhatsApp, se va a hacer.","caso1.prob3":"El dueño conoce sus ventas al día, pero el margen recién a fin de mes — cuando ya no puede hacer nada con esa información.","caso1.princ_label":"CÓMO SE CONSTRUYÓ","caso1.p1":"<strong>Los números nunca pasan por un modelo de lenguaje.</strong> El modelo entiende el mensaje; el código hace las cuentas.","caso1.p2":"<strong>El código revisa al modelo.</strong> Cuando el asistente lee una boleta, compara la suma de los ítems contra el total impreso y avisa si no calza.","caso1.p3":"<strong>Cuando no sabe, se calla.</strong> El control de precios no avisa si no puede determinar con certeza de qué producto y envase se trata.","caso1.p4":"<strong>El sistema dice lo que no está contando.</strong> Toda respuesta de margen termina advirtiendo que lo que no se anota infla el número.",Aceite\" calzaba con cuatro productos de precios muy distintos — avisando diferencias contra un producto que el restaurante nunca compró.","caso1.quote":"Cualquiera arma un bot de WhatsApp. Lo que separa este trabajo es el criterio con que se tomaron las decisiones difíciles — con la premisa de que un sistema que maneja plata ajena tiene que ser incapaz de mentir sin que se note."El sistema respondía algo razonable mientras hacía algo mal.\" Esa es la firma de un defecto silencioso.","cta.title":"Conversemos."
+    "casos.label":"— Casos de Éxito","casos.title":"Nada se inventa. <em>Nada se asume.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Parrilla y Sushi","caso1.headline":"Costos anotados hablando.<br><em>Margen respondido en WhatsApp.</em>","caso1.sub":"Un asistente de WhatsApp que permite al equipo del restaurante anotar compras por voz, texto o foto — y responde la pregunta más difícil de cualquier negocio chico: cuánto queda después de los costos.","caso1.status":"Entregado · Sep 2026","caso1.type":"Primer cliente de FSConsultory","caso1.prob_label":"EL PROBLEMA","caso1.prob1":"Un restaurante sabe perfectamente cuánto vendió: el punto de venta se lo dice. Lo que casi nunca sabe a tiempo es cuánto gastó, porque los costos viven en boletas en el bolsillo del cocinero, en mensajes sueltos y en compras que nadie anotó.","caso1.prob2":"Anotar los costos es un trabajo que nadie quiere hacer en medio de un servicio. La apuesta: si anotar una compra cuesta lo mismo que mandar un audio de WhatsApp, se va a hacer.","caso1.prob3":"El dueño conoce sus ventas al día, pero el margen recién a fin de mes — cuando ya no puede hacer nada con esa información.","caso1.princ_label":"CÓMO SE CONSTRUYÓ","caso1.p1":"<strong>Los números nunca pasan por un modelo de lenguaje.</strong> El modelo entiende el mensaje; el código hace las cuentas.","caso1.p2":"<strong>El código revisa al modelo.</strong> Cuando el asistente lee una boleta, compara la suma de los ítems contra el total impreso y avisa si no calza.","caso1.p3":"<strong>Cuando no sabe, se calla.</strong> El control de precios no avisa si no puede determinar con certeza de qué producto y envase se trata.","caso1.p4":"<strong>El sistema dice lo que no está contando.</strong> Toda respuesta de margen termina advirtiendo que lo que no se anota infla el número.","caso1.quote":"Cualquiera arma un bot de WhatsApp. Lo que separa este trabajo es el criterio con que se tomaron las decisiones difíciles — con la premisa de que un sistema que maneja plata ajena tiene que ser incapaz de mentir sin que se note.","cta.title":"Conversemos."
   }
 };
 
@@ -1332,12 +1301,11 @@ document.addEventListener("click", function() {
 <!-- MOBILE MENU OVERLAY -->
 <div class="mob-menu" id="mob-menu">
   <a class="mob-menu-link" href="#sobre" onclick="closeMobileMenu()" data-i18n="nav.sobre">About</a>
+  <a class="mob-menu-link" href="#trabajo" onclick="closeMobileMenu()" data-i18n="nav.work">Work</a>
   <a class="mob-menu-link" href="#experiencia" onclick="closeMobileMenu()" data-i18n="nav.exp">Experience</a>
   <a class="mob-menu-link" href="#servicios" onclick="closeMobileMenu()" data-i18n="nav.servicios">Services</a>
   <a class="mob-menu-link" href="#stack" onclick="closeMobileMenu()" data-i18n="nav.stack">Stack</a>
-  <a class="mob-menu-link" href="#portafolio" onclick="closeMobileMenu()" data-i18n="nav.portafolio">Portfolio</a>
-  <a class="mob-menu-link" href="#casos" onclick="closeMobileMenu()" data-i18n="nav.casos">Cases</a>
-  <a class="mob-menu-link" href="#formulario" onclick="closeMobileMenu()" data-i18n="nav.contacto">Contact</a>
+  <a class="mob-menu-link" href="#contacto" onclick="closeMobileMenu()" data-i18n="nav.contacto">Contact</a>
   <div class="mob-divider"></div>
   <!-- Lang toggle mobile -->
   <div style="display:flex;align-items:center;background:#141416;border:1px solid #2A2A2E;border-radius:20px;padding:3px;cursor:pointer" onclick="doToggleLang()">
