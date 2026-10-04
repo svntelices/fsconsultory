@@ -118,17 +118,40 @@ section{padding-block:clamp(64px,9vw,112px);border-top:1px solid var(--linea)}
 .lista-p p{margin:0;color:var(--gris);font-size:15px;max-width:60ch}
 
 /* Caso */
-.caso .envoltura{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
-.caso-texto{display:flex;flex-direction:column;gap:18px}
-.caso-texto p:not(.eyebrow){margin:0;color:var(--gris);max-width:58ch}
-.caso-texto strong{color:var(--tinta);font-weight:700}
-.ficha{border:1px solid var(--linea);padding:28px;display:flex;flex-direction:column;gap:0}
-.ficha dl{margin:0}
-.ficha dl div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--linea);font-size:15px}
-.ficha dl div:last-child{border-bottom:0}
-.ficha dt{color:var(--gris-2);margin:0}
-.ficha dd{margin:0;text-align:right;font-weight:600}
-.ficha-titulo{font-family:var(--display);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--oro);margin:0 0 6px}
+.caso{position:relative;overflow:hidden;background:radial-gradient(60% 50% at 85% 0%,rgba(242,182,50,.10),rgba(242,182,50,0)),var(--panel);border-top:1px solid rgba(242,182,50,.35);border-bottom:1px solid rgba(242,182,50,.35)}
+.caso .envoltura{display:flex;flex-direction:column;gap:clamp(48px,6vw,72px);position:relative}
+.caso-cab{display:flex;flex-direction:column;gap:20px;max-width:860px}
+.caso-titulo{font-size:clamp(32px,4.8vw,56px);font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.caso-titulo span{color:var(--gris-2)}
+.cita{position:relative;margin:0;padding:clamp(28px,4vw,48px) clamp(24px,5vw,64px) clamp(28px,4vw,44px);border-left:3px solid var(--oro);background:linear-gradient(90deg,rgba(242,182,50,.07),rgba(242,182,50,0) 70%)}
+.cita::before{content:"\201C";position:absolute;left:clamp(14px,3vw,40px);top:-.32em;font-family:Georgia,'Times New Roman',serif;font-size:clamp(110px,14vw,170px);line-height:1;color:var(--oro);opacity:.9}
+.cita blockquote{margin:0;padding-top:clamp(28px,3vw,36px);font-size:clamp(21px,2.5vw,30px);font-weight:600;line-height:1.35;letter-spacing:-.01em;color:var(--tinta);max-width:34ch;text-wrap:pretty}
+.cita blockquote em{font-style:normal;color:var(--oro)}
+.cita figcaption{margin-top:26px;display:flex;align-items:center;gap:14px}
+.cita .ini{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--oro);display:grid;place-items:center;font-family:var(--display);font-size:13px;color:var(--oro);flex:none}
+.cita figcaption b{display:block;font-size:16px;font-weight:700}
+.cita figcaption span{font-size:14px;color:var(--gris)}
+.borrador{display:inline-block;margin-bottom:14px;padding:6px 10px;border:1px dashed var(--oro-suave);font-size:12px;font-weight:600;color:var(--oro-suave);letter-spacing:.02em}
+.antes-ahora{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0;align-items:stretch}
+.aa{padding:30px 32px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.aa-tit{font-family:var(--display);font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin:0}
+.aa ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.aa li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:12px;font-size:16px;line-height:1.45}
+.antes{border:1px solid var(--linea)}
+.antes .aa-tit{color:var(--gris-2)}
+.antes li{color:var(--gris-2)}
+.antes li::before{content:"";width:12px;height:1.5px;background:var(--gris-2);margin-top:.72em}
+.ahora{border:1px solid var(--oro);background:rgba(242,182,50,.05)}
+.ahora .aa-tit{color:var(--oro)}
+.ahora li{color:var(--tinta);font-weight:500}
+.ahora li::before{content:"";width:8px;height:8px;border:1.5px solid var(--oro);transform:rotate(45deg);margin-top:.5em;margin-left:2px}
+.paso-flecha{display:grid;place-items:center;padding:0 18px}
+.paso-flecha svg{width:34px;height:34px;fill:none;stroke:var(--oro);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cifras{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--linea)}
+.cifras div{padding:26px 24px 4px 0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.cifras div+div{padding-left:24px;border-left:1px solid var(--linea)}
+.cifras dt{order:2;margin:0;font-size:14px;line-height:1.45;color:var(--gris)}
+.cifras dd{order:1;margin:0;font-size:clamp(34px,4vw,48px);font-weight:800;line-height:1;color:var(--oro);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 
 /* Pasos */
 .pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;counter-reset:paso}
@@ -156,7 +179,13 @@ footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 footer a{color:var(--oro-suave);text-decoration:none}
 
 @media (max-width:920px){
-  .hero .envoltura,.principios .envoltura,.caso .envoltura{grid-template-columns:minmax(0,1fr);gap:44px}
+  .hero .envoltura,.principios .envoltura{grid-template-columns:minmax(0,1fr);gap:44px}
+  .antes-ahora{grid-template-columns:minmax(0,1fr)}
+  .paso-flecha{padding:14px 0}
+  .paso-flecha svg{transform:rotate(90deg)}
+  .cifras{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cifras div:nth-child(3){padding-left:0;border-left:0}
+  .cifras div:nth-child(n+3){border-top:1px solid var(--linea)}
   .principios .cabeza{position:static}
   .grilla{grid-template-columns:repeat(2,minmax(0,1fr))}
   .pasos{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -274,24 +303,41 @@ footer a{color:var(--oro-suave);text-decoration:none}
     </div>
   </section>
 
-  <section class="caso">
+  <section class="caso" id="caso">
     <div class="envoltura">
-      <div class="caso-texto">
-        <p class="eyebrow">Caso real</p>
-        <h2>Terraza Abril, Alhué</h2>
-        <p><strong>Terraza Abril</strong> es un restobar de parrilla y sushi en Alhué, en la Región Metropolitana, y fue el primer local en usar el asistente. Se construyó y se probó con los datos reales del restaurante antes de entregarlo.</p>
-        <p>Varias de sus funciones nacieron de pedidos de su dueño, <strong>Claudio Acevedo</strong>: el cierre de caja por WhatsApp, separar los envases del aseo para saber cuánto cuesta empaquetar un pedido, y que cada persona del equipo vea solo lo que le corresponde.</p>
+      <div class="caso-cab">
+        <p class="eyebrow">Caso real · Terraza Abril, Alhué</p>
+        <h2 class="caso-titulo">Las ventas estaban en Fudo.<br><span>Los gastos, en boletas en el bolsillo.</span></h2>
+        <p class="lead">Terraza Abril es un restobar de parrilla y sushi en Alhué. Desde agosto de 2026, cada compra se anota con una foto por WhatsApp y su dueño consulta las ventas y el cierre de caja desde el teléfono.</p>
       </div>
-      <div class="ficha">
-        <p class="ficha-titulo">Ficha</p>
-        <dl>
-        <div><dt>Local</dt><dd>Restobar, parrilla y sushi</dd></div>
-        <div><dt>Sistema de gestión</dt><dd>Fudo</dd></div>
-        <div><dt>En uso desde</dt><dd>Agosto de 2026</dd></div>
-        <div><dt>Anotan compras</dt><dd>Texto, audio y foto</dd></div>
-        <div><dt>Consultan el negocio</dt><dd>Según permiso de cada persona</dd></div>
-        </dl>
+      <figure class="cita"><blockquote>Antes me pasaba horas ordenando boletas y sabía lo que había gastado recién a fin de mes. Ahora el equipo manda la foto por WhatsApp y yo le pregunto al asistente cómo va el negocio cuando quiero. <em>Gano tiempo y tengo el control de mis gastos.</em></blockquote><figcaption><span class="ini">CA</span><div><b>Claudio Acevedo</b><span>Dueño de Terraza Abril</span></div></figcaption></figure>
+      <div class="antes-ahora">
+        <div class="aa antes">
+          <p class="aa-tit">Antes</p>
+          <ul>
+            <li>Gastos en boletas sueltas, sin registrar en ningún sistema</li>
+            <li>Para ver las ventas había que abrir el computador del local</li>
+            <li>El resultado del mes se conocía recién a fin de mes</li>
+            <li>Envases y aseo mezclados en un mismo gasto</li>
+          </ul>
+        </div>
+        <div class="paso-flecha" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+        <div class="aa ahora">
+          <p class="aa-tit">Con el asistente</p>
+          <ul>
+            <li>Una foto de la boleta y la compra queda anotada y clasificada</li>
+            <li>Ventas, productos y cierre de caja en un mensaje</li>
+            <li>Ventas menos gastos, en el momento que lo pregunte</li>
+            <li>Envases separados del aseo: sabe cuánto cuesta empaquetar un pedido</li>
+          </ul>
+        </div>
       </div>
+      <dl class="cifras">
+        <div><dt>En uso en el local</dt><dd>Ago 2026</dd></div>
+        <div><dt>Categorías de gasto, diseñadas con el dueño</dt><dd>17</dd></div>
+        <div><dt>Formas de anotar: texto, audio y foto</dt><dd>3</dd></div>
+        <div><dt>Pruebas punta a punta aprobadas con datos reales</dt><dd>8/8</dd></div>
+      </dl>
     </div>
   </section>
 
