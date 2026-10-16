@@ -282,6 +282,131 @@ footer a{color:var(--oro-suave);text-decoration:none}
   .barra .mini{display:none}
   .pantalla{height:520px}
 }
+
+/* Compatibilidad: selector de sistema + panel de diagnóstico */
+.compat{position:relative;overflow:hidden;background:radial-gradient(55% 45% at 10% 0%,rgba(242,182,50,.07),rgba(242,182,50,0)),var(--negro)}
+.compat .cabeza{margin-bottom:40px}
+.compat-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.5fr);gap:28px;align-items:start}
+.selector{display:flex;flex-direction:column;gap:22px;min-width:0;position:sticky;top:28px}
+.sel-grupo{display:flex;flex-direction:column;gap:10px}
+.sel-tit{font-family:var(--display);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris-2);margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;display:inline-flex;align-items:center;gap:9px;min-height:42px;padding:0 14px;font:600 14px/1 var(--texto);color:var(--gris);background:rgba(14,13,11,.7);border:1px solid var(--linea);cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.chip::before{content:"";width:7px;height:7px;flex:none;border:1.5px solid var(--gris-2);transform:rotate(45deg);transition:background .2s,border-color .2s}
+.chip:hover{color:var(--tinta);border-color:#4a4335}
+.chip[aria-checked="true"]{color:var(--tinta);border-color:var(--oro);background:rgba(242,182,50,.08)}
+.chip[aria-checked="true"]::before{background:var(--oro);border-color:var(--oro)}
+.chip small{font:700 9.5px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:#120e04;background:var(--oro);padding:4px 6px}
+.otro-campo{display:none;flex-direction:column;gap:8px;font-size:13.5px;color:var(--gris)}
+.otro-campo.ver{display:flex}
+.otro-campo input{min-height:44px;padding:0 14px;font:500 15px var(--texto);color:var(--tinta);background:#0b0a08;border:1px solid var(--linea);outline:none}
+.otro-campo input:focus{border-color:var(--oro)}
+
+.panel{position:relative;min-width:0;border:1px solid rgba(242,182,50,.32);background:linear-gradient(rgba(242,182,50,.035) 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,rgba(242,182,50,.035) 1px,transparent 1px) 0 0/28px 28px,rgba(10,9,7,.88);padding:clamp(22px,3vw,34px);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.panel::before,.panel::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--oro);pointer-events:none}
+.panel::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.panel::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.barrido{position:absolute;left:0;right:0;top:-30%;height:30%;background:linear-gradient(180deg,rgba(242,182,50,0),rgba(242,182,50,.10) 80%,rgba(242,182,50,.55) 100%);pointer-events:none;opacity:0}
+.panel.escanea .barrido{animation:barrido .9s ease-out}
+@keyframes barrido{0%{top:-30%;opacity:1}100%{top:100%;opacity:.2}}
+.panel-cab{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px;font-family:var(--display);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris-2)}
+.panel-cab .vivo{display:inline-flex;align-items:center;gap:8px;color:var(--oro)}
+.panel-cab .vivo::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--oro);box-shadow:0 0 0 0 rgba(242,182,50,.6);animation:latido 1.8s infinite}
+@keyframes latido{0%{box-shadow:0 0 0 0 rgba(242,182,50,.55)}70%{box-shadow:0 0 0 9px rgba(242,182,50,0)}100%{box-shadow:0 0 0 0 rgba(242,182,50,0)}}
+
+/* Diagrama de conexión */
+.enlace{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(36px,1fr) auto minmax(36px,1fr) auto;align-items:center;margin-bottom:10px}
+.nodo{display:flex;align-items:center;gap:10px;min-height:52px;padding:8px 14px;border:1px solid var(--linea);background:#0b0a08;min-width:0}
+.nodo b{display:block;font-size:14.5px;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nodo small{display:block;font-family:var(--display);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris-2)}
+.nodo-sis{border-color:rgba(242,182,50,.5)}
+.nodo-sis>div{min-width:0}
+.nodo-ico{width:52px;height:52px;padding:0;justify-content:center}
+.nodo-ico svg{width:24px;height:24px;fill:none;stroke:var(--oro);stroke-width:1.5;stroke-linejoin:round}
+.nodo-ico i{font-size:24px;color:#25d366}
+.cable{height:2px;position:relative;background:var(--linea)}
+.cable::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--oro) 0 10px,transparent 10px 18px);background-size:18px 2px;animation:fluye 1s linear infinite}
+.cable.solido::after{background:linear-gradient(90deg,rgba(242,182,50,.35),var(--oro),rgba(242,182,50,.35));background-size:200% 2px;animation:brillo 1.6s linear infinite}
+.cable.tenue::after{opacity:.45}
+.cable.corte{background:transparent}
+.cable.corte::after{background:repeating-linear-gradient(90deg,var(--gris-2) 0 4px,transparent 4px 9px);background-size:9px 2px;animation:none;opacity:.6}
+@keyframes fluye{to{background-position:18px 0}}
+@keyframes brillo{to{background-position:-200% 0}}
+.enlace-et{margin:0 0 24px;font-size:13px;color:var(--gris);display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.enlace-et b{color:var(--oro);font-weight:700}
+
+/* Resumen */
+.resumen{display:grid;grid-template-columns:132px minmax(0,1fr);gap:24px;align-items:center;padding:22px 0 4px;border-top:1px solid var(--linea)}
+.anillo{position:relative;width:132px;height:132px}
+.anillo svg{width:100%;height:100%;transform:rotate(-90deg)}
+.anillo path{fill:none;stroke-width:9;stroke-linecap:butt;transition:stroke .35s,opacity .35s}
+.anillo .centro{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.anillo .centro b{font-family:var(--display);font-size:28px;line-height:1;color:var(--tinta)}
+.anillo .centro b span{color:var(--gris-2);font-size:15px}
+.anillo .centro small{display:block;margin-top:6px;font-size:11px;color:var(--gris);letter-spacing:.02em}
+.veredicto h3{font-size:clamp(19px,2vw,22px);font-weight:800;line-height:1.2;margin-bottom:8px}
+.veredicto p{margin:0;color:var(--gris);font-size:15px;max-width:52ch}
+.veredicto .acceso{margin-top:10px;font-size:13.5px;color:var(--gris-2)}
+
+/* Funciones */
+.funcs{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
+.funcs li{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);background:rgba(6,6,5,.35);transition:background .3s;min-width:0}
+.funcs li.si{background:rgba(242,182,50,.035)}
+.funcs li:last-child{grid-column:1/-1}
+.funcs .top{display:flex;align-items:center;gap:10px}
+.funcs .ic{width:9px;height:9px;flex:none;transform:rotate(45deg);border:1.5px solid var(--oro)}
+.funcs .si .ic{background:var(--oro);box-shadow:0 0 10px rgba(242,182,50,.45)}
+.funcs .parcial .ic{background:linear-gradient(135deg,var(--oro) 50%,transparent 50%)}
+.funcs .unk .ic{border-style:dashed;border-color:var(--oro-suave)}
+.funcs .no .ic{border-color:#3a352c}
+.funcs .rev .ic{border-color:var(--gris-2);animation:gira .6s linear infinite}
+@keyframes gira{to{transform:rotate(405deg)}}
+.etq{font-family:var(--display);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase}
+.si .etq{color:var(--oro)}
+.parcial .etq{color:var(--oro-suave)}
+.unk .etq{color:var(--gris)}
+.no .etq,.rev .etq{color:var(--gris-2)}
+.funcs h4{margin:2px 0 0;font-size:15px;font-weight:700;line-height:1.35}
+.funcs p{margin:0;font-size:13.5px;color:var(--gris);line-height:1.45}
+.funcs .no h4{color:var(--gris-2)}
+.funcs .no p{color:var(--gris-2)}
+.funcs .rev h4{opacity:.5}.funcs .rev p{opacity:.25}
+
+.panel-pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px;margin-top:22px;padding-top:22px;border-top:1px solid var(--linea)}
+.panel-pie p{margin:0;font-size:14px;color:var(--gris);max-width:40ch}
+.panel-pie .btn i{font-size:19px}
+.nota-marcas{margin:22px 0 0;font-size:12.5px;color:var(--gris-2);max-width:90ch}
+.fudo a{color:var(--oro);text-decoration:none;border-bottom:1px solid rgba(242,182,50,.4)}
+.fudo a:hover{border-bottom-color:var(--oro)}
+.pasos p a{color:var(--oro);text-decoration:none;border-bottom:1px solid rgba(242,182,50,.4)}
+
+@media (max-width:920px){
+  .compat-grid{grid-template-columns:minmax(0,1fr)}
+  .selector{gap:16px;position:static}
+}
+@media (max-width:560px){
+  .enlace{grid-template-columns:minmax(0,1fr) 22px auto 22px auto}
+  .nodo-ico{width:44px;height:44px}
+  .nodo{padding:8px 10px}
+  .resumen{grid-template-columns:92px minmax(0,1fr);gap:16px;align-items:start}
+  .anillo{width:92px;height:92px}
+  .anillo .centro b{font-size:21px}
+  .anillo .centro b span{font-size:12px}
+  .anillo .centro small{font-size:9.5px;margin-top:4px}
+  .veredicto h3{font-size:18px}
+  .veredicto p{font-size:14px}
+  .veredicto .acceso{grid-column:1/-1}
+  .funcs{grid-template-columns:minmax(0,1fr)}
+  .funcs li{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:3px 12px;align-items:center;padding:12px 14px}
+  .funcs .top{display:contents}
+  .funcs .ic{grid-column:1;grid-row:1}
+  .funcs h4{grid-column:2;grid-row:1;margin:0;font-size:14.5px}
+  .funcs .etq{grid-column:3;grid-row:1;font-size:8.5px;letter-spacing:.12em}
+  .funcs p{grid-column:2/-1;font-size:13px}
+  .panel-pie .btn{flex:1 1 100%}
+  .chip{min-height:40px;padding:0 12px;font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){.cable::after{animation:none}.panel.escanea .barrido{animation:none}}
 </style>
 </head>
 <body>
@@ -306,7 +431,7 @@ footer a{color:var(--oro-suave);text-decoration:none}
           <a class="btn btn-linea" href="#capacidades">Qué puede hacer
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
         </div>
-        <p class="fudo">Funciona hoy con Fudo y se puede conectar a otros sistemas de venta. Sin apps nuevas para ti ni para tu equipo.</p>
+        <p class="fudo">Funciona hoy con Fudo y se puede conectar a otros sistemas de venta (<a href="#compatibilidad">revisa el tuyo</a>). Sin apps nuevas para ti ni para tu equipo.</p>
       </div>
 
       <div class="demo" aria-label="Conversación de ejemplo con el asistente">
@@ -436,6 +561,65 @@ footer a{color:var(--oro-suave);text-decoration:none}
     </div>
   </section>
 
+  <section class="compat" id="compatibilidad">
+    <div class="envoltura">
+      <div class="cabeza">
+        <p class="eyebrow">Compatibilidad</p>
+        <h2>¿Funciona con tu sistema de ventas?</h2>
+        <p class="lead">Elige el sistema que usa tu local y mira qué puede responder el asistente con sus datos. Es una primera revisión: la confirmamos con tu cuenta antes de conectar nada.</p>
+      </div>
+      <div class="compat-grid">
+        <div class="selector" role="radiogroup" aria-label="Sistema de ventas de tu local" id="compat-sel">
+          <div class="sel-grupo">
+            <p class="sel-tit">Sistema de ventas</p>
+            <div class="chips" data-grupo="pos"></div>
+          </div>
+          <div class="sel-grupo">
+            <p class="sel-tit">Solo cobro o boleta</p>
+            <div class="chips" data-grupo="cobro"></div>
+          </div>
+          <div class="sel-grupo">
+            <p class="sel-tit">Ninguno</p>
+            <div class="chips" data-grupo="nada"></div>
+          </div>
+          <label class="otro-campo" id="compat-otro-campo">¿Cuál usas?
+            <input type="text" id="compat-otro" maxlength="40" placeholder="Nombre del sistema" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="panel" id="compat-panel" aria-live="polite">
+          <span class="barrido" aria-hidden="true"></span>
+          <div class="panel-cab"><span>Revisión de compatibilidad</span><span class="vivo" id="compat-estado">Listo</span></div>
+          <div class="enlace" aria-hidden="true">
+            <div class="nodo nodo-sis"><div><small>Tu sistema</small><b id="compat-nombre">Fudo</b></div></div>
+            <span class="cable" id="compat-cable1"></span>
+            <div class="nodo nodo-ico" title="Asistente"><svg viewBox="0 0 24 24"><path d="M12 2.8 21.2 12 12 21.2 2.8 12z"/><path d="M12 7.6 16.4 12 12 16.4 7.6 12z"/></svg></div>
+            <span class="cable solido" id="compat-cable2"></span>
+            <div class="nodo nodo-ico" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div>
+          </div>
+          <p class="enlace-et" id="compat-enlace"></p>
+          <div class="resumen">
+            <div class="anillo">
+              <svg viewBox="0 0 132 132" aria-hidden="true" id="compat-anillo"></svg>
+              <div class="centro"><b id="compat-cuenta">9<span>/9</span></b><small>funciones listas</small></div>
+            </div>
+            <div class="veredicto">
+              <h3 id="compat-tit"></h3>
+              <p id="compat-txt"></p>
+              <p class="acceso" id="compat-acceso"></p>
+            </div>
+          </div>
+          <ul class="funcs" id="compat-funcs"></ul>
+          <div class="panel-pie">
+            <p id="compat-pie">Te muestro en la demo cómo responde con preguntas de tu local.</p>
+            <a class="btn btn-oro" id="compat-cta" href="https://wa.me/56997442005" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>Revisemos mi sistema</a>
+          </div>
+        </div>
+      </div>
+      <p class="nota-marcas">Revisión hecha con la documentación pública de cada sistema en octubre de 2026; no es una certificación. Algunos sistemas habilitan el acceso a sus datos solo en ciertos planes: lo revisamos contigo antes de conectar. Las marcas pertenecen a sus dueños y FSConsultory no tiene relación comercial con ellas.</p>
+    </div>
+  </section>
+
   <section class="partimos">
     <div class="envoltura">
       <div>
@@ -445,7 +629,7 @@ footer a{color:var(--oro-suave);text-decoration:none}
         </div>
       <ol class="pasos">
           <li><h3>Demo de 30 minutos</h3><p>Te muestro el asistente funcionando con preguntas como las de tu local. Gratis y sin compromiso.</p></li>
-          <li><h3>Revisión de tu sistema</h3><p>Vemos qué sistema de ventas usa tu local y confirmamos que se puede conectar. Con Fudo ya está probado; con otros sistemas lo evaluamos caso a caso.</p></li>
+          <li><h3>Revisión de tu sistema</h3><p>Vemos qué sistema de ventas usa tu local y confirmamos que se puede conectar. Con Fudo ya está probado; con otros sistemas lo evaluamos caso a caso, partiendo por la <a href="#compatibilidad">revisión de arriba</a>.</p></li>
           <li><h3>Conexión y ajuste</h3><p>Lo conectamos a tu sistema y a un número de WhatsApp, y definimos las categorías de gasto y quién puede anotar o consultar.</p></li>
           <li><h3>Uso y mejora</h3><p>Lo que preguntes y el asistente todavía no sepa responder es lo próximo que se construye.</p></li>
         </ol>
@@ -573,6 +757,232 @@ footer a{color:var(--oro-suave);text-decoration:none}
     });
   });
   pintar('compra', false);
+})();
+</script>
+<script>
+(function () {
+  // Revisión pública de compatibilidad. Los estados vienen de la documentación pública de cada
+  // sistema (octubre de 2026): si = confirmado, parcial = solo una parte, no = sus datos no lo traen,
+  // unk = no se pudo confirmar y se revisa con la cuenta del local.
+  var S = 'si', P = 'parcial', N = 'no', U = 'unk';
+  var TODO = function (v) { return { ventas: v, items: v, categorias: v, catalogo: v, pagos: v, propinas: v, caja: v, gastosE: v }; };
+  var SIS = [
+    { id: 'fudo', n: 'Fudo', g: 'pos', badge: 'En uso', tipo: 'probada', acc: 'fudo', d: TODO(S) },
+    { id: 'toteat', n: 'Toteat', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: U, categorias: U, catalogo: U, pagos: U, propinas: U, caja: U, gastosE: U } },
+    { id: 'justo', n: 'Justo', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: P, catalogo: U, pagos: S, propinas: S, caja: S, gastosE: U } },
+    { id: 'loyverse', n: 'Loyverse', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: S, catalogo: U, pagos: S, propinas: U, caja: S, gastosE: N } },
+    { id: 'bsale', n: 'Bsale', g: 'pos', tipo: 'doc', acc: 'soporte', d: { ventas: S, items: S, categorias: S, catalogo: U, pagos: S, propinas: U, caja: U, gastosE: U } },
+    { id: 'poster', n: 'Poster', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: U, catalogo: U, pagos: U, propinas: U, caja: U, gastosE: U } },
+    { id: 'defontana', n: 'Defontana', g: 'pos', tipo: 'doc', acc: 'soporte', d: { ventas: S, items: S, categorias: U, catalogo: U, pagos: U, propinas: U, caja: U, gastosE: U } },
+    { id: 'odoo', n: 'Odoo', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: S, catalogo: S, pagos: S, propinas: U, caja: S, gastosE: S } },
+    { id: 'otro', n: 'Otro', g: 'pos', tipo: 'otro', acc: 'otro', d: TODO(U) },
+    { id: 'tuu', n: 'Tuu', g: 'cobro', tipo: 'cobro', acc: 'auto', d: { ventas: S, items: S, categorias: N, catalogo: N, pagos: S, propinas: N, caja: N, gastosE: N } },
+    { id: 'mpago', n: 'Mercado Pago Point', g: 'cobro', tipo: 'cobro', acc: 'auto', soloCobros: true, d: { ventas: P, items: N, categorias: N, catalogo: N, pagos: S, propinas: U, caja: N, gastosE: N } },
+    { id: 'boleta', n: 'Solo boleta electrónica', g: 'cobro', tipo: 'boleta', acc: 'soporte', d: { ventas: S, items: U, categorias: N, catalogo: N, pagos: N, propinas: N, caja: N, gastosE: N } },
+    { id: 'nada', n: 'No uso sistema', g: 'nada', tipo: 'nada', acc: 'nada', d: TODO(N) }
+  ];
+
+  var SIN_PROD = 'Los datos de este sistema no traen el detalle de productos.';
+  var FUN = [
+    { n: 'Anotar compras con foto, audio o texto', r: function (d) {
+      return [S, d.gastosE === S ? 'Quedan en la planilla del local y también en tu sistema.' : 'Quedan clasificadas en la planilla del local.']; } },
+    { n: 'Aviso si un insumo llega más caro', r: function () { return [S, 'Compara cada compra con tu precio de referencia.']; } },
+    { n: 'Ventas del día y cómo pagaron', r: function (d, x) {
+      if (d.ventas === S && d.pagos === S) { return [S, 'Total, número de ventas, ticket promedio y medios de pago.']; }
+      if (d.ventas === P && x.soloCobros) { return [P, 'Solo lo cobrado con la máquina, no el efectivo.']; }
+      if (d.ventas === S || d.ventas === P) { return [P, 'El total vendido, sin el detalle de cómo pagaron.']; }
+      return [N, 'Necesita un sistema que registre las ventas.']; } },
+    { n: 'Comparar períodos', r: function (d, x) {
+      if (d.ventas === S) { return [S, 'Cualquier período contra otro, también contra el año pasado.']; }
+      if (d.ventas === P) { return [P, x.soloCobros ? 'Solo con lo cobrado por la máquina.' : 'Solo con lo que registra el sistema.']; }
+      return [N, 'Necesita ventas registradas.']; } },
+    { n: 'Lo más y menos vendido por cocina, bar y bebidas', r: function (d) {
+      if (d.items === S && (d.categorias === S || d.categorias === P)) { return [S, 'Separado por cocina, bar y bebidas, con su porcentaje.']; }
+      if (d.items === S) { return [P, 'Ranking general, sin separar cocina y bar.']; }
+      return [N, SIN_PROD]; } },
+    { n: 'Productos que llevan meses sin venderse', r: function (d) {
+      if (d.items === S && d.catalogo === S) { return [S, 'La carta completa, con la fecha de su última venta.']; }
+      if (d.items === S) { return [P, 'Solo los productos que alguna vez se vendieron.']; }
+      return [N, SIN_PROD]; } },
+    { n: 'Propinas a repartir', r: function (d) {
+      if (d.propinas === S && d.pagos === S) { return [S, 'Separa la propina en efectivo de la que pasó por tarjeta.']; }
+      if (d.propinas === S) { return [P, 'El total de propinas, sin separar por medio de pago.']; }
+      return [N, 'Los datos de este sistema no traen las propinas.']; } },
+    { n: 'Cierre de caja', r: function (d) {
+      if (d.caja === S) { return [S, 'Monto inicial, ingresos por medio de pago y cierre, como en tu sistema.']; }
+      if (d.pagos === S && d.ventas === S) { return [P, 'Lo cobrado por medio de pago, sin monto inicial ni arqueo.']; }
+      return [N, 'Los datos de este sistema no traen la caja.']; } },
+    { n: 'Margen: ventas menos gastos', r: function (d, x) {
+      if (d.ventas === S) { return [S, 'Tus ventas contra los gastos anotados, cuando lo preguntes.']; }
+      if (d.ventas === P) { return [P, x.soloCobros ? 'Solo con lo cobrado por la máquina.' : 'Con el total vendido que registra el sistema.']; }
+      return [N, 'Necesita las ventas registradas.']; } }
+  ];
+  var ETQ = { si: 'Funciona', parcial: 'En parte', unk: 'Por confirmar', no: 'No disponible', rev: 'Revisando' };
+  var ENLACE = {
+    probada: ['Conexión probada', 'funcionando todos los días en Terraza Abril', 'solido'],
+    doc: ['Conexión documentada', 'se prueba con la cuenta de tu local', ''],
+    cobro: ['Conexión a los cobros', 've lo que pasa por la máquina', 'tenue'],
+    boleta: ['Conexión a las boletas', 've lo que se emite, no el detalle del local', 'tenue'],
+    otro: ['Por revisar', 'cuéntame cuál usas', 'tenue'],
+    nada: ['Sin conexión', 'el asistente parte con tus compras', 'corte']
+  };
+  var ACC = {
+    fudo: 'Cómo se conecta: generas una clave de acceso en el panel de Fudo y yo hago el resto.',
+    auto: 'Cómo se conecta: generas una clave de acceso en el panel de tu sistema y yo hago el resto.',
+    soporte: 'Cómo se conecta: la clave de acceso se pide al soporte del sistema. Te acompaño en el trámite.',
+    otro: 'Cómo se conecta: lo vemos juntos con la documentación de tu sistema.',
+    nada: 'No hay nada que conectar: basta con el WhatsApp del local.'
+  };
+
+  function evaluar(x) {
+    var opt = {}, pes = {};
+    Object.keys(x.d).forEach(function (k) { opt[k] = x.d[k] === U ? S : x.d[k]; pes[k] = x.d[k] === U ? N : x.d[k]; });
+    return FUN.map(function (f) {
+      var a = f.r(pes, x), b = f.r(opt, x);
+      if (a[0] === b[0]) { return { n: f.n, s: a[0], t: x.id === 'nada' && a[0] === N ? 'Se activa cuando sumes un sistema de ventas.' : a[1] }; }
+      return { n: f.n, s: U, t: 'Lo revisamos contigo en el diagnóstico.' };
+    });
+  }
+
+  function veredicto(x, res) {
+    var c = { si: 0, parcial: 0, unk: 0, no: 0 };
+    res.forEach(function (r) { c[r.s]++; });
+    if (x.tipo === 'probada') { return ['Funciona hoy, completo', 'Es el sistema de Terraza Abril: el asistente ya responde con sus datos todos los días.']; }
+    if (x.tipo === 'nada') { return ['Partimos con las compras', 'Sin sistema de ventas, el asistente anota tus compras con una foto y te avisa si un insumo sube. Si después sumas un sistema, se conecta.']; }
+    if (x.tipo === 'otro') { return ['Lo revisamos contigo', 'Escribe cuál usas y reviso su documentación antes de la demo. Las compras y el aviso de precios funcionan con cualquier sistema.']; }
+    if (c.no + c.parcial >= 3) { return ['Funciona en parte', 'Con este sistema el asistente ve una parte del negocio. En la demo te muestro hasta dónde alcanza a responder.']; }
+    if (c.unk === 0) { return ['Todo disponible en su documentación', 'Lo que falta es probarlo con un local real, y eso se hace al conectar el tuyo.']; }
+    if (c.unk >= 4) { return ['Se conecta; el detalle, por confirmar', 'Sus ventas están documentadas. El resto lo confirmamos con tu cuenta en el diagnóstico.']; }
+    return ['Buena base, con puntos por confirmar', 'Lo principal está documentado. Lo que falta lo revisamos contigo en el diagnóstico.'];
+  }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var panel = $('compat-panel'), lista = $('compat-funcs'), anillo = $('compat-anillo');
+  var campoOtro = $('compat-otro-campo'), inputOtro = $('compat-otro');
+  var actual = SIS[0], timers = [];
+  var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  var COLOR = { si: '#f2b632', parcial: '#9a7521', unk: '#c99a2e', no: '#23201b', rev: '#3a352c' };
+
+  // Anillo de 9 segmentos, uno por función.
+  var segs = [];
+  (function () {
+    var cx = 66, r = 56, n = FUN.length, gap = 5;
+    for (var i = 0; i < n; i++) {
+      var a0 = (360 / n) * i + gap / 2, a1 = (360 / n) * (i + 1) - gap / 2;
+      var p = function (a) { var t = a * Math.PI / 180; return (cx + r * Math.cos(t)).toFixed(2) + ' ' + (cx + r * Math.sin(t)).toFixed(2); };
+      var el = document.createElementNS(NS, 'path');
+      el.setAttribute('d', 'M ' + p(a0) + ' A ' + r + ' ' + r + ' 0 0 1 ' + p(a1));
+      anillo.appendChild(el); segs.push(el);
+    }
+  })();
+  function pintarSeg(i, s) {
+    segs[i].style.stroke = COLOR[s];
+    segs[i].style.strokeDasharray = s === U ? '3 3' : 'none';
+    segs[i].style.opacity = s === U ? '.8' : '1';
+  }
+
+  // Filas de funciones.
+  var filas = FUN.map(function (f) {
+    var li = document.createElement('li');
+    var top = document.createElement('div'); top.className = 'top';
+    var ic = document.createElement('span'); ic.className = 'ic';
+    var e = document.createElement('span'); e.className = 'etq';
+    top.appendChild(ic); top.appendChild(e);
+    var h = document.createElement('h4'); h.textContent = f.n;
+    var p = document.createElement('p');
+    li.appendChild(top); li.appendChild(h); li.appendChild(p);
+    lista.appendChild(li);
+    return { li: li, p: p, e: e };
+  });
+  function pintarFila(i, r) {
+    filas[i].li.className = r.s;
+    filas[i].e.textContent = ETQ[r.s];
+    filas[i].p.textContent = r.t;
+  }
+
+  function nombre(x) {
+    if (x.id === 'otro') { return (inputOtro.value || '').trim() || 'Otro sistema'; }
+    return x.n;
+  }
+  function pintarCta(x) {
+    var msg;
+    if (x.id === 'nada') { msg = 'Hola Francisco, mi local no usa sistema de ventas y quiero ver cómo funciona el asistente con las compras.'; }
+    else if (x.id === 'otro' && !(inputOtro.value || '').trim()) { msg = 'Hola Francisco, uso otro sistema de ventas en mi local y quiero saber si el asistente funciona con él.'; }
+    else { msg = 'Hola Francisco, en mi local usamos ' + nombre(x) + ' y quiero saber si el asistente funciona con él.'; }
+    $('compat-cta').href = 'https://wa.me/56997442005?text=' + encodeURIComponent(msg);
+    $('compat-pie').textContent = x.tipo === 'probada' ? 'Te muestro en la demo cómo responde con preguntas de tu local.'
+      : x.tipo === 'nada' ? 'En la demo te muestro cómo se anotan las compras y qué te responde.'
+      : 'En la demo revisamos tu sistema y lo que queda por confirmar.';
+  }
+
+  function pintar(x, animar) {
+    timers.forEach(clearTimeout); timers = [];
+    actual = x;
+    document.querySelectorAll('#compat-sel .chip').forEach(function (b) { b.setAttribute('aria-checked', b.getAttribute('data-id') === x.id ? 'true' : 'false'); });
+    campoOtro.classList.toggle('ver', x.id === 'otro');
+    $('compat-nombre').textContent = nombre(x);
+    var en = ENLACE[x.tipo];
+    var et = $('compat-enlace'); et.textContent = '';
+    var b = document.createElement('b'); b.textContent = en[0]; et.appendChild(b);
+    et.appendChild(document.createTextNode('· ' + en[1]));
+    $('compat-cable1').className = 'cable' + (en[2] ? ' ' + en[2] : '');
+    $('compat-cable2').className = 'cable ' + (x.tipo === 'nada' ? 'solido' : 'solido');
+    $('compat-acceso').textContent = ACC[x.acc];
+    pintarCta(x);
+
+    var res = evaluar(x), v = veredicto(x, res);
+    var listas = res.filter(function (r) { return r.s === S; }).length;
+    var fin = function () {
+      $('compat-tit').textContent = v[0];
+      $('compat-txt').textContent = v[1];
+      $('compat-cuenta').firstChild.nodeValue = String(listas);
+      $('compat-cuenta').nextElementSibling.textContent = x.tipo === 'probada' ? 'funcionando hoy' : x.tipo === 'nada' ? 'disponibles' : 'confirmadas';
+      $('compat-estado').textContent = 'Listo';
+    };
+    if (!animar || quieto) {
+      res.forEach(function (r, i) { pintarFila(i, r); pintarSeg(i, r.s); });
+      fin(); return;
+    }
+    panel.classList.remove('escanea'); void panel.offsetWidth; panel.classList.add('escanea');
+    $('compat-estado').textContent = 'Revisando';
+    $('compat-tit').textContent = 'Revisando ' + nombre(x) + '…';
+    $('compat-txt').textContent = 'Cruzando lo que documenta el sistema con cada función del asistente.';
+    $('compat-cuenta').firstChild.nodeValue = '–';
+    res.forEach(function (r, i) {
+      pintarFila(i, { s: 'rev', t: filas[i].p.textContent || ' ' });
+      pintarSeg(i, 'rev');
+      timers.push(setTimeout(function () { pintarFila(i, r); pintarSeg(i, r.s); }, 260 + i * 75));
+    });
+    timers.push(setTimeout(fin, 260 + res.length * 75));
+  }
+
+  // Chips.
+  SIS.forEach(function (x) {
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'chip'; btn.setAttribute('role', 'radio');
+    btn.setAttribute('aria-checked', 'false'); btn.setAttribute('data-id', x.id);
+    btn.appendChild(document.createTextNode(x.n));
+    if (x.badge) { var sm = document.createElement('small'); sm.textContent = x.badge; btn.appendChild(sm); }
+    btn.addEventListener('click', function () {
+      pintar(x, true);
+      if (x.id === 'otro') { setTimeout(function () { inputOtro.focus(); }, 50); }
+    });
+    document.querySelector('#compat-sel .chips[data-grupo="' + x.g + '"]').appendChild(btn);
+  });
+  inputOtro.addEventListener('input', function () {
+    $('compat-nombre').textContent = nombre(actual);
+    pintarCta(actual);
+  });
+
+  // Primer pintado: sin animación; la revisión de Fudo "corre" cuando el panel entra en pantalla.
+  pintar(SIS[0], false);
+  if ('IntersectionObserver' in window && !quieto) {
+    var io = new IntersectionObserver(function (ents) {
+      if (ents[0].isIntersecting) { io.disconnect(); if (actual.id === 'fudo') { pintar(SIS[0], true); } }
+    }, { threshold: 0.35 });
+    io.observe(panel);
+  }
 })();
 </script>
 
