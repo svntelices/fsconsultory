@@ -762,21 +762,38 @@ footer a{color:var(--oro-suave);text-decoration:none}
 <script>
 (function () {
   // Revisión pública de compatibilidad. Los estados vienen de la documentación pública de cada
-  // sistema (octubre de 2026): si = confirmado, parcial = solo una parte, no = sus datos no lo traen,
+  // sistema, verificada el 17-oct-2026: si = confirmado, parcial = solo una parte, no = sus datos no lo traen,
   // unk = no se pudo confirmar y se revisa con la cuenta del local.
   var S = 'si', P = 'parcial', N = 'no', U = 'unk';
   var TODO = function (v) { return { ventas: v, items: v, categorias: v, catalogo: v, pagos: v, propinas: v, caja: v, gastosE: v }; };
   var SIS = [
-    { id: 'fudo', n: 'Fudo', g: 'pos', badge: 'En uso', tipo: 'probada', acc: 'fudo', d: TODO(S) },
-    { id: 'toteat', n: 'Toteat', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: U, categorias: U, catalogo: U, pagos: U, propinas: U, caja: U, gastosE: U } },
-    { id: 'justo', n: 'Justo', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: P, catalogo: U, pagos: S, propinas: S, caja: S, gastosE: U } },
-    { id: 'loyverse', n: 'Loyverse', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: S, catalogo: U, pagos: S, propinas: U, caja: S, gastosE: N } },
-    { id: 'bsale', n: 'Bsale', g: 'pos', tipo: 'doc', acc: 'soporte', d: { ventas: S, items: S, categorias: S, catalogo: U, pagos: S, propinas: U, caja: U, gastosE: U } },
-    { id: 'poster', n: 'Poster', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: U, catalogo: U, pagos: U, propinas: U, caja: U, gastosE: U } },
-    { id: 'defontana', n: 'Defontana', g: 'pos', tipo: 'doc', acc: 'soporte', d: { ventas: S, items: S, categorias: U, catalogo: U, pagos: U, propinas: U, caja: U, gastosE: U } },
-    { id: 'odoo', n: 'Odoo', g: 'pos', tipo: 'doc', acc: 'auto', d: { ventas: S, items: S, categorias: S, catalogo: S, pagos: S, propinas: U, caja: S, gastosE: S } },
+    { id: 'fudo', n: 'Fudo', g: 'pos', badge: 'En uso', tipo: 'probada', acc: 'fudo', req: 'Su API viene en el Plan Pro de Fudo.', d: TODO(S) },
+    { id: 'toteat', n: 'Toteat', g: 'pos', tipo: 'doc', acc: 'auto', req: 'Su API viene solo en el plan Corporativo de Toteat.',
+      d: { ventas: S, items: S, categorias: S, catalogo: S, pagos: S, propinas: S, caja: S, gastosE: P },
+      o: { comparar: [S, 'Cualquier período. Su API entrega 15 días por consulta, así que el asistente guarda una copia diaria para responder rápido.'] } },
+    { id: 'justo', n: 'Justo', g: 'pos', tipo: 'doc', acc: 'autoriza',
+      d: { ventas: S, items: S, categorias: P, catalogo: U, pagos: S, propinas: S, caja: P, gastosE: N },
+      o: { caja: [P, 'Saldo inicial y final de cada turno por medio de pago, sin el detalle del arqueo.'] } },
+    { id: 'loyverse', n: 'Loyverse', g: 'pos', tipo: 'doc', acc: 'auto', req: 'Con el plan gratis, el historial largo puede requerir su complemento de historial ilimitado.',
+      d: { ventas: S, items: S, categorias: U, catalogo: S, pagos: S, propinas: P, caja: S, gastosE: N },
+      o: { propinas: [P, 'Solo si el local cobra la propina con lectores compatibles con Loyverse (SumUp, Zettle, Yoco o KICC).'] } },
+    { id: 'bsale', n: 'Bsale', g: 'pos', tipo: 'doc', acc: 'soporte', req: 'La conexión API viene incluida en todos los planes de Bsale.',
+      d: { ventas: S, items: S, categorias: S, catalogo: S, pagos: S, propinas: N, caja: N, gastosE: P } },
+    { id: 'poster', n: 'Poster', g: 'pos', tipo: 'doc', acc: 'auto',
+      d: { ventas: S, items: S, categorias: S, catalogo: S, pagos: P, propinas: S, caja: S, gastosE: S },
+      o: { ventas: [P, 'Total, ticket promedio y la separación entre efectivo y tarjeta; no distingue débito, crédito ni transferencia.'],
+           propinas: [S, 'La propina de cada venta, separada entre efectivo y tarjeta.'] } },
+    { id: 'defontana', n: 'Defontana', g: 'pos', tipo: 'doc', acc: 'soporte',
+      d: { ventas: S, items: S, categorias: S, catalogo: S, pagos: N, propinas: N, caja: N, gastosE: S } },
+    { id: 'odoo', n: 'Odoo', g: 'pos', tipo: 'doc', acc: 'auto', req: 'Su API externa solo viene en el plan Personalizado de Odoo.',
+      d: { ventas: S, items: S, categorias: S, catalogo: S, pagos: S, propinas: P, caja: S, gastosE: S },
+      o: { propinas: [P, 'La propina de cada venta; separarla por medio de pago depende de cómo la cobre el local.'] } },
     { id: 'otro', n: 'Otro', g: 'pos', tipo: 'otro', acc: 'otro', d: TODO(U) },
-    { id: 'tuu', n: 'Tuu', g: 'cobro', tipo: 'cobro', acc: 'auto', d: { ventas: S, items: S, categorias: N, catalogo: N, pagos: S, propinas: N, caja: N, gastosE: N } },
+    { id: 'tuu', n: 'Tuu', g: 'cobro', tipo: 'cobro', acc: 'auto',
+      d: { ventas: S, items: P, categorias: N, catalogo: N, pagos: S, propinas: U, caja: N, gastosE: N },
+      o: { ranking: [P, 'Solo si el local vende con el catálogo de productos de Tuu, y sin separar cocina y bar.'],
+           sinventa: [N, 'Tuu no entrega la carta completa por API.'],
+           propinas: [U, 'Vienen en un reporte de Tuu que exige un plan específico. Lo revisamos contigo.'] } },
     { id: 'mpago', n: 'Mercado Pago Point', g: 'cobro', tipo: 'cobro', acc: 'auto', soloCobros: true, d: { ventas: P, items: N, categorias: N, catalogo: N, pagos: S, propinas: U, caja: N, gastosE: N } },
     { id: 'boleta', n: 'Solo boleta electrónica', g: 'cobro', tipo: 'boleta', acc: 'soporte', d: { ventas: S, items: U, categorias: N, catalogo: N, pagos: N, propinas: N, caja: N, gastosE: N } },
     { id: 'nada', n: 'No uso sistema', g: 'nada', tipo: 'nada', acc: 'nada', d: TODO(N) }
@@ -784,35 +801,35 @@ footer a{color:var(--oro-suave);text-decoration:none}
 
   var SIN_PROD = 'Los datos de este sistema no traen el detalle de productos.';
   var FUN = [
-    { n: 'Anotar compras con foto, audio o texto', r: function (d) {
+    { k: 'compras', n: 'Anotar compras con foto, audio o texto', r: function (d) {
       return [S, d.gastosE === S ? 'Quedan en la planilla del local y también en tu sistema.' : 'Quedan clasificadas en la planilla del local.']; } },
-    { n: 'Aviso si un insumo llega más caro', r: function () { return [S, 'Compara cada compra con tu precio de referencia.']; } },
-    { n: 'Ventas del día y cómo pagaron', r: function (d, x) {
+    { k: 'aviso', n: 'Aviso si un insumo llega más caro', r: function () { return [S, 'Compara cada compra con tu precio de referencia.']; } },
+    { k: 'ventas', n: 'Ventas del día y cómo pagaron', r: function (d, x) {
       if (d.ventas === S && d.pagos === S) { return [S, 'Total, número de ventas, ticket promedio y medios de pago.']; }
       if (d.ventas === P && x.soloCobros) { return [P, 'Solo lo cobrado con la máquina, no el efectivo.']; }
       if (d.ventas === S || d.ventas === P) { return [P, 'El total vendido, sin el detalle de cómo pagaron.']; }
       return [N, 'Necesita un sistema que registre las ventas.']; } },
-    { n: 'Comparar períodos', r: function (d, x) {
+    { k: 'comparar', n: 'Comparar períodos', r: function (d, x) {
       if (d.ventas === S) { return [S, 'Cualquier período contra otro, también contra el año pasado.']; }
       if (d.ventas === P) { return [P, x.soloCobros ? 'Solo con lo cobrado por la máquina.' : 'Solo con lo que registra el sistema.']; }
       return [N, 'Necesita ventas registradas.']; } },
-    { n: 'Lo más y menos vendido por cocina, bar y bebidas', r: function (d) {
+    { k: 'ranking', n: 'Lo más y menos vendido por cocina, bar y bebidas', r: function (d) {
       if (d.items === S && (d.categorias === S || d.categorias === P)) { return [S, 'Separado por cocina, bar y bebidas, con su porcentaje.']; }
       if (d.items === S) { return [P, 'Ranking general, sin separar cocina y bar.']; }
       return [N, SIN_PROD]; } },
-    { n: 'Productos que llevan meses sin venderse', r: function (d) {
+    { k: 'sinventa', n: 'Productos que llevan meses sin venderse', r: function (d) {
       if (d.items === S && d.catalogo === S) { return [S, 'La carta completa, con la fecha de su última venta.']; }
       if (d.items === S) { return [P, 'Solo los productos que alguna vez se vendieron.']; }
       return [N, SIN_PROD]; } },
-    { n: 'Propinas a repartir', r: function (d) {
+    { k: 'propinas', n: 'Propinas a repartir', r: function (d) {
       if (d.propinas === S && d.pagos === S) { return [S, 'Separa la propina en efectivo de la que pasó por tarjeta.']; }
       if (d.propinas === S) { return [P, 'El total de propinas, sin separar por medio de pago.']; }
       return [N, 'Los datos de este sistema no traen las propinas.']; } },
-    { n: 'Cierre de caja', r: function (d) {
+    { k: 'caja', n: 'Cierre de caja', r: function (d) {
       if (d.caja === S) { return [S, 'Monto inicial, ingresos por medio de pago y cierre, como en tu sistema.']; }
       if (d.pagos === S && d.ventas === S) { return [P, 'Lo cobrado por medio de pago, sin monto inicial ni arqueo.']; }
       return [N, 'Los datos de este sistema no traen la caja.']; } },
-    { n: 'Margen: ventas menos gastos', r: function (d, x) {
+    { k: 'margen', n: 'Margen: ventas menos gastos', r: function (d, x) {
       if (d.ventas === S) { return [S, 'Tus ventas contra los gastos anotados, cuando lo preguntes.']; }
       if (d.ventas === P) { return [P, x.soloCobros ? 'Solo con lo cobrado por la máquina.' : 'Con el total vendido que registra el sistema.']; }
       return [N, 'Necesita las ventas registradas.']; } }
@@ -830,6 +847,7 @@ footer a{color:var(--oro-suave);text-decoration:none}
     fudo: 'Cómo se conecta: generas una clave de acceso en el panel de Fudo y yo hago el resto.',
     auto: 'Cómo se conecta: generas una clave de acceso en el panel de tu sistema y yo hago el resto.',
     soporte: 'Cómo se conecta: la clave de acceso se pide al soporte del sistema. Te acompaño en el trámite.',
+    autoriza: 'Cómo se conecta: te envío una solicitud de acceso desde el sistema y tú la apruebas en tu cuenta.',
     otro: 'Cómo se conecta: lo vemos juntos con la documentación de tu sistema.',
     nada: 'No hay nada que conectar: basta con el WhatsApp del local.'
   };
@@ -838,6 +856,7 @@ footer a{color:var(--oro-suave);text-decoration:none}
     var opt = {}, pes = {};
     Object.keys(x.d).forEach(function (k) { opt[k] = x.d[k] === U ? S : x.d[k]; pes[k] = x.d[k] === U ? N : x.d[k]; });
     return FUN.map(function (f) {
+      if (x.o && x.o[f.k]) { return { n: f.n, s: x.o[f.k][0], t: x.o[f.k][1] }; }
       var a = f.r(pes, x), b = f.r(opt, x);
       if (a[0] === b[0]) { return { n: f.n, s: a[0], t: x.id === 'nada' && a[0] === N ? 'Se activa cuando sumes un sistema de ventas.' : a[1] }; }
       return { n: f.n, s: U, t: 'Lo revisamos contigo en el diagnóstico.' };
@@ -851,7 +870,8 @@ footer a{color:var(--oro-suave);text-decoration:none}
     if (x.tipo === 'nada') { return ['Partimos con las compras', 'Sin sistema de ventas, el asistente anota tus compras con una foto y te avisa si un insumo sube. Si después sumas un sistema, se conecta.']; }
     if (x.tipo === 'otro') { return ['Lo revisamos contigo', 'Escribe cuál usas y reviso su documentación antes de la demo. Las compras y el aviso de precios funcionan con cualquier sistema.']; }
     if (c.no + c.parcial >= 3) { return ['Funciona en parte', 'Con este sistema el asistente ve una parte del negocio. En la demo te muestro hasta dónde alcanza a responder.']; }
-    if (c.unk === 0) { return ['Todo disponible en su documentación', 'Lo que falta es probarlo con un local real, y eso se hace al conectar el tuyo.']; }
+    if (c.unk === 0 && c.no === 0 && c.parcial === 0) { return ['Todo disponible en su documentación', 'Lo que falta es probarlo con un local real, y eso se hace al conectar el tuyo.']; }
+    if (c.unk === 0) { return ['Casi todo disponible', 'Su documentación cubre casi todas las funciones. Abajo ves cuáles llegan solo en parte.']; }
     if (c.unk >= 4) { return ['Se conecta; el detalle, por confirmar', 'Sus ventas están documentadas. El resto lo confirmamos con tu cuenta en el diagnóstico.']; }
     return ['Buena base, con puntos por confirmar', 'Lo principal está documentado. Lo que falta lo revisamos contigo en el diagnóstico.'];
   }
@@ -928,7 +948,7 @@ footer a{color:var(--oro-suave);text-decoration:none}
     et.appendChild(document.createTextNode('· ' + en[1]));
     $('compat-cable1').className = 'cable' + (en[2] ? ' ' + en[2] : '');
     $('compat-cable2').className = 'cable ' + (x.tipo === 'nada' ? 'solido' : 'solido');
-    $('compat-acceso').textContent = ACC[x.acc];
+    $('compat-acceso').textContent = ACC[x.acc] + (x.req ? ' ' + x.req : '');
     pintarCta(x);
 
     var res = evaluar(x), v = veredicto(x, res);
