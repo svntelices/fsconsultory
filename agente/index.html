@@ -292,10 +292,10 @@ footer a{color:var(--oro-suave);text-decoration:none}
 .sel-tit{font-family:var(--display);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris-2);margin:0}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative;display:inline-flex;align-items:center;gap:9px;min-height:42px;padding:0 14px;font:600 14px/1 var(--texto);color:var(--gris);background:rgba(14,13,11,.7);border:1px solid var(--linea);cursor:pointer;transition:color .2s,border-color .2s,background .2s}
-.chip::before{content:"";width:7px;height:7px;flex:none;border:1.5px solid var(--gris-2);transform:rotate(45deg);transition:background .2s,border-color .2s}
+.chip::before{content:"";width:8px;height:8px;flex:none;border-radius:50%;background:var(--sem,var(--gris-2));box-shadow:0 0 0 3px color-mix(in srgb,var(--sem,var(--gris-2)) 18%,transparent);transition:box-shadow .2s}
 .chip:hover{color:var(--tinta);border-color:#4a4335}
 .chip[aria-checked="true"]{color:var(--tinta);border-color:var(--oro);background:rgba(242,182,50,.08)}
-.chip[aria-checked="true"]::before{background:var(--oro);border-color:var(--oro)}
+.chip[aria-checked="true"]::before{box-shadow:0 0 0 3px color-mix(in srgb,var(--sem,var(--gris-2)) 35%,transparent),0 0 10px var(--sem,var(--gris-2))}
 .chip small{font:700 9.5px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:#120e04;background:var(--oro);padding:4px 6px}
 .otro-campo{display:none;flex-direction:column;gap:8px;font-size:13.5px;color:var(--gris)}
 .otro-campo.ver{display:flex}
@@ -407,6 +407,24 @@ footer a{color:var(--oro-suave);text-decoration:none}
   .chip{min-height:40px;padding:0 12px;font-size:13.5px}
 }
 @media (prefers-reduced-motion:reduce){.cable::after{animation:none}.panel.escanea .barrido{animation:none}}
+
+/* Semáforo de factibilidad */
+.compat{--verde:#45c486;--amarillo:#e9cf4a;--rojo:#e5644f;--gris-sem:#8f887b}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0;padding:12px 0 0;border-top:1px solid var(--linea);font-size:12.5px;color:var(--gris)}
+.leyenda span{display:inline-flex;align-items:center;gap:7px}
+.leyenda i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.factib{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px 16px;margin-top:18px;padding:14px 16px;border:1px solid color-mix(in srgb,var(--sem) 45%,transparent);background:color-mix(in srgb,var(--sem) 7%,transparent);transition:border-color .4s,background .4s}
+.factib-tit{font-family:var(--display);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris-2)}
+.factib-est{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--sem)}
+.factib-est::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--sem);box-shadow:0 0 10px var(--sem)}
+.factib-pct{font-family:var(--display);font-size:15px;color:var(--tinta);white-space:nowrap;font-variant-numeric:tabular-nums}
+.factib-pct small{font-family:var(--texto);font-size:12px;color:var(--gris);margin-left:4px}
+.medidor{grid-column:1/-1;position:relative;height:8px;background:#1d1a15;overflow:hidden}
+.medidor b,.medidor i{position:absolute;left:0;top:0;bottom:0;transition:width .6s ease}
+.medidor b{background:var(--sem);z-index:1}
+.medidor i{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--sem) 55%,transparent) 0 4px,transparent 4px 8px)}
+.medidor-et{grid-column:1/-1;display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--gris-2)}
+@media (max-width:560px){.factib{grid-template-columns:minmax(0,1fr) auto}.factib-tit{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -582,6 +600,7 @@ footer a{color:var(--oro-suave);text-decoration:none}
             <p class="sel-tit">Ninguno</p>
             <div class="chips" data-grupo="nada"></div>
           </div>
+          <p class="leyenda" aria-label="Factibilidad"><span style="--c:var(--verde)"><i></i>Alta</span><span style="--c:var(--amarillo)"><i></i>Media</span><span style="--c:var(--rojo)"><i></i>Baja</span><span style="--c:var(--gris-sem)"><i></i>Por revisar</span></p>
           <label class="otro-campo" id="compat-otro-campo">¿Cuál usas?
             <input type="text" id="compat-otro" maxlength="40" placeholder="Nombre del sistema" autocomplete="off">
           </label>
@@ -608,6 +627,13 @@ footer a{color:var(--oro-suave);text-decoration:none}
               <p id="compat-txt"></p>
               <p class="acceso" id="compat-acceso"></p>
             </div>
+          </div>
+          <div class="factib" id="compat-factib">
+            <span class="factib-tit">Factibilidad</span>
+            <span class="factib-est" id="compat-fest">Alta</span>
+            <span class="factib-pct" id="compat-fpct">100%<small>del asistente</small></span>
+            <div class="medidor" aria-hidden="true"><i id="compat-mhi"></i><b id="compat-mlo"></b></div>
+            <div class="medidor-et"><span id="compat-fnota">Confirmado en su documentación</span></div>
           </div>
           <ul class="funcs" id="compat-funcs"></ul>
           <div class="panel-pie">
@@ -876,6 +902,15 @@ footer a{color:var(--oro-suave);text-decoration:none}
     return ['Buena base, con puntos por confirmar', 'Lo principal está documentado. Lo que falta lo revisamos contigo en el diagnóstico.'];
   }
 
+  // Semáforo: confirmado = Funciona 1 · En parte 0,5; el rango alto suma lo por confirmar como si funcionara.
+  function factib(x, res) {
+    var lo = 0, hi = 0;
+    res.forEach(function (r) { var v = r.s === S ? 1 : r.s === P ? .5 : 0; lo += v; hi += r.s === U ? 1 : v; });
+    lo = lo / res.length; hi = hi / res.length;
+    var e = x.tipo === 'otro' || x.tipo === 'nada' ? 'gris' : lo >= .8 ? 'verde' : lo >= .5 ? 'amarillo' : 'rojo';
+    return { lo: lo, hi: hi, e: e };
+  }
+  var SEM = { verde: ['Alta', 'var(--verde)'], amarillo: ['Media', 'var(--amarillo)'], rojo: ['Baja', 'var(--rojo)'], gris: ['Por revisar', 'var(--gris-sem)'] };
   var $ = function (id) { return document.getElementById(id); };
   var panel = $('compat-panel'), lista = $('compat-funcs'), anillo = $('compat-anillo');
   var campoOtro = $('compat-otro-campo'), inputOtro = $('compat-otro');
@@ -953,7 +988,21 @@ footer a{color:var(--oro-suave);text-decoration:none}
 
     var res = evaluar(x), v = veredicto(x, res);
     var listas = res.filter(function (r) { return r.s === S; }).length;
+    var fz = factib(x, res);
+    var pintarFactib = function () {
+      var box = $('compat-factib'), a = Math.round(fz.lo * 100), b = Math.round(fz.hi * 100);
+      box.style.setProperty('--sem', SEM[fz.e][1]);
+      $('compat-fest').textContent = SEM[fz.e][0];
+      $('compat-fpct').firstChild.nodeValue = x.tipo === 'otro' ? '–' : (a === b ? a + '%' : a + '–' + b + '%');
+      $('compat-mlo').style.width = (x.tipo === 'otro' ? 0 : a) + '%';
+      $('compat-mhi').style.width = (x.tipo === 'otro' ? 100 : b) + '%';
+      $('compat-fnota').textContent = x.tipo === 'probada' ? 'Funcionando hoy en un local real'
+        : x.tipo === 'nada' ? 'Compras y precios, sin sistema de ventas'
+        : x.tipo === 'otro' ? 'Lo revisamos con la documentación de tu sistema'
+        : a === b ? 'Confirmado en su documentación' : 'Sólido: confirmado · Rayado: por confirmar';
+    };
     var fin = function () {
+      pintarFactib();
       $('compat-tit').textContent = v[0];
       $('compat-txt').textContent = v[1];
       $('compat-cuenta').firstChild.nodeValue = String(listas);
@@ -981,6 +1030,7 @@ footer a{color:var(--oro-suave);text-decoration:none}
   SIS.forEach(function (x) {
     var btn = document.createElement('button');
     btn.type = 'button'; btn.className = 'chip'; btn.setAttribute('role', 'radio');
+    btn.style.setProperty('--sem', SEM[factib(x, evaluar(x)).e][1]);
     btn.setAttribute('aria-checked', 'false'); btn.setAttribute('data-id', x.id);
     btn.appendChild(document.createTextNode(x.n));
     if (x.badge) { var sm = document.createElement('small'); sm.textContent = x.badge; btn.appendChild(sm); }
