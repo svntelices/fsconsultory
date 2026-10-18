@@ -252,6 +252,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,13,.9)
   .contact-split{grid-template-columns:1fr}
   .contact-side{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:24px}
 }
+
+/* ── AGENTE: acceso al producto ── */
+.nl a{white-space:nowrap}
+@media(max-width:1280px){.nl{gap:16px}}
+@media(max-width:1160px){.nl{gap:12px}.nl a.nl-agente b{display:none}.nl a.nl-agente{padding:4px 7px}}
+@media(max-width:1100px){.nl{gap:9px}}
+.nl a.nl-agente{color:var(--ac);display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border:1px solid rgba(245,158,11,.35);border-radius:4px;background:rgba(245,158,11,.06)}
+.nl a.nl-agente:hover{border-color:var(--ac);background:rgba(245,158,11,.12)}
+.nl a.nl-agente b,.hero-agente b{font-size:8px;font-weight:700;letter-spacing:1px;color:#000;background:var(--ac);padding:2px 5px;border-radius:3px}
+.hero-agente{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;padding:7px 14px 7px 10px;border:1px solid rgba(245,158,11,.35);border-radius:20px;background:rgba(245,158,11,.06);font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--tx);text-decoration:none;opacity:0;animation:up .7s ease .05s forwards;transition:border-color .2s,background .2s}
+.hero-agente:hover{border-color:var(--ac);background:rgba(245,158,11,.12)}
+.hero-agente .ha-dot{width:7px;height:7px;border-radius:50%;background:#1CC88A;box-shadow:0 0 0 3px rgba(28,200,138,.2)}
+.hero-agente .ha-fl{color:var(--ac);transition:transform .2s}
+.hero-agente:hover .ha-fl{transform:translateX(3px)}
+.caso-cta{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:6px}
+.caso-cta p{font-size:13px;color:var(--tx2);margin-right:auto}
+.mob-menu-link.mob-agente{color:var(--ac)}
+@media(max-width:560px){.hero-agente{font-size:10px;gap:8px}.caso-cta .btn-p,.caso-cta .btn-g{flex:1 1 100%;justify-content:center}}
 </style>
 
 <style>
@@ -281,6 +299,7 @@ nav { z-index: 999 !important; }
     </a>
     <button class="ham-btn" id="ham-btn" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
     <ul class="nl">
+      <li><a href="/agente/" class="nl-agente"><span data-i18n="nav.agente">AI Agent</span><b data-i18n="nav.nuevo">NEW</b></a></li>
       <li><a href="#sobre" data-i18n="nav.sobre">About</a></li>
       <li><a href="#trabajo" data-i18n="nav.work">Work</a></li>
       <li><a href="#experiencia" data-i18n="nav.exp">Experience</a></li>
@@ -328,6 +347,7 @@ nav { z-index: 999 !important; }
   <div class="wrap">
     <div style="position:relative;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center">
       <img src="logo_animated.gif" alt="FSConsultory" style="width:288px;height:288px;object-fit:contain;display:block;margin:0 auto 24px">
+      <a href="/agente/" class="hero-agente"><span class="ha-dot"></span><b data-i18n="hero.agnew">NEW</b><span data-i18n="hero.agtxt">WhatsApp assistant for restaurants</span><span class="ha-fl">→</span></a>
       <p class="hero-tag mono"><span class="blink"></span><span data-i18n="hero.tag">BUSINESS INTELLIGENCE CONSULTANT</span></p>
       <h1 class="hero-h1" data-i18n="hero.title">Turning <span class="grad">data</span><br>into executive decisions.</h1>
       <p class="hero-sub" data-i18n="hero.sub">Independent consultant in Business Intelligence and applied AI · Santiago, Chile.</p>
@@ -526,6 +546,11 @@ nav { z-index: 999 !important; }
         <div class="caso-quote">
           <div class="caso-quote-txt" data-i18n="caso1.quote">Anyone can build a WhatsApp bot. The difference lies in the decisions you never see: what the system does when it is not sure, and what it refuses to claim.</div>
           <div class="caso-quote-attr">— FSConsultory · Engineering criterion</div>
+        </div>
+        <div class="caso-cta">
+          <p data-i18n="caso1.ctatxt">Now available for other restaurants, with Fudo and other point-of-sale systems.</p>
+          <a href="/agente/" class="btn-p" data-i18n="caso1.cta1">See the assistant →</a>
+          <a href="https://wa.me/56997442005?text=Hola%20Francisco%2C%20vi%20el%20asistente%20de%20WhatsApp%20en%20fsconsultory.com%20y%20quiero%20agendar%20la%20demo%20de%2030%20minutos." target="_blank" rel="noopener" class="btn-g" data-i18n="caso1.cta2">Book a 30-min demo</a>
         </div>
       </div>
     </div>
@@ -1105,6 +1130,7 @@ if(cf){
 ═══════════════════════════════════════════════ */
 var translations = {
   en: {
+    "nav.agente":"AI Agent","nav.nuevo":"NEW","nav.agentemob":"AI Agent · NEW","hero.agnew":"NEW","hero.agtxt":"WhatsApp assistant for restaurants","caso1.ctatxt":"Now available for other restaurants, with Fudo and other point-of-sale systems.","caso1.cta1":"See the assistant →","caso1.cta2":"Book a 30-min demo",
     "nav.sobre":"About","nav.work":"Work","work.label":"— Work","work.title":"Nothing invented. <em>Nothing assumed.</em>","work.clientflag":"CLIENT PROJECT","work.portlabel":"POWER BI PROJECTS","proc.striplabel":"HOW I WORK","cta.direct":"OR REACH ME DIRECTLY","nav.exp":"Experience","nav.servicios":"Services",
     "nav.stack":"Stack","nav.portafolio":"Portfolio","nav.casos":"Cases","nav.contacto":"Contact",
     "hero.tag":"BUSINESS INTELLIGENCE CONSULTANT",
@@ -1190,6 +1216,7 @@ var translations = {
     "casos.label":"— Success Cases","caso1.d3d":"Next phase: distribution and traceability of tips per shift, under the same verification criteria as the rest.","caso1.wip":"IN DEVELOPMENT","caso1.d3t":"Tip system","caso1.d2d":"Answers sales, expenses by category, best-selling products and margin, with charts readable on a phone propped on the kitchen counter. Permissions are set by phone number: who can log and who can query.","caso1.d2t":"Business analysis","caso1.d1d":"The team logs a purchase by speaking, typing or photographing the receipt. The assistant shows what it understood, the person confirms or corrects in plain language, and only then is it saved. Everything lands in the management software and in a backup sheet, with the original transcript available for auditing.","caso1.d1t":"Cost logging","caso1.does_label":"WHAT IT DOES","casos.title":"Nothing invented. <em>Nothing assumed.</em>","caso1.client":"Terraza Abril · Alhué, Región Metropolitana","caso1.sector":"Restobar · Parrilla &amp; Sushi","caso1.headline":"Smart Assistant for <em>Restaurant Management.</em>","caso1.sub":"A WhatsApp assistant that logs costs, answers questions about the business — sales, costs, tips — and leaves a trace of everything it claims.","caso1.status":"Delivered · Sep 2026","caso1.type":"First FSConsultory client","caso1.prob_label":"THE PROBLEM","caso1.prob1":"A restaurant owner knows the day’s sales. The margin is only known at month’s end — when nothing can be done with that information anymore.","caso1.prob2":"Costs do not arrive on their own: they live in crumpled receipts, in loose messages and in purchases nobody got around to logging. No system solves that while logging them remains administrative work competing with the service.","caso1.princ_label":"HOW IT WAS BUILT","caso1.p1":"<strong>Every reading is verified against the document.</strong>When processing a receipt, the system compares the sum of the line items against the printed total and flags a mismatch instead of saving it.","caso1.p2":"<strong>Ask rather than assume.</strong>Faced with a purchase that does not look like the business, the system shows what it understood and asks. Silently deciding which expense counts is worse than interrupting.","caso1.p3":"<strong>Never say done when nothing was saved.</strong>No confirmation is issued before the operation is actually written. A false positive on an expense record is an invisible loss.","caso1.p4":"<strong>A correct number can still be a wrong answer.</strong>If the weekly meat purchase falls on a single day, the daily chart suggests a loss where there is none. The message was adjusted so true data cannot lead to false conclusions.","caso1.quote":"Anyone can build a WhatsApp bot. The difference lies in the decisions you never see: what the system does when it is not sure, and what it refuses to claim.","cta.title":"Let's <em>Talk.</em>"
   },
   es: {
+    "nav.agente":"Agente IA","nav.nuevo":"NUEVO","nav.agentemob":"Agente IA · NUEVO","hero.agnew":"NUEVO","hero.agtxt":"Asistente de WhatsApp para restaurantes","caso1.ctatxt":"Ya disponible para otros restaurantes, con Fudo y otros sistemas de venta.","caso1.cta1":"Ver el asistente →","caso1.cta2":"Agenda una demo de 30 min",
     "nav.sobre":"Sobre mí","nav.work":"Trabajo","work.label":"— Trabajo","work.title":"Nada se inventa. <em>Nada se asume.</em>","work.clientflag":"PROYECTO DE CLIENTE","work.portlabel":"PROYECTOS POWER BI","proc.striplabel":"CÓMO TRABAJO","cta.direct":"O ESCRÍBEME DIRECTO","nav.exp":"Experiencia","nav.servicios":"Servicios",
     "nav.stack":"Stack","nav.portafolio":"Portafolio","nav.casos":"Casos","nav.contacto":"Contacto",
     "hero.tag":"CONSULTOR EN BUSINESS INTELLIGENCE",
@@ -1328,6 +1355,7 @@ document.addEventListener("click", function() {
 
 <!-- MOBILE MENU OVERLAY -->
 <div class="mob-menu" id="mob-menu">
+  <a class="mob-menu-link mob-agente" href="/agente/" data-i18n="nav.agentemob">AI Agent · NEW</a>
   <a class="mob-menu-link" href="#sobre" onclick="closeMobileMenu()" data-i18n="nav.sobre">About</a>
   <a class="mob-menu-link" href="#trabajo" onclick="closeMobileMenu()" data-i18n="nav.work">Work</a>
   <a class="mob-menu-link" href="#experiencia" onclick="closeMobileMenu()" data-i18n="nav.exp">Experience</a>
